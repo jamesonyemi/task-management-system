@@ -24,6 +24,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
+    <!--  <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <!-- BEGIN VENDOR CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/bootstrap.css') }}">
     <!-- font icons-->
@@ -69,6 +70,7 @@
     <!-- BEGIN ROBUST JS-->
     <script src="{{ asset('app-assets/js/core/app-menu.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/js/core/app.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('app-assets/js/scripts/pages/dashboard-lite.js')}}" type="text/javascript"></script>
     <!-- END ROBUST JS-->
     <!-- BEGIN PAGE LEVEL JS-->
     <!-- END PAGE LEVEL JS-->

@@ -107,7 +107,10 @@
         @yield('content')
     </div>
 
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+     <script src="{{ asset('app-assets/js/scripts/pages/dashboard-lite.js') }}" type="text/javascript"></script>
+      <script src="{{asset('app-assets/vendors/js/charts/chart.min.js"')}} type="text/javascript"></script>
 </body>
 </html>
