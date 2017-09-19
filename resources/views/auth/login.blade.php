@@ -21,6 +21,9 @@
 
                         <fieldset class="form-group position-relative has-icon-left mb-0{{ $errors->has('email') ? ' has-error' : '' }}">
                             <input type="email" class="form-control form-control-lg input-lg" id="email" name="email" placeholder="Enter E-Mail" name="email" value="{{ old('email') }}" required autofocus>
+                            <div class="form-control-position">
+                                <i class="icon-head"></i>
+                            </div>
 
                              @if ($errors->has('email'))
                                     <span class="btn btn-outline-danger no-border danger.lighten-4">
@@ -28,22 +31,19 @@
                                     </span>
                                 @endif
 
-                            <div class="form-control-position">
-                                <i class="icon-head"></i>
-                            </div>
                         </fieldset>
                         <fieldset class="form-group position-relative has-icon-left{{ $errors->has('password') ? ' has-error' : '' }}">
                             <input type="password" class="form-control form-control-lg input-lg" id="password" name="password" placeholder="Enter Password" required>
-                                
+                            <div class="form-control-position">
+                                <i class="icon-key3"></i>
+                            </div>
+                            
                                  @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
 
-                            <div class="form-control-position">
-                                <i class="icon-key3"></i>
-                            </div>
                         </fieldset>
                         <fieldset class="form-group row">
                             <div class="col-md-6 col-xs-12 text-xs-center text-md-left">

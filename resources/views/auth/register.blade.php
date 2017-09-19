@@ -100,19 +100,22 @@
 
                         <fieldset class="form-group position-relative has-icon-left mb-1{{ $errors->has('name') ? ' has-error' : '' }}">
                             <input type="text" class="form-control form-control-lg input-lg" id="user-name" name="name" value="{{ old('name') }}" placeholder="User Name" required autofocus>
+                            <div class="form-control-position">
+                                <i class="icon-head"></i>
+                            </div>
 
                             @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                @endif
+                            @endif
 
-                            <div class="form-control-position">
-                                <i class="icon-head"></i>
-                            </div>
                         </fieldset>
                         <fieldset class="form-group position-relative has-icon-left mb-1{{ $errors->has('email') ? ' has-error' : '' }}">
                             <input type="email" class="form-control form-control-lg input-lg" id="user-email"  name="email" value="{{ old('email') }}" placeholder="Your Email Address" required>
+                            <div class="form-control-position">
+                                <i class="icon-mail6"></i>
+                            </div>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block alert alert-danger">
@@ -120,22 +123,19 @@
                                     </span>
                                 @endif
 
-                            <div class="form-control-position">
-                                <i class="icon-mail6"></i>
-                            </div>
                         </fieldset>
                         <fieldset class="form-group position-relative has-icon-left{{ $errors->has('password') ? ' has-error' : '' }}">
                             <input type="password" class="form-control form-control-lg input-lg" id="user-password" name="password" placeholder="Enter Password" required>
+                            <div class="form-control-position">
+                                <i class="icon-key3"></i>
+                            </div>
 
                             @if ($errors->has('password'))
                                     <span class="help-block alert alert-danger">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
-                                @endif
+                            @endif
 
-                            <div class="form-control-position">
-                                <i class="icon-key3"></i>
-                            </div>
                         </fieldset>
                         <fieldset class="form-group position-relative has-icon-left{{ $errors->has('password') ? ' has-error' : '' }}">
                             <input type="password" class="form-control form-control-lg input-lg" id="user-password" name="password_confirmation" placeholder="Confirm Password" required>

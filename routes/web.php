@@ -1,5 +1,5 @@
 <?php
-
+use App\Mail\Register;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +12,11 @@
 */
 
 Route::get('/', function () {
+    return view('auth.login');
+});
+
+Route::get('auth.login', function () {
+	Mail::to(where_email(User::first('email')))->send(new Register);
     return view('auth.login');
 });
 
