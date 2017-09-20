@@ -20,9 +20,7 @@ Route::get('auth.login', function () {
     return view('auth.login');
 });
 
-Route::resource('task', 'TaskController');
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('tasks', 'TaskController');
