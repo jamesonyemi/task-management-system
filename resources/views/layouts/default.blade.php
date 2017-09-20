@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" data-textdirection="ltr" class="loading">
   <head>
@@ -253,6 +252,10 @@
     {{-- <script src="{{asset('app-assets/js/scripts/pages/dashboard-lite.js')}}" type="text/javascript"></script> --}}
     <!-- END PAGE LEVEL JS-->
 
-
+<script>
+function reload() {
+    location.reload(true);
+}
+</script>
   </body>
 </html>
