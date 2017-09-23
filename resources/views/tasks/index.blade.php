@@ -69,8 +69,8 @@
                                @endforeach
                         </tbody>
                     </table>
-                    {!! $tasks->render() !!}
-                </div>
+                  {{-- {!! $tasks->render() !!}   --}}
+                  {{ $tasks->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
     </div>

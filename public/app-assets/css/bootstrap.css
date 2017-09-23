@@ -3415,8 +3415,8 @@ tbody.collapse.in {
   display: inline; }
   .page-item:first-child .page-link {
     margin-left: 0;
-    border-bottom-left-radius: 0.18rem;
-    border-top-left-radius: 0.18rem; }
+    border-bottom-left-radius: 2rem; /*I modified this line*/
+    border-top-left-radius: 2rem; }  /*I modified this line*/
   .page-item:last-child .page-link {
     border-bottom-right-radius: 0.18rem;
     border-top-right-radius: 0.18rem; }
@@ -3448,8 +3448,9 @@ tbody.collapse.in {
 .page-link {
   position: relative;
   float: left;
+  border-radius: 2rem; /*I added this line*/
   padding: 0.5rem 0.75rem;
-  margin-left: -1px;
+  margin-left: 5px;
   color: #7A54D8;
   text-decoration: none;
   background-color: #fff;
