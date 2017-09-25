@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Task;
 use Illuminate\Http\Request;
 
-use App\Task;
 
 class TaskController extends Controller
 {
@@ -32,8 +32,24 @@ class TaskController extends Controller
         public function store(Request $request)
         {
             request()->validate([
-                'name' => 'required',
-                'email' => 'required',
+               'first_name' => 'required',
+               'last_name' => 'required',
+               'email' => 'required',
+               'issue_title'  => 'required',
+               'opened_by' => 'required',
+               'date_fixed' => 'required',
+               'date_opened' => 'required',
+               'priority' => 'required',
+               'status' => 'required',
+               'description' => 'required',
+               'note' => 'required',
+               'phone_number' => 'required',
+               'assignee' => 'required',
+               'project_name' => 'required',
+               'employee_name' => 'required',
+               // 'first_name' => 'required',
+               // 'last_name' => 'required',
+               // 'blob' => 'required',
             ]);
            Task::create($request->all());
             return redirect()->route('tasks.index')

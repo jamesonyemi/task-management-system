@@ -13,9 +13,12 @@ class AddColumnToTaskTable extends Migration
      */
     public function up()
     {
-       Schema::table('tasks', function (Blueprint $table) {
-              $table->string('email')->after('name');
-        });
+        if (!Schema::hasTable('task')) {
+            Schema::table('tasks', function (Blueprint $table) {
+              $table->string('email')->after('last_name');
+          });
+        }
+       
     }
 
     /**

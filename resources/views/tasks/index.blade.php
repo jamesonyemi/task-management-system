@@ -39,7 +39,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Assigned By</th>
                                 <th>Action</th>
@@ -55,7 +56,8 @@
                             </tr> --}}
                                <tr>
                                    <td>{{ ++$i }}</td>
-                                   <td>{{ $task->name}}</td>
+                                   <td>{{ $task->first_name}}</td>
+                                   <td>{{ $task->last_name}}</td>
                                    <td>{{ $task->email}}</td>
                                    <td>{{ $task->assigned_by}}</td>
                                    <td>
