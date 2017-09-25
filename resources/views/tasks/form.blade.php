@@ -106,12 +106,13 @@
                                 </div>
 
 
+                                <div class="col col-md-12">
+                                <label for="timesheetinput3">Date Opened</label>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <div class="form-group">
-                                        <label for="timesheetinput3">Date Opened</label>
                                         <div class="position-relative has-icon-left">
-                                            <input type="date" id="timesheetinput3" class="form-control" name="date_opened">
+                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y")}}" class="form-control" name="date_opened">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
@@ -119,11 +120,24 @@
                                     </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="timesheetinput3">Date Fixed</label>
+                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
                                         <div class="position-relative has-icon-left">
-                                            <input type="date" id="timesheetinput3" class="form-control" name="date_fixed">
+                                            <input type="text" id="timesheetinput3" class="form-control" value="{{gmdate("F")}}" name="date_fixed">
+                                            <div class="form-control-position">
+                                                <i class="icon-calendar5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    </div>
+
+                                    <div class="col-md-3">
+                                    <div class="form-group">
+                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
+                                        <div class="position-relative has-icon-left">
+                                            <input type="text" id="timesheetinput3" class="form-control" value="{{gmdate("d")}}" name="date_fixed">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
@@ -132,6 +146,59 @@
 
                                     </div>
                                 </div>
+
+
+                                <label for="timesheetinput3">Date Fixed</label>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                        <div class="position-relative has-icon-left">
+                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y")}}" class="form-control" name="date_opened">
+                                            <div class="form-control-position">
+                                                <i class="icon-calendar5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                    <div class="form-group">
+                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
+                                        <div class="position-relative has-icon-left">
+                                            <input type="text" id="timesheetinput3" class="form-control" value="{{date("F")}}" name="date_fixed">
+                                            <div class="form-control-position">
+                                                <i class="icon-calendar5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                            <select><option>
+                                                <li>oooooooooooooo </li>
+
+                                              {{--   {{ List all months here}} --}}
+                                              
+                                            </option>
+                                            <option>
+                                                <li>
+                                                    
+
+                                                </li>
+                                            </option>
+                                            </select>
+
+                                    <div class="col-md-3">
+                                    <div class="form-group">
+                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
+                                        <div class="position-relative has-icon-left">
+                                            <input type="text" id="timesheetinput3" class="form-control" value="{{date("d", strtotime("+5 days"))}}" name="date_fixed">
+                                            <div class="form-control-position">
+                                                <i class="icon-calendar5"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                  </div>
+                                 </div>
 
 
                                 <div class="form-group">
