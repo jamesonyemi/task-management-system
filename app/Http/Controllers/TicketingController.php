@@ -35,7 +35,29 @@ class TicketingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       request()->validate([
+               'first_name' => 'required',
+               'last_name' => 'required',
+               'email' => 'required',
+               'issue_title'  => 'required',
+               'assigned_by' => 'required',
+               'date_fixed' => 'required',
+               'date_opened' => 'required',
+               'priority' => 'required',
+               'status' => 'required',
+               'description' => 'required',
+               'note' => 'required',
+               'phone_number' => 'required',
+               'assignee' => 'required',
+               'project_name' => 'required',
+               'employee_name' => 'required',
+               // 'first_name' => 'required',
+               // 'last_name' => 'required',
+               // 'blob' => 'required',
+            ]);
+           Ticketing::create($request->all());
+            return redirect()->route('tasks.index')
+                            ->with('success','Ticket created successfully');
     }
 
     /**

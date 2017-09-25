@@ -19,7 +19,7 @@ class CreateIssueTable extends Migration
         Schema::create('issue', function (Blueprint $table) {
             $table->increments('id');
             $table->string('issue_title');
-            $table->string('opened_by');
+            $table->string('assigned_by');
             $table->longText('description');
             $table->longText('note');
             $table->string('assignee');
@@ -31,7 +31,7 @@ class CreateIssueTable extends Migration
             $table->string('phone_number', 25);
             // $table->string('blob');
             $table->enum('priority', array('low','high', 'urgent', 'medium'));
-            $table->enum('status', array('started', 'fixed', 'pending'));
+            $table->enum('status', array('started', 'not started', 'fixed', 'pending'));
             $table->dateTime('date_opened');
             $table->dateTime('date_fixed');
             $table->timestamps();

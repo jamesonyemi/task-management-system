@@ -36,7 +36,7 @@ class TaskController extends Controller
                'last_name' => 'required',
                'email' => 'required',
                'issue_title'  => 'required',
-               'opened_by' => 'required',
+               'assigned_by' => 'required',
                'date_fixed' => 'required',
                'date_opened' => 'required',
                'priority' => 'required',

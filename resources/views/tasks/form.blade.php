@@ -73,7 +73,8 @@
                     <div class="card-block">
                         <div class="card-text">
      <div class="row match-height">
-     <form class="form">
+     <form class="form" method="POST" action="{{  route('tasks.create') }} ">
+        {{ csrf_field() }}
         <div class="col-md-6">
             <div class="card">
                 <div class="card-body collapse in">
@@ -102,7 +103,7 @@
 
                                 <div class="form-group">
                                     <label for="issueinput2">Opened By</label>
-                                    <input type="text" id="issueinput2" class="form-control" placeholder="opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By">
+                                    <input type="text" id="issueinput2" class="form-control" placeholder="Opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By">
                                 </div>
 
 
@@ -206,6 +207,7 @@
                                     <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
                                         <option value="low">Low</option>
                                         <option value="medium">Medium</option>
+                                        <option value="urgent">Urgent</option>
                                         <option value="high">High</option>
                                     </select>
                                 </div>
@@ -213,19 +215,20 @@
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
                                     <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
+                                        <option value="started">Started</option>
                                         <option value="not started">Not Started</option>
                                         <option value="started">Started</option>
                                         <option value="fixed">Fixed</option>
                                     </select>
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Select File</label>
                                     <label id="projectinput7" class="file center-block">
                                         <input type="file" id="file" name="blob[]" multiple>
                                         <span class="file-custom"></span>
                                     </label>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="issueinput8">Description</label>
@@ -286,21 +289,21 @@
                                 <div class="form-group">
                                     <label for="timesheetinput2">Project Name</label>
                                     <div class="position-relative has-icon-left">
-                                        <input type="text" id="timesheetinput2" class="form-control" placeholder="project_name" name="projectname">
+                                        <input type="text" id="timesheetinput2" class="form-control" placeholder="Project Name" name="project_name">
                                         <div class="form-control-position">
                                             <i class="icon-briefcase4"></i>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Amount</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">$</span>
                                         <input type="text" class="form-control square" placeholder="amount" aria-label="Amount (to the nearest dollar)" name="amount">
                                         <span class="input-group-addon">.00</span>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="timesheetinput7">Notes</label>
