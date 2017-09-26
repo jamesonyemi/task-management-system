@@ -88,13 +88,15 @@
 
                                 <div class="form-group">
                                     <label for="issueinput1">Issue Title</label>
-                                    <input type="text" id="issueinput1" class="form-control" placeholder="issue title" name="issue_title" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Issue Title">
+                                    {!! Form::text('issue_title', null, array('placeholder' => 'issue title','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Issue Title"')) !!}
+                                    {{-- <input type="text" id="issueinput1" class="form-control" placeholder="issue title" name="issue_title" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Issue Title"> --}}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="timesheetinput1">Employee Name</label>
                                     <div class="position-relative has-icon-left">
-                                        <input type="text" id="timesheetinput1" class="form-control" placeholder="Employee name" name="employee_name">
+                                        {!! Form::text('employee_name', null, array('placeholder' => 'Employee name','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Employee name"')) !!}
+                                       {{--  <input type="text" id="timesheetinput1" class="form-control" placeholder="Employee name" name="employee_name"> --}}
                                         <div class="form-control-position">
                                             <i class="icon-head"></i>
                                         </div>
@@ -103,7 +105,8 @@
 
                                 <div class="form-group">
                                     <label for="issueinput2">Opened By</label>
-                                    <input type="text" id="issueinput2" class="form-control" placeholder="Opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By">
+                                    {!! Form::text('assigned_by', null, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
+                                    {{-- <input type="text" id="issueinput2" class="form-control" placeholder="Opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By"> --}}
                                 </div>
 
 
@@ -204,22 +207,28 @@
 
                                 <div class="form-group">
                                     <label for="issueinput5">Priority</label>
-                                    <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
+
+                                    {!! Form::select('priority',['low','medium','urgent','high'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
+
+                                    {{-- <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
                                         <option value="low">Low</option>
                                         <option value="medium">Medium</option>
                                         <option value="urgent">Urgent</option>
                                         <option value="high">High</option>
-                                    </select>
+                                    </select> --}}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
-                                    <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
+
+                                    {!! Form::select('status',['started','not started','fixed','pending'],  null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+
+                                   {{--  <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                         <option value="started">Started</option>
                                         <option value="not started">Not Started</option>
                                         <option value="started">Started</option>
                                         <option value="fixed">Fixed</option>
-                                    </select>
+                                    </select> --}}
                                 </div>
 
                                 {{-- <div class="form-group">
@@ -232,7 +241,10 @@
 
                                 <div class="form-group">
                                     <label for="issueinput8">Description</label>
-                                    <textarea id="issueinput8" rows="5" class="form-control" name="description" placeholder="Description the issue you are currently facing" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"></textarea>
+
+                                    {!! Form::textarea('description', null, array('placeholder' => 'Description the issue you are currently facing','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"')) !!}
+
+                                   {{--  <textarea id="issueinput8" rows="5" class="form-control" name="description" placeholder="Description the issue you are currently facing" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"></textarea> --}}
                                 </div>
 
                             </div>
@@ -260,36 +272,55 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="projectinput1">First Name</label>
-                                            <input type="text" id="projectinput1" class="form-control" placeholder="First Name" name="first_name">
+
+                                            {!! Form::text('first_name', null, array('placeholder' => 'First Name','class' => 'form-control')) !!}
+
+
+                                           {{--  <input type="text" id="projectinput1" class="form-control" placeholder="First Name" name="first_name"> --}}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="projectinput2">Last Name</label>
-                                            <input type="text" id="projectinput2" class="form-control" placeholder="Last Name" name="last_name">
+
+                                            {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control')) !!}
+
+                                            {{-- <input type="text" id="projectinput2" class="form-control" placeholder="Last Name" name="last_name"> --}}
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="donationinput2">Email</label>
-                                    <input type="email" id="donationinput2" class="form-control square" placeholder="Email" name="email">
+
+                                    {!! Form::email('email', null, array('placeholder' => 'Email','class' => 'form-control square')) !!}
+
+                                    {{-- <input type="email" id="donationinput2" class="form-control square" placeholder="Email" name="email"> --}}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="donationinput3">Contact Number</label>
-                                    <input type="tel" id="donationinput3" class="form-control square" name="phone_number">
+
+                                    {!! Form::tel('phone_number', null, array('placeholder' => 'Contact Number','class' => 'form-control square')) !!}
+
+                                    {{-- <input type="tel" id="donationinput3" class="form-control square" name="phone_number"> --}}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="donationinput4">Assignee</label>
-                                    <input type="text" id="donationinput4" class="form-control square" placeholder="type of donation" name="assignee">
+
+                                    {!! Form::text('assignee', null, array('placeholder' => 'Assignee','class' => 'form-control square')) !!}
+
+                                   {{--  <input type="text" id="donationinput4" class="form-control square" placeholder="type of donation" name="assignee"> --}}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="timesheetinput2">Project Name</label>
                                     <div class="position-relative has-icon-left">
-                                        <input type="text" id="timesheetinput2" class="form-control" placeholder="Project Name" name="project_name">
+
+                                         {!! Form::text('project_name', null, array('placeholder' => 'Project Name','class' => 'form-control square')) !!}
+
+                                       {{--  <input type="text" id="timesheetinput2" class="form-control" placeholder="Project Name" name="project_name"> --}}
                                         <div class="form-control-position">
                                             <i class="icon-briefcase4"></i>
                                         </div>
@@ -308,7 +339,9 @@
                                 <div class="form-group">
                                     <label for="timesheetinput7">Notes</label>
                                     <div class="position-relative has-icon-left">
-                                        <textarea id="timesheetinput7" rows="5" class="form-control" name="note" placeholder="notes"></textarea>
+                                         {!! Form::textarea('note', null, array('placeholder' => 'Notes','class' => 'form-control square')) !!}
+                                         
+                                       {{--  <textarea id="timesheetinput7" rows="5" class="form-control" name="note" placeholder="notes"></textarea> --}}
                                         <div class="form-control-position">
                                             <i class="icon-file2"></i>
                                         </div>

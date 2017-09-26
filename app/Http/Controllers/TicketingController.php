@@ -70,7 +70,7 @@ class TicketingController extends Controller
      */
     public function show(Ticketing $ticketing)
     {
-        return view('tickets.show', compact('tickets'));
+        return view('tickets.show', compact('ticketing'));
     }
 
     /**
@@ -81,7 +81,7 @@ class TicketingController extends Controller
      */
     public function edit(Ticketing $ticketing)
     {
-        return view('tickets.edit', compact('tickets'));
+        return view('tickets.edit', compact('ticketing'));
     }
 
     /**
@@ -94,7 +94,11 @@ class TicketingController extends Controller
     public function update(Request $request, Ticketing $ticketing)
     {
         request()->validate([
-            ''
+             'first_name' => 'required',
+             'last_name' => 'required',
+             'email' => 'required',
+             'issue_title'  => 'required',
+             'assigned_by' => 'required',
         ]);
         $ticketing->update($request->all());
         return redirect()->route('tickets.index')

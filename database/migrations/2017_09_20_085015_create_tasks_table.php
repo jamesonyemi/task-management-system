@@ -16,12 +16,23 @@ class CreateTasksTable extends Migration
         if (!Schema::hasTable('tasks')) {
             
         Schema::create('tasks', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('assigned_by');
-            $table->timestamps();
-
+           $table->increments('id');
+           $table->string('issue_title');
+           $table->string('assigned_by');
+           $table->longText('description');
+           $table->longText('note');
+           $table->string('assignee');
+           $table->string('project_name');
+           $table->string('employee_name');
+           $table->string('first_name');
+           $table->string('last_name');
+           $table->string('phone_number', 25);
+           // $table->string('blob');
+           $table->enum('priority', array('low','high', 'urgent', 'medium'));
+           $table->enum('status', array('started', 'not started', 'fixed', 'pending'));
+           $table->dateTime('date_opened');
+           $table->dateTime('date_fixed');
+           $table->timestamps();
             });
         }
     }

@@ -35,9 +35,9 @@ class TaskController extends Controller
                'first_name' => 'required',
                'last_name' => 'required',
                'email' => 'required',
-               // 'issue_title'  => 'required',
                'assigned_by' => 'required',
                // 'date_fixed' => 'required',
+               // 'issue_title'  => 'required',
                // 'date_opened' => 'required',
                // 'priority' => 'required',
                // 'status' => 'required',
@@ -85,7 +85,7 @@ class TaskController extends Controller
         public function update(Request $request,Task $task)
         {
             request()->validate([
-                'name' => 'required',
+                'first_name' => 'required',
                 'email' => 'required',
             ]);
             $task->update($request->all());

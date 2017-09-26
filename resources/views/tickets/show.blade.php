@@ -15,13 +15,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                {{ $ticket->first_name}}
+                {{ $ticketing->first_name}}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Email:</strong>
-                {{ $ticket->email}}
+                {{ $ticketing->email}}
             </div>
         </div>
     </div>

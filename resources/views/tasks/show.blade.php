@@ -14,14 +14,14 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Name:</strong>
+                <strong>First Name:</strong>
                 {{ $task->first_name}}
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Name:</strong>
+            <strong>Last Name:</strong>
             {{ $task->last_name}}
         </div>
       </div>
