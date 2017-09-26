@@ -189,9 +189,9 @@
           </li>
           <li class=" nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket Management</span></a>
             <ul class="menu-content">
-              <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">Create Ticket</a>
+              <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">Task</a>
               </li>
-              <li><a href="issues.php" data-i18n="nav.page_layouts.2_columns" class="menu-item">Issues</a>
+              <li><a href="{{ route('tickets.index') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Tickets</a>
              <!--  </li>
               <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
               </li>

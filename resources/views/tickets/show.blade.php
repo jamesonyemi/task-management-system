@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Show task</h2>
+                <h2> Show ticket</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('tasks.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('tickets.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -15,21 +15,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                {{ $task->first_name}}
+                {{ $ticket->first_name}}
             </div>
         </div>
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Name:</strong>
-            {{ $task->last_name}}
-        </div>
-      </div>
-
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Email:</strong>
-                {{ $task->email}}
+                {{ $ticket->email}}
             </div>
         </div>
     </div>

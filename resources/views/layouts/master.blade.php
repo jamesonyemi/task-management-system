@@ -191,7 +191,7 @@
             <ul class="menu-content">
               <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">Create Ticket</a>
               </li>
-              <li><a href="issues.php" data-i18n="nav.page_layouts.2_columns" class="menu-item">Issues</a>
+              <li><a href="{{ route('tickets.index') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Issues</a>
              <!--  </li>
               <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
               </li>

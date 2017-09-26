@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIssueTable extends Migration
+class CreateTicketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class CreateIssueTable extends Migration
     public function up()
     {
         
-       if (!Schema::hasTable('issue')) {
+       if (!Schema::hasTable('ticketings')) {
            
-        Schema::create('issue', function (Blueprint $table) {
+        Schema::create('ticketings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('issue_title');
             $table->string('assigned_by');

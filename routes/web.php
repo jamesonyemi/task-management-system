@@ -24,4 +24,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('tasks', 'TaskController');
-Route::resource('ticketing', 'TicketingController');
+Route::resource('tickets', 'TicketingController');

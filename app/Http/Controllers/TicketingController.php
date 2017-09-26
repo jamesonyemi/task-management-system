@@ -14,7 +14,9 @@ class TicketingController extends Controller
      */
     public function index()
     {
-        //
+       $tickets = Ticketing::latest()->paginate(1);
+            return view('tickets.index',compact('tickets'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -24,7 +26,7 @@ class TicketingController extends Controller
      */
     public function create()
     {
-        //
+        return view('tickets.create');
     }
 
     /**
@@ -41,8 +43,8 @@ class TicketingController extends Controller
                'email' => 'required',
                'issue_title'  => 'required',
                'assigned_by' => 'required',
-               'date_fixed' => 'required',
-               'date_opened' => 'required',
+               // 'date_fixed' => 'required',
+               // 'date_opened' => 'required',
                'priority' => 'required',
                'status' => 'required',
                'description' => 'required',
@@ -56,7 +58,7 @@ class TicketingController extends Controller
                // 'blob' => 'required',
             ]);
            Ticketing::create($request->all());
-            return redirect()->route('tasks.index')
+            return redirect()->route('tickets.index')
                             ->with('success','Ticket created successfully');
     }
 
@@ -68,7 +70,7 @@ class TicketingController extends Controller
      */
     public function show(Ticketing $ticketing)
     {
-        //
+        return view('tickets.show', compact('tickets'));
     }
 
     /**
@@ -79,7 +81,7 @@ class TicketingController extends Controller
      */
     public function edit(Ticketing $ticketing)
     {
-        //
+        return view('tickets.edit', compact('tickets'));
     }
 
     /**
@@ -91,7 +93,12 @@ class TicketingController extends Controller
      */
     public function update(Request $request, Ticketing $ticketing)
     {
-        //
+        request()->validate([
+            ''
+        ]);
+        $ticketing->update($request->all());
+        return redirect()->route('tickets.index')
+                          ->with('success', 'Ticket updated successfully');
     }
 
     /**
@@ -102,6 +109,8 @@ class TicketingController extends Controller
      */
     public function destroy(Ticketing $ticketing)
     {
-        //
+        Ticketing::destroy($id);
+        return redirect()->route('tickets.index')
+                          ->with('success', 'Ticketing deleted successfully');
     }
 }

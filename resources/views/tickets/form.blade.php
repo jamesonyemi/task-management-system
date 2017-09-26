@@ -1,9 +1,9 @@
-
+{{-- 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name:</strong>
-            {!! Form::text('first_name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -21,7 +21,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-</div>
+</div> --}}
 
         </div>
       </div>
@@ -37,11 +37,11 @@
           <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('tasks.index') }}">Back</a>
+                <li class="breadcrumb-item"><a href="{{ route('tickets.index') }}">Back</a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="breadcrumb-item active"><a href="{{ route('tasks.create') }}">Issue Tracking</a>
+                <li class="breadcrumb-item active"><a href="{{ route('tickets.create') }}">Issue Tracking</a>
                 </li>
               </ol>
             </div>
@@ -73,7 +73,7 @@
                     <div class="card-block">
                         <div class="card-text">
      <div class="row match-height">
-     <form class="form" method="POST" action="{{  route('tasks.create') }} ">
+     <form class="form" method="POST" action="{{  route('tickets.create') }} ">
         {{ csrf_field() }}
         <div class="col-md-6">
             <div class="card">
@@ -110,10 +110,10 @@
                                 <div class="col col-md-12">
                                 <label for="timesheetinput3">Date Opened</label>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                         <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y")}}" class="form-control" name="date_opened">
+                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y-m-d H:i:s")}}" class="form-control" name="date_opened">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
@@ -121,40 +121,40 @@
                                     </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                    <div class="form-group">
+                                  {{--   <div class="col-md-4">
+                                    <div class="form-group"> --}}
                                         {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                        <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" class="form-control" value="{{gmdate("F")}}" name="date_fixed">
+                                     {{--    <div class="position-relative has-icon-left">
+                                            <input type="date" id="timesheetinput3" class="form-control" value="{{gmdate("F")}}" name="date_opened">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
                                         </div>
                                     </div>
 
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="col-md-3">
-                                    <div class="form-group">
+                                   {{--  <div class="col-md-3">
+                                    <div class="form-group"> --}}
                                         {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                        <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" class="form-control" value="{{gmdate("d")}}" name="date_fixed">
+                                    {{--     <div class="position-relative has-icon-left">
+                                            <input type="date" id="timesheetinput3" class="form-control" value="{{gmdate("d")}}" name="date_opened">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
                                         </div>
                                     </div>
 
-                                    </div>
+                                    </div> --}}
                                 </div>
 
 
                                 <label for="timesheetinput3">Date Fixed</label>
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                         <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y")}}" class="form-control" name="date_opened">
+                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y-m-d H:i:s",strtotime('+5 days'))}}" class="form-control" name="date_fixed">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
@@ -162,17 +162,17 @@
                                     </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                    <div class="form-group">
+                                    {{-- <div class="col-md-4">
+                                    <div class="form-group"> --}}
                                         {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                        <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" class="form-control" value="{{date("F")}}" name="date_fixed">
+                                    {{--     <div class="position-relative has-icon-left">
+                                            <input type="date" id="timesheetinput3" class="form-control" value="{{date("F")}}" name="date_fixed">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
+                                    </div> --}}
                                            {{--  <select><option>
                                                 <li>oooooooooooooo </li>
  --}}
@@ -187,17 +187,17 @@
                                             </option>
                                             </select> --}}
 
-                                    <div class="col-md-3">
-                                    <div class="form-group">
+                                    {{-- <div class="col-md-3">
+                                    <div class="form-group"> --}}
                                         {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                        <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" class="form-control" value="{{date("d", strtotime("+5 days"))}}" name="date_fixed">
+                                    {{--     <div class="position-relative has-icon-left">
+                                            <input type="date" id="timesheetinput3" class="form-control" value="{{date("d H:i:s", strtotime("+5 days"))}}" name="date_fixed">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
+                                    </div> --}}
                                   </div>
                                  </div>
 
