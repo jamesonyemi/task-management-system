@@ -1,0 +1,4 @@
+        <label class="btn btn-default">
+        	Browse <input type="file" name="[% field_name %]" id="[% field_name %]" class="hidden[% css_class %]">
+        </label>
+        

@@ -55,7 +55,7 @@
                                 <td>@mdo</td>
                             </tr> --}}
                                <tr>
-                                   <td>{{ ++$i }}</td>
+                                   <td>{{ ++$p }}</td>
                                    <td>{{ $ticket->first_name}}</td>
                                    <td>{{ $ticket->last_name}}</td>
                                    <td>{{ $ticket->email}}</td>

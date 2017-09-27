@@ -41,7 +41,7 @@
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="breadcrumb-item active"><a href="{{ route('tickets.create') }}">Issue Tracking</a>
+                <li class="breadcrumb-item active"><a href="{{ route('tasks.create') }}">Issue Tracking</a>
                 </li>
               </ol>
             </div>
@@ -73,7 +73,7 @@
                     <div class="card-block">
                         <div class="card-text">
      <div class="row match-height">
-     <form class="form" method="POST" action="{{  route('tickets.create') }} ">
+     <form class="form" method="POST" action="{{  route('tasks.create') }} ">
         {{ csrf_field() }}
         <div class="col-md-6">
             <div class="card">
@@ -208,7 +208,7 @@
                                 <div class="form-group">
                                     <label for="issueinput5">Priority</label>
 
-                                    {!! Form::select('priority',['low','medium','urgent','high'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
+                                    {!! Form::select('priority',['low'=>'low','medium'=>'medium','urgent'=>'urgent','high'=>'high'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
 
                                     {{-- <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
                                         <option value="low">Low</option>
@@ -221,7 +221,7 @@
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
-                                    {!! Form::select('status',['started','not started','fixed','pending'],  null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+                                    {!! Form::select('status',['started'=>'started','not started'=>'not started','fixed'=>'fixec','pending'=>'pending'],  null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
 
                                    {{--  <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                         <option value="started">Started</option>

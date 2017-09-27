@@ -23,5 +23,36 @@ Route::get('auth.login', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('tasks', 'TaskController');
 Route::resource('tickets', 'TicketingController');
+Route::resource('tasks', 'TaskController');
+Route::group(
+[
+    'prefix' => 'asset_categories',
+], function () {
+
+    Route::get('/', 'AssetCategoriesController@index')
+         ->name('asset_categories.asset_category.index');
+
+    Route::get('/create','AssetCategoriesController@create')
+         ->name('asset_categories.asset_category.create');
+
+    Route::get('/show/{assetCategory}','AssetCategoriesController@show')
+         ->name('asset_categories.asset_category.show')
+         ->where('id', '[0-9]+');
+
+    Route::get('/{assetCategory}/edit','AssetCategoriesController@edit')
+         ->name('asset_categories.asset_category.edit')
+         ->where('id', '[0-9]+');
+
+    Route::post('/', 'AssetCategoriesController@store')
+         ->name('asset_categories.asset_category.store');
+               
+    Route::put('asset_category/{assetCategory}', 'AssetCategoriesController@update')
+         ->name('asset_categories.asset_category.update')
+         ->where('id', '[0-9]+');
+
+    Route::delete('/asset_category/{assetCategory}','AssetCategoriesController@destroy')
+         ->name('asset_categories.asset_category.destroy')
+         ->where('id', '[0-9]+');
+
+});

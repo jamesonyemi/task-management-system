@@ -14,9 +14,9 @@ class TicketingController extends Controller
      */
     public function index()
     {
-       $tickets = Ticketing::latest()->paginate(1);
+       $tickets = Ticketing::latest()->paginate(10);
             return view('tickets.index',compact('tickets'))
-                ->with('i', (request()->input('page', 1) - 1) * 5);
+                ->with('p', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -111,7 +111,7 @@ class TicketingController extends Controller
      * @param  \App\Ticketing  $ticketing
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ticketing $ticketing)
+    public function destroy(Ticketing $ticketing, $id)
     {
         Ticketing::destroy($id);
         return redirect()->route('tickets.index')

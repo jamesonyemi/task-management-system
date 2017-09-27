@@ -185,17 +185,17 @@
             <ul class="menu-content">
               <li class="active"><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard</a>
               </li>
-              <li><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard 2</a>
+              {{-- <li><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard 2</a> --}}
               </li>
             </ul>
           </li>
-          <li class=" nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket Management</span></a>
+          <li class="nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket Management</span></a>
             <ul class="menu-content">
-              <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">Task</a>
+              <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item"> All Tickets</a>
               </li>
-              <li><a href="{{ route('tickets.index') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Tickets</a>
-             <!--  </li>
-              <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
+              {{-- <li><a href="{{ route('tickets.index') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Tickets</a>
+              </li> --}}
+              <!--  <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
               </li>
               <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
               </li>
@@ -205,13 +205,20 @@
               <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
               </li>
               <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a> -->
-              </li>
+              {{-- </li> --}}
             </ul>
           </li>
           <li class=" nav-item"><a href="#"><i class="icon-briefcase4"></i><span data-i18n="nav.project.main" class="menu-title">Project</span></a>
             <ul class="menu-content">
-              <li><a href="add_project.php" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
-              </span>New Project</a>
+              <li><a href="{{ route('tickets.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
+              </span>All Projects</a>
+              </li></ul>
+            </li>
+
+            <li class=" nav-item"><a href="#"><i class="icon-briefcase4"></i><span data-i18n="nav.project.main" class="menu-title">Asset Categories</span></a>
+            <ul class="menu-content">
+              <li><a href="{{ route('asset_categories.asset_category.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
+              </span>All Assets</a>
               </li></ul>
             </li>
           
