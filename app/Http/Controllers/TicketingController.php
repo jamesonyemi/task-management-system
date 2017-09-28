@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Ticketing;
 use Illuminate\Http\Request;
+use App\Ticketing;
+use App\http\Controllers\Controller;
+
 
 class TicketingController extends Controller
 {

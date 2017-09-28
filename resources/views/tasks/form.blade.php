@@ -221,7 +221,7 @@
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
-                                    {!! Form::select('status',['started'=>'started','not started'=>'not started','fixed'=>'fixec','pending'=>'pending'],  null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+                                    {!! Form::select('status',['started'=>'started','not started'=>'not started','fixed'=>'fixed','pending'=>'pending'],  null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
 
                                    {{--  <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                         <option value="started">Started</option>

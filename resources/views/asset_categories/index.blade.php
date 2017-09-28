@@ -40,17 +40,21 @@
 
                 <table class="table mb-0 table-bordered table-hover">
                     <thead>
-                        <tr>
+                        <div class="card-header">
+                        <tr  style="background-color: teal; color:white;">
                             <th>Name</th>
+                             <th>Description</th>
                             <th>Is Active</th>
 
                             <th></th>
                         </tr>
+                    </div>
                     </thead>
                     <tbody>
                     @foreach($assetCategories as $assetCategory)
                         <tr>
                             <td>{{ $assetCategory->name }}</td>
+                            <td>{{ $assetCategory->description }}</td>
                             <td>{{ ($assetCategory->is_active) ? 'Yes' : 'No' }}</td>
 
                             <td>
