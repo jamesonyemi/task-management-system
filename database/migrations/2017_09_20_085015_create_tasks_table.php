@@ -33,6 +33,7 @@ class CreateTasksTable extends Migration
            $table->dateTime('date_opened');
            $table->dateTime('date_fixed');
            $table->timestamps();
+           $table->softDeletes();
             });
         }
     }
