@@ -208,7 +208,7 @@
           </li>
           <li class=" nav-item"><a href="#"><i class="icon-briefcase4"></i><span data-i18n="nav.project.main" class="menu-title">Project</span></a>
             <ul class="menu-content">
-              <li><a href="{{ route('tickets.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
+              <li><a href="{{ route('tickets.tickets.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
               </span>All Project</a>
               </li></ul>
             </li>

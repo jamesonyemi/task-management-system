@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    {!! Form::open(array('route' => 'tickets.store','method'=>'POST', 'enctype'=>"multipart/form-data")) !!}
-         @include('tickets.form')
+    {!! Form::open(array('route' => 'tickets.tickets.store','method'=>'POST', 'enctype'=>"multipart/form-data")) !!}
+         @include('tickets.tickets.form')
     {!! Form::close() !!}
 @endsection

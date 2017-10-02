@@ -21,10 +21,45 @@ Route::get('auth.login', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('tickets', 'TicketingController');
-Route::resource('tasks', 'TaskController');
+Route::resource('tasks', 'TaskController');     //Route for Task
+
+
+//Route and Group-route for Ticketing
+Route::group(
+[
+    'prefix' => 'tickets',
+], function () {
+
+    Route::get('/', 'TicketingController@index')
+         ->name('tickets.tickets.index');
+
+    Route::get('/create','TicketingController@create')
+         ->name('tickets.tickets.create');
+
+    Route::get('/show/{ticketing}','TicketingController@show')
+         ->name('tickets.tickets.show')
+         ->where('id', '[0-9]+');
+
+    Route::get('/{ticketing}/edit','TicketingController@edit')
+         ->name('tickets.tickets.edit')
+         ->where('id', '[0-9]+');
+
+    Route::post('/', 'TicketingController@store')
+         ->name('tickets.tickets.store');
+               
+    Route::put('tickets/{ticketing}', 'TicketingController@update')
+         ->name('tickets.tickets.update')
+         ->where('id', '[0-9]+');
+
+    Route::delete('/tickets/{ticketing}','TicketingController@destroy')
+         ->name('tickets.tickets.destroy')
+         ->where('id', '[0-9]+');
+
+});
+
+
+//Route and Group-route for AssetCategories
 Route::group(
 [
     'prefix' => 'asset_categories',

@@ -60,7 +60,7 @@ class TicketingController extends Controller
                // 'blob' => 'required',
             ]);
            Ticketing::create($request->all());
-            return redirect()->route('tickets.index')
+            return redirect()->route('tickets.tickets.index')
                             ->with('success','Ticket created successfully');
     }
 
@@ -103,7 +103,7 @@ class TicketingController extends Controller
              'assigned_by' => 'required',
         ]);
         $ticketing->update($request->all());
-        return redirect()->route('tickets.index')
+        return redirect()->route('tickets.tickets.index')
                           ->with('success', 'Ticket updated successfully');
     }
 
@@ -116,7 +116,7 @@ class TicketingController extends Controller
     public function destroy(Ticketing $ticketing, $id)
     {
         Ticketing::destroy($id);
-        return redirect()->route('tickets.index')
+        return redirect()->route('tickets.tickets.index')
                           ->with('success', 'Ticketing deleted successfully');
     }
 }

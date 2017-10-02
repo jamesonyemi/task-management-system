@@ -37,11 +37,11 @@
           <div class="content-header-right breadcrumbs-right breadcrumbs-top col-md-6 col-xs-12">
             <div class="breadcrumb-wrapper col-xs-12">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('tickets.index') }}">Back</a>
+                <li class="breadcrumb-item"><a href="{{ route('tickets.tickets.index') }}">Back</a>
                 </li>
                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="breadcrumb-item active"><a href="{{ route('tickets.create') }}">Issue Tracking</a>
+                <li class="breadcrumb-item active"><a href="{{ route('tickets.tickets.create') }}">Issue Tracking</a>
                 </li>
               </ol>
             </div>
@@ -73,7 +73,7 @@
                     <div class="card-block">
                         <div class="card-text">
      <div class="row match-height">
-     <form class="form" method="POST" action="{{  route('tickets.create') }} ">
+     <form class="form" method="POST" action="{{  route('tickets.tickets.create') }} ">
         {{ csrf_field() }}
         <div class="col-md-6">
             <div class="card">

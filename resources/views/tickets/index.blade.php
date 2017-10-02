@@ -11,7 +11,7 @@
             <div class="card-header">
             <h4 class="card-title">
                 <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('tickets.create') }}"> Create New ticket</a>
+                <a class="btn btn-success" href="{{ route('tickets.tickets.create') }}"> Create New ticket</a>
                </div>
             </h4>
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
@@ -61,9 +61,9 @@
                                    <td>{{ $ticket->email}}</td>
                                    <td>{{ $ticket->assigned_by}}</td>
                                    <td>
-                                       <a class="btn btn-info" href="{{ route('tickets.show',$ticket->id) }}">Show</a>
-                                       <a class="btn btn-primary" href="{{ route('tickets.edit',$ticket->id) }}">Edit</a>
-                                       {!! Form::open(['method' => 'DELETE','route' => ['tickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
+                                       <a class="btn btn-info" href="{{ route('tickets.tickets.show',$ticket->id) }}">Show</a>
+                                       <a class="btn btn-primary" href="{{ route('tickets.tickets.edit',$ticket->id) }}">Edit</a>
+                                       {!! Form::open(['method' => 'DELETE','route' => ['tickets.tickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                        {!! Form::close() !!}
                                    </td>

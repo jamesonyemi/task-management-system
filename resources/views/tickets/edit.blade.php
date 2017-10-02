@@ -21,7 +21,7 @@
             </ul>
         </div>
     @endif
-    {!! Form::model($ticketing, ['method' => 'PATCH','route' => ['tickets.update', $ticketing->id]]) !!}
+    {!! Form::model($ticketing, ['method' => 'PATCH','route' => ['tickets.tickets.update', $ticketing->id]]) !!}
         @include('tickets.form')
     {!! Form::close() !!}
 @endsection

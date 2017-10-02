@@ -47,7 +47,7 @@ class AssetCategoriesController extends Controller
             $data = $this->getData($request);
             
             AssetCategory::create($data);
-
+     
             return redirect()->route('asset_categories.asset_category.index')
                              ->with('success_message', 'Asset Category was successfully added!');
 
