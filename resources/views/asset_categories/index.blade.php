@@ -44,7 +44,7 @@
                         <tr  style="background-color: teal; color:white;">
                             <th>Name</th>
                              <th>Description</th>
-                            <th>Is Active</th>
+                            <th>Status</th>
 
                             <th></th>
                         </tr>
@@ -55,7 +55,21 @@
                         <tr>
                             <td>{{ $assetCategory->name }}</td>
                             <td>{{ $assetCategory->description }}</td>
-                            <td>{{ ($assetCategory->is_active) ? 'Yes' : 'No' }}</td>
+                            <td> 
+                                
+                                @php
+                                    switch ($assetCategory->is_active) {
+                                        case 1:
+                                            echo '<div class="tag tag-default tag-success">Active</div';
+                                            break;
+                                        
+                                        default:
+                                            echo '<div class="tag tag-default tag-warning">In active</div';
+                                            break;
+                                    }
+                                @endphp
+                            
+                           </td>
 
                             <td>
 
