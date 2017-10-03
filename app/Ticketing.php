@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ticketing extends Model
 {
+	use SoftDeletes;
+
 	protected $guarded = array();
 
     // protected $fillale = [
@@ -15,8 +18,9 @@ class Ticketing extends Model
     
 
     protected $hidden = [
-    	'email', 'first_name','status',
+    	'email', 'first_name'
     ];
 
-    protected $table = 'ticketings';	
+    protected  $table  =  'ticketings';	
+    protected  $dates  =  ['deleted_at'];	
 }

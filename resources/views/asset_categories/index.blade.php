@@ -56,18 +56,19 @@
                             <td>{{ $assetCategory->name }}</td>
                             <td>{{ $assetCategory->description }}</td>
                             <td> 
-                                
-                                @php
-                                    switch ($assetCategory->is_active) {
-                                        case 1:
-                                            echo '<div class="tag tag-default tag-success">Active</div';
-                                            break;
-                                        
-                                        default:
-                                            echo '<div class="tag tag-default tag-warning">In active</div';
-                                            break;
-                                    }
-                                @endphp
+
+                                @switch($assetCategory->is_active)
+                                    @case(1)
+                                       <div class="tag tag-default tag-success">Active</div>
+                                        @break
+
+                                    @case(0)
+                                       <div class="tag tag-default tag-warning">In active</div>
+                                        @break
+
+                                    @default
+                                        <div class="tag tag-default tag-danger">No Status</div>
+                                @endswitch
                             
                            </td>
 

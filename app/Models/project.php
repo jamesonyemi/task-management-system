@@ -3,20 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Ticketing;
 
-
-class AssetCategory extends Model
+class project extends Model
 {
     
-    use SoftDeletes;
 
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'asset_categories';
+    protected $table = 'projects';
 
     /**
     * The database primary key value.
@@ -31,9 +29,13 @@ class AssetCategory extends Model
      * @var array
      */
     protected $fillable = [
-                  'name',
+                  'project_name',
                   'description',
-                  'is_active'
+                  'status',
+                  'assigned_by',
+                  'assignee',
+                  'priority',
+                  'watchers'
               ];
 
     /**
@@ -41,7 +43,7 @@ class AssetCategory extends Model
      *
      * @var array
      */
-    protected $dates = ['deleted_at'];
+    protected $dates = [];
     
     /**
      * The attributes that should be cast to native types.
@@ -50,6 +52,13 @@ class AssetCategory extends Model
      */
     protected $casts = [];
     
+    /**
+     * Get the assignedBy for this model.
+     */
+    public function assignedBy()
+    {
+        return $this->belongsTo('App\Ticketing','assigned_by');
+    }
 
 
 

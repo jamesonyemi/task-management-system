@@ -18,7 +18,9 @@ class CreateAssetCategoriesTable extends Migration
             $table->timestamps();
             $table->string('name', 255);
             $table->string('description', 1000)->nullable();
+            $table->softDeletes();
             $table->boolean('is_active');
+            // $table->enum('status', array('active', 'deleted'))->default('active');
 
         });
     }

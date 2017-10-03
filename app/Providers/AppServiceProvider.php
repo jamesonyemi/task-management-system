@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
     }
 
     /**
@@ -27,10 +28,4 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    Blade::directive('switch', function($condition){
-        return "<?php switch({$condition}){ ?>";
-    });
-    Blade::directive('endswitch', function(){
-        return "<?php }  ?>";
-    });
 }

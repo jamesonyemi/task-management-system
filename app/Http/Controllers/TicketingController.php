@@ -55,8 +55,6 @@ class TicketingController extends Controller
                'assignee' => 'required',
                'project_name' => 'required',
                'employee_name' => 'required',
-               // 'first_name' => 'required',
-               // 'last_name' => 'required',
                // 'blob' => 'required',
             ]);
            Ticketing::create($request->all());
@@ -101,6 +99,12 @@ class TicketingController extends Controller
              'email' => 'required',
              'issue_title'  => 'required',
              'assigned_by' => 'required',
+             'priority' => 'required',
+             'status' => 'required',
+             'phone_number' => 'required',
+             'assignee' => 'required',
+             'project_name' => 'required',
+             'employee_name' => 'required',
         ]);
         $ticketing->update($request->all());
         return redirect()->route('tickets.tickets.index')

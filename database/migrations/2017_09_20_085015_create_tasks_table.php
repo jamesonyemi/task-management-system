@@ -28,8 +28,8 @@ class CreateTasksTable extends Migration
            $table->string('last_name');
            $table->string('phone_number', 25);
            // $table->string('blob');
-           $table->enum('priority', array('low','high', 'urgent', 'medium'));
-           $table->enum('status', array('started', 'not started', 'fixed', 'pending'));
+           $table->enum('priority', array('normal','low','high', 'urgent', 'medium'))->default('normal');
+           $table->enum('status', array('open', 'cancelled', 'on hold', 'in progress'))->default('open');
            $table->dateTime('date_opened');
            $table->dateTime('date_fixed');
            $table->timestamps();

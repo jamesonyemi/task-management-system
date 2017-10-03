@@ -189,9 +189,9 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket Management</span></a>
+          <li class="nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Task Management</span></a>
             <ul class="menu-content">
-              <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item"> All Tickets</a>
+              <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item"> All Tasks</a>
               </li>
               {{-- <li><a href="{{ route('tickets.index') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Tickets</a>
               </li> --}}
@@ -208,12 +208,20 @@
               {{-- </li> --}}
             </ul>
           </li>
-          <li class=" nav-item"><a href="#"><i class="icon-briefcase4"></i><span data-i18n="nav.project.main" class="menu-title">Project</span></a>
+          <li class=" nav-item"><a href="#"><i class="icon-briefcase4"></i><span data-i18n="nav.project.main" class="menu-title">Ticket</span></a>
             <ul class="menu-content">
               <li><a href="{{ route('tickets.tickets.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
-              </span>All Projects</a>
+              </span>All Tickets</a>
               </li></ul>
             </li>
+
+
+            <li class=" nav-item"><a href="#"><i class="icon-briefcase4"></i><span data-i18n="nav.project.main" class="menu-title">Project</span></a>
+              <ul class="menu-content">
+                <li><a href="{{ route('projects.project.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
+                </span>All Project</a>
+                </li></ul>
+              </li>
 
             <li class=" nav-item"><a href="#"><i class="icon-briefcase4"></i><span data-i18n="nav.project.main" class="menu-title">Asset Categories</span></a>
             <ul class="menu-content">

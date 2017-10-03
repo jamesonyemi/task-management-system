@@ -91,3 +91,35 @@ Route::group(
          ->where('id', '[0-9]+');
 
 });
+
+Route::group(
+[
+    'prefix' => 'projects',
+], function () {
+
+    Route::get('/', 'ProjectsController@index')
+         ->name('projects.project.index');
+
+    Route::get('/create','ProjectsController@create')
+         ->name('projects.project.create');
+
+    Route::get('/show/{project}','ProjectsController@show')
+         ->name('projects.project.show')
+         ->where('id', '[0-9]+');
+
+    Route::get('/{project}/edit','ProjectsController@edit')
+         ->name('projects.project.edit')
+         ->where('id', '[0-9]+');
+
+    Route::post('/', 'ProjectsController@store')
+         ->name('projects.project.store');
+               
+    Route::put('project/{project}', 'ProjectsController@update')
+         ->name('projects.project.update')
+         ->where('id', '[0-9]+');
+
+    Route::delete('/project/{project}','ProjectsController@destroy')
+         ->name('projects.project.destroy')
+         ->where('id', '[0-9]+');
+
+});
