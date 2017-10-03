@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->timestamps();
             $table->string('project_name')->nullable();
             $table->string('description', 1000)->nullable();
-            $table->enum('status', array('active', 'deleted'))->default('active');
+            $table->enum('status', array('active', 'deleted'));
             $table->integer('assigned_by')->unsigned()->index();
             $table->string('assignee')->nullable();
             $table->string('priority')->nullable();

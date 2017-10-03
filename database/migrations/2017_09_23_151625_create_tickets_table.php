@@ -33,7 +33,7 @@ class CreateTicketsTable extends Migration
             $table->enum('priority', array('normal','low','high', 'urgent', 'medium'))->default('normal');
             $table->enum('status', array('open', 'cancelled', 'on hold', 'in progress'))->default('open');
             $table->dateTime('date_opened');
-            $table->dateTime('date_fixed');
+            $table->dateTime('due_date');
             $table->timestamps();
             $table->softDeletes();
         });

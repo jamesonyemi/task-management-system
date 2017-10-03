@@ -104,7 +104,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="issueinput2">Opened By</label>
+                                    <label for="issueinput2">Assigned By</label>
                                     {!! Form::text('assigned_by', null, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                     {{-- <input type="text" id="issueinput2" class="form-control" placeholder="Opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By"> --}}
                                 </div>
@@ -152,12 +152,12 @@
                                 </div>
 
 
-                                <label for="timesheetinput3">Date Fixed</label>
+                                <label for="timesheetinput3">Due Date</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                         <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y-m-d H:i:s",strtotime('+5 days'))}}" class="form-control" name="date_fixed">
+                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y-m-d H:i:s",strtotime('+5 days'))}}" class="form-control" name="due_date">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
@@ -208,7 +208,7 @@
                                 <div class="form-group">
                                     <label for="issueinput5">Priority</label>
 
-                                    {!! Form::select('priority',['normal','low','high','urgent','medium'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
+                                    {!! Form::select('priority',['normal'=>'normal','low'=>'low','high'=>'high','urgent'=>'urgent','medium'=>'medium'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
 
                                     {{-- <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
                                         <option value="low">Low</option>
@@ -221,7 +221,7 @@
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
-                                    {!! Form::select('status',['open','cancelled','on hold','in progress'],  null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+                                    {!! Form::select('status',['open'=>'open','cancelled'=>'cancelled','on hold'=>'on hold','in progress'=>'in progress'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
 
                                    {{--  <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                         <option value="started">Started</option>

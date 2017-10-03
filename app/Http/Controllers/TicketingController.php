@@ -45,8 +45,6 @@ class TicketingController extends Controller
                'email' => 'required',
                'issue_title'  => 'required',
                'assigned_by' => 'required',
-               // 'date_fixed' => 'required',
-               // 'date_opened' => 'required',
                'priority' => 'required',
                'status' => 'required',
                'description' => 'required',

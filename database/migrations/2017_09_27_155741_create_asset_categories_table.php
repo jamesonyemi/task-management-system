@@ -15,11 +15,11 @@ class CreateAssetCategoriesTable extends Migration
         Schema::create('asset_categories', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->timestamps();
             $table->string('name', 255);
             $table->string('description', 1000)->nullable();
             $table->softDeletes();
-            $table->boolean('is_active');
+            $table->boolean('is_active')->default(1);
+            $table->timestamps();
             // $table->enum('status', array('active', 'deleted'))->default('active');
 
         });

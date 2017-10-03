@@ -41,14 +41,14 @@ Route::group(
          ->name('tickets.tickets.show')
          ->where('id', '[0-9]+');
 
-    Route::get('/{ticketing}/edit','TicketingController@edit')
+    Route::any('/{ticketing}/edit','TicketingController@edit')
          ->name('tickets.tickets.edit')
          ->where('id', '[0-9]+');
 
     Route::post('/', 'TicketingController@store')
          ->name('tickets.tickets.store');
                
-    Route::put('tickets/{ticketing}', 'TicketingController@update')
+    Route::any('tickets/{ticketing}', 'TicketingController@update')
          ->name('tickets.tickets.update')
          ->where('id', '[0-9]+');
 

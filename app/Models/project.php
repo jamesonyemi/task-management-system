@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Ticketing;
 
-class project extends Model
+class Project extends Model
 {
     
-
     /**
      * The database table used by the model.
      *

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Model\Project;
 
 class Ticketing extends Model
 {
@@ -23,4 +24,9 @@ class Ticketing extends Model
 
     protected  $table  =  'ticketings';	
     protected  $dates  =  ['deleted_at'];	
+
+    public function ticketBy()
+    {
+        return $this-HasMany('App\Model\Project','assigned_by');
+    }
 }
