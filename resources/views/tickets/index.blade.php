@@ -61,7 +61,7 @@
                                    <td>{{ $ticket->email}}</td>
                                    <td>{{ $ticket->assigned_by}}</td>
                                    <td>
-                                       <a class="btn btn-info" href="{{ route('tickets.tickets.show',$ticket->id) }}">Show</a>
+                                       <a class="btn btn-info" href="{{ route('tickets.tickets.show',$ticket->id) }}">View</a>
                                        <a class="btn btn-primary" href="{{ route('tickets.tickets.edit',$ticket->id) }}">Edit</a>
                                        {!! Form::open(['method' => 'DELETE','route' => ['tickets.tickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}

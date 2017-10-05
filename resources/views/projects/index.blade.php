@@ -70,17 +70,17 @@
 
                                     <div class="btn-group btn-group-xs pull-right" role="group">
                                         <a href="{{ route('projects.project.show', $project->id ) }}" class="btn btn-info" title="Show Project">
-                                            Show
-                                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                                            
+                                            <span class="glyphicon glyphicon-open" aria-hidden="true">View</span>
                                         </a>
                                         <a href="{{ route('projects.project.edit', $project->id ) }}" class="btn btn-primary" title="Edit Project">
-                                            Edit
-                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                           
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"> Edit</span>
                                         </a>
 
                                         <button type="submit" class="btn btn-danger" title="Delete Project" onclick="return confirm(&quot;Delete Project?&quot;)">
-                                            Delete
-                                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                            
+                                            <span class="glyphicon glyphicon-trash" aria-hidden="true">Delete</span>
                                         </button>
                                     </div>
 

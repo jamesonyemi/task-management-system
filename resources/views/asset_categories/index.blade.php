@@ -79,7 +79,7 @@
                                 {{ csrf_field() }}
 
                                     <div class="btn-group btn-group-xs pull-right" role="group">
-                                        <a href="{{ route('asset_categories.asset_category.show', $assetCategory->id ) }}" class="btn btn-info" title="Show Asset Category">Show
+                                        <a href="{{ route('asset_categories.asset_category.show', $assetCategory->id ) }}" class="btn btn-info" title="Show Asset Category">View
                                             <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
                                         </a>
                                         <a href="{{ route('asset_categories.asset_category.edit', $assetCategory->id ) }}" class="btn btn-primary" title="Edit Asset Category">Edit

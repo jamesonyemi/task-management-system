@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\project;
+use App\Models\Project;
 use App\Ticketing;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\TicketingController;
 
 class ProjectsController extends Controller
 {
@@ -17,7 +18,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = project::with('assignedby')->paginate(25);
+        $projects = Project::with('assignedby')->paginate(25);
 
         return view('projects.index', compact('projects'));
     }
@@ -29,8 +30,8 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        $assignedBies = Ticketing::pluck('id','id')->all();
-        
+        $assignedBies = Ticketing::pluck('assigned_by','id')->all();
+        // dd($assignedBies);
         return view('projects.create', compact('assignedBies'));
     }
 
@@ -47,7 +48,7 @@ class ProjectsController extends Controller
             $this->affirm($request);
             $data = $this->getData($request);
             
-            project::create($data);
+            Project::create($data);
 
             return redirect()->route('projects.project.index')
                              ->with('success_message', 'Project was successfully added!');
@@ -68,7 +69,7 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        $project = project::with('assignedby')->findOrFail($id);
+        $project = Project::with('assignedby')->findOrFail($id);
 
         return view('projects.show', compact('project'));
     }
@@ -82,7 +83,7 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        $project = project::findOrFail($id);
+        $project = Project::findOrFail($id);
         $assignedBies = Ticketing::pluck('id','id')->all();
 
         return view('projects.edit', compact('project','assignedBies'));
@@ -102,7 +103,7 @@ class ProjectsController extends Controller
             $this->affirm($request);
             $data = $this->getData($request);
             
-            $project = project::findOrFail($id);
+            $project = Project::findOrFail($id);
             $project->update($data);
 
             return redirect()->route('projects.project.index')
@@ -125,7 +126,7 @@ class ProjectsController extends Controller
     public function destroy($id)
     {
         try {
-            $project = project::findOrFail($id);
+            $project = Project::findOrFail($id);
             $project->delete();
 
             return redirect()->route('projects.project.index')

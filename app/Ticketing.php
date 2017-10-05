@@ -27,6 +27,6 @@ class Ticketing extends Model
 
     public function ticketBy()
     {
-        return $this-HasMany('App\Model\Project','assigned_by');
+        return $this-hasMany('App\Model\Project','assigned_by');
     }
 }
