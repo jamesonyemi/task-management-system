@@ -56,7 +56,7 @@ class Project extends Model
      */
     public function assignedBy()
     {
-        return $this->belongsTo('App\Ticketing','assigned_by',);
+        return $this->belongsTo('App\Ticketing','assigned_by');
     }
 
 
