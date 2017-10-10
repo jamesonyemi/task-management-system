@@ -18,6 +18,7 @@ class CreateTicketsTable extends Migration
            
         Schema::create('ticketings', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('project_id')->unsigned();
             $table->string('issue_title');
             $table->string('assigned_by');
             $table->longText('description');

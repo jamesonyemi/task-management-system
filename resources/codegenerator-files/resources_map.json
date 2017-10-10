@@ -2,5 +2,6 @@
     {
         "model-name": "Project",
         "fields-file": "projects.json"
-    }
+    },
+    
 ]
