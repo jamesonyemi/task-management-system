@@ -25,8 +25,12 @@ class Ticketing extends Model
     protected  $table  =  'ticketings';	
     protected  $dates  =  ['deleted_at'];	
 
-    public function assignedby()
-    {
-        return $this-hasMany('App\Model\Project','assigned_by');
+    // public function assignedby()
+    // {
+    //     return $this-hasMany('App\Model\Project','assigned_by');
+    // }
+
+     public function user() {
+        return $this->hasOne('App\User');
     }
 }

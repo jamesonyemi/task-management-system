@@ -17,6 +17,8 @@ class TicketingController extends Controller
     public function index()
     {
        $tickets = Ticketing::latest()->paginate(10);
+       // $tickets = Ticketing::with('user')->first();
+       // return View::make('page')->with('userInfo',$userInfo);
             return view('tickets.index',compact('tickets'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
     }

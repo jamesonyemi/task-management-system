@@ -59,6 +59,8 @@ class Project extends Model
         return $this->belongsTo('App\Ticketing');
     }
 
-
+     public function user() {
+        return $this->hasOne('App\User');
+    }
 
 }

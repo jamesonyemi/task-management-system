@@ -43,11 +43,11 @@
                     <thead>
                         <tr>
                             <th>Project Name</th>
-                            <th>Status</th>
-                            <th>Assigned By</th>
                             <th>Assignee</th>
                             <th>Priority</th>
                             <th>Watchers</th>
+                            <th>Status</th>
+                            {{-- <th>Assigned By</th> --}}
 
                             <th></th>
                         </tr>
@@ -57,7 +57,7 @@
                         <tr>
                             <td>{{ $project->project_name }}</td>
                             <td>{{ $project->status }}</td>
-                            <td>{{  isset($project->assignedBy->id) ? $project->assignedBy->id : ''  }}</td>
+                           {{--  <td>{{  isset($project->assignedBy->id) ? $project->assignedBy->id : ''  }}</td> --}}
                             <td>{{ $project->assignee }}</td>
                             <td>{{ $project->priority }}</td>
                             <td>{{ $project->watchers }}</td>
