@@ -54,10 +54,10 @@
             <dt>Status</dt>
             <dd>{{ $project->status }}</dd>
         </div>  
-         <div class="col col-md-5">
+         {{-- <div class="col col-md-5">
             <dt>Assigned By</dt>
-            <dd>{{  isset($project->assignedBy->id) ? $project->assignedBy->id : ''  }}</dd>
-         </div>
+            <dd>{{  isset($project->assignedBy->id) ? $project->assignedBy->user_id : ''  }}</dd>
+         </div> --}}
 
         <div class="col col-md-5">
             <dt>Assignee</dt>

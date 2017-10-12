@@ -110,6 +110,13 @@
                                 </div>
 
 
+                                <div class="form-group">
+                                   {{--  <label for="issueinput2"></label> --}}
+                                    {!! Form::hidden('project_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
+                                    {{-- <input type="text" id="issueinput2" class="form-control" placeholder="Opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By"> --}}
+                                </div>
+
+
                                 <div class="col col-md-12">
                                 <label for="timesheetinput3">Date Opened</label>
                                 <div class="row">
