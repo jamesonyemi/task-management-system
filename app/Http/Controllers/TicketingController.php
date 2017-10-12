@@ -16,6 +16,14 @@ class TicketingController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+
+        if(Gate::forUser($user)->allows('view-post', $id)) {
+            return 'true';
+        }
+
+        return abort(403, trans('Sorry, not sorry!'));
+
        $tickets = Ticketing::latest()->paginate(10);
             return view('tickets.index',compact('tickets'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
@@ -68,7 +76,10 @@ class TicketingController extends Controller
      */
     public function show(Ticketing $ticketing)
     {
+        if (  Auth::user()->id == $id) {
+        //your code here
         return view('tickets.show', compact('ticketing'));
+        }
     }
 
     /**
