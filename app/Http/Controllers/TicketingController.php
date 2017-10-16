@@ -16,13 +16,6 @@ class TicketingController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-
-        if(Gate::forUser($user)->allows('view-post', $id)) {
-            return 'true';
-        }
-
-        return abort(403, trans('Sorry, not sorry!'));
 
        $tickets = Ticketing::latest()->paginate(10);
        // $tickets = Ticketing::with('user')->first();
