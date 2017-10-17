@@ -71,8 +71,7 @@ class TicketingController extends Controller
      */
     public function show(Ticketing $ticketing)
     {
-        if (  Auth::user()->id == $id) {
-        //your code here
+        if (  Auth::user()->id == $id ) {
         return view('tickets.show', compact('ticketing'));
         }
     }
