@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ticketing;
 use App\http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class TicketingController extends Controller
@@ -71,7 +73,7 @@ class TicketingController extends Controller
      */
     public function show(Ticketing $ticketing)
     {
-        if (  Auth::user()->id == $id ) {
+        if (  Auth::user()->id ) {
         return view('tickets.show', compact('ticketing'));
         }
     }
