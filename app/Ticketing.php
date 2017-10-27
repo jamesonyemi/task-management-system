@@ -4,11 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User;
+use App\Notifications\SendTicketMail;
 use App\Model\Project;
 
 class Ticketing extends Model
 {
-	use SoftDeletes;
+	use Notifiable;
+    use SoftDeletes;
 
 	protected $guarded = array();
 
@@ -30,7 +34,14 @@ class Ticketing extends Model
     //     return $this-hasMany('App\Model\Project','assigned_by');
     // }
 
-     public function user() {
+    public function sendTicketNotification($token,$email)
+   {
+      // $this->notify(new PasswordReset($token));
+         $this->notify(new SendTicketMail($token, $email));
+   }
+     public function user() 
+     {
         return $this->hasOne('App\User');
-    }
+       
+     }
 }
