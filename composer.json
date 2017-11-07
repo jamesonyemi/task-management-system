@@ -9,11 +9,11 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.5",
-        "laravelcollective/html":"^5.4.0"
+        "laravelcollective/html": "^5.4.0",
+        "pusher/pusher-php-server": "^3.0"
     },
     "require-dev": {
-        "crestapps/laravel-code-generator": "^2.1",
+        "crestapps/laravel-code-generator": "^2.2",
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "laralib/l5scaffold": "^1.0",

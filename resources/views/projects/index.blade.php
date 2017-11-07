@@ -54,14 +54,17 @@
                     </thead>
                     <tbody>
                     @foreach($projects as $project)
+                      @if ($project->assigned_by === (int) Auth::user()->id)
+                        
+                     
                         <tr>
                             <td>{{ $project->project_name }}</td>
-                            <td>{{ $project->status }}</td>
-                           {{--  <td>{{  isset($project->assignedBy->id) ? $project->assignedBy->id : ''  }}</td> --}}
                             <td>{{ $project->assignee }}</td>
                             <td>{{ $project->priority }}</td>
                             <td>{{ $project->watchers }}</td>
-
+                            <td>{{ $project->status }}</td>
+                           {{--  <td>{{  isset($project->assignedBy->id) ? $project->assignedBy->id : ''  }}</td> --}}
+                           
                             <td>
 
                                 <form method="POST" action="{!! route('projects.project.destroy', $project->id) !!}" accept-charset="UTF-8">
@@ -88,6 +91,7 @@
                                 
                             </td>
                         </tr>
+                    @endif
                     @endforeach
                     </tbody>
                 </table>

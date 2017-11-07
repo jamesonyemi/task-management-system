@@ -133,6 +133,7 @@
                 var self = $(this);
                 var container = self.closest('.input-width-input');
                 var display = container.find('.custom-delete-file-name');
+<<<<<<< HEAD
                 var flag = container.find('.custom-delete-flag:checkbox');
 
                 if (self.is(':checked')) {
@@ -142,6 +143,14 @@
                     var del = display.find('del').first();
                     if (del.is('del')) {
                         flag.prop('checked', false);
+=======
+
+                if (self.is(':checked')) {
+                    display.wrapInner('<del></del>');
+                } else {
+                    var del = display.find('del').first();
+                    if (del.is('del')) {
+>>>>>>> 55419673dbfbe47667182542ab20190923e46227
                         del.contents().unwrap();
                     }
                 }

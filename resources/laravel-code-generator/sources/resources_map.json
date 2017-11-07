@@ -1,6 +1,7 @@
 [
     {
-        "model-name": "Roles",
-        "resource-file": "roles.json"
-    }
+        "model-name": "Project",
+        "fields-file": "projects.json"
+    },
+    
 ]

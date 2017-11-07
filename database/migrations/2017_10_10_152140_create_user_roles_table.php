@@ -12,6 +12,7 @@ class CreateUserRolesTable extends Migration
      */
     public function up()
     {
+<<<<<<< HEAD
 
      if (! Schema::hasTable('user_roles')) {
 
@@ -30,6 +31,22 @@ class CreateUserRolesTable extends Migration
           });
             
         }
+=======
+
+ if (!Schema::hasTable('user_roles')) {
+
+    Schema::create('user_roles', function (Blueprint $table) {
+        $table->increments('id')->unsigned();
+        $table->integer('role_id')->unsigned()->index();
+        $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+        $table->integer('user_id')->unsigned()->index();
+        $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        $table->timestamps();
+        
+         });
+
+       }
+>>>>>>> 55419673dbfbe47667182542ab20190923e46227
     }
 
     /**
