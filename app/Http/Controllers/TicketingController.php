@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Ticketing;
+use Auth;
+use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
 
 
@@ -16,17 +18,8 @@ class TicketingController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-
-        if(Gate::forUser($user)->allows('view-post', $id)) {
-            return 'true';
-        }
-
-        return abort(403, trans('Sorry, not sorry!'));
 
        $tickets = Ticketing::latest()->paginate(10);
-       // $tickets = Ticketing::with('user')->first();
-       // return View::make('page')->with('userInfo',$userInfo);
             return view('tickets.index',compact('tickets'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
     }
@@ -78,8 +71,7 @@ class TicketingController extends Controller
      */
     public function show(Ticketing $ticketing)
     {
-        if (  Auth::user()->id == $id) {
-        //your code here
+        if (  Auth::user()->id ) {
         return view('tickets.show', compact('ticketing'));
         }
     }

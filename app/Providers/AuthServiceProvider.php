@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
         //
 
-        $gate->define('view-post', function($user, $id) {
+        Gate::forUser('auth.login',function($user, $id) {
             return $user->id === (int) $id;
         });
         

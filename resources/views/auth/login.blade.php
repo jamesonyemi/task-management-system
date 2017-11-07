@@ -26,9 +26,11 @@
                             </div>
 
                              @if ($errors->has('email'))
+                                   
                                     <span class="btn btn-outline-danger no-border danger.lighten-4">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                       <div class="row"> <strong>{{ $errors->first('email') }}</strong> </div>
                                     </span>
+                                  
                                 @endif
 
                         </fieldset>

@@ -363,9 +363,11 @@
             </div>
 
             <div class="form-actions right" style="float:right">
-                <button type="button" class="btn btn-warning mr-1" onclick="reload()" >
-                    <i class="icon-cross2" ></i> Cancel
+                <a href="{{ route('tickets.tickets.index') }}"> 
+                <button type="button" class="btn btn-warning mr-1" >
+                   <i class="icon-cross2" ></i> Cancel
                 </button>
+                </a>
                 <button type="submit" class="btn btn-primary">
                     <i class="icon-check2"></i> Save
                 </button>

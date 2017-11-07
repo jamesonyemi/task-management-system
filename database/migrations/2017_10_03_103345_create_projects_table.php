@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateProjectsTable extends Migration
 {
@@ -15,7 +16,6 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->timestamps();
             $table->string('project_name')->nullable();
             $table->string('description', 1000)->nullable();
             $table->enum('status', array('active', 'deleted'));
@@ -23,6 +23,8 @@ class CreateProjectsTable extends Migration
             $table->string('assignee')->nullable();
             $table->string('priority')->nullable();
             $table->string('watchers')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
         });
     }

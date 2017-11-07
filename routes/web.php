@@ -123,3 +123,35 @@ Route::group(
          ->where('id', '[0-9]+');
 
 });
+
+Route::group(
+[
+    'prefix' => 'roles',
+], function () {
+
+    Route::get('/', 'RolesController@index')
+         ->name('roles.roles.index');
+
+    Route::get('/create','RolesController@create')
+         ->name('roles.roles.create');
+
+    Route::get('/show/{roles}','RolesController@show')
+         ->name('roles.roles.show')
+         ->where('id', '[0-9]+');
+
+    Route::get('/{roles}/edit','RolesController@edit')
+         ->name('roles.roles.edit')
+         ->where('id', '[0-9]+');
+
+    Route::post('/', 'RolesController@store')
+         ->name('roles.roles.store');
+               
+    Route::put('roles/{roles}', 'RolesController@update')
+         ->name('roles.roles.update')
+         ->where('id', '[0-9]+');
+
+    Route::delete('/roles/{roles}','RolesController@destroy')
+         ->name('roles.roles.destroy')
+         ->where('id', '[0-9]+');
+
+});
