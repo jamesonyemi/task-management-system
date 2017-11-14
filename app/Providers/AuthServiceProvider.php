@@ -24,15 +24,5 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        //
-<<<<<<< HEAD
-
-        Gate::forUser('auth.login',function($user, $id) {
-            return $user->id === (int) $id;
-        });
-        
-=======
->>>>>>> 55419673dbfbe47667182542ab20190923e46227
     }
 }

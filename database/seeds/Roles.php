@@ -11,6 +11,6 @@ class Roles extends Seeder
      */
     public function run()
     {
-       // $this->call(Roles::class);
+        $this->call(Roles::class);
     }
 }

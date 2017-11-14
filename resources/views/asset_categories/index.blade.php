@@ -19,8 +19,8 @@
         <div class="panel-heading clearfix">
 
             <div class="pull-left">
-                <h4 class="mt-5 mb-5">Asset Categories</h4>
-            </div>
+                <h4 class="mt-5 mb-5">{{ 'Projects' }}</h4>
+            </div><br>
 
             <div class="btn-group btn-group-sm pull-right" role="group">
                 <a href="{{ route('asset_categories.asset_category.create') }}" class="btn btn-success" title="Create New Asset Category">New Asset

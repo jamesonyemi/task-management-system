@@ -12,7 +12,6 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-<<<<<<< HEAD:database/migrations/2017_10_10_154346_create_roles_table.php
 
      if (! Schema::hasTable('roles')) {
          
@@ -20,27 +19,13 @@ class CreateRolesTable extends Migration
         {
             $table->increments('id');
             $table->string('name', 255);
+            $table->string('description')->nullable();
             $table->boolean('is_active');
             $table->timestamps();
 
          });
-       }
-=======
-
-    if (!Schema::hasTable('roles')) {
-         Schema::create('roles', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->string('description')->nullable();
-            $table->integer('level')->default(1);
-            $table->timestamps();
-        });
-     }
-        
->>>>>>> 55419673dbfbe47667182542ab20190923e46227:database/migrations/2016_01_15_105324_create_roles_table.php
     }
-
+ }
     /**
      * Reverse the migrations.
      *
