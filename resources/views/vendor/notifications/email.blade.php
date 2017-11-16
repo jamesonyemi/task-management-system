@@ -6,11 +6,9 @@
 @if ($level == 'error')
 # Whoops!
 @else
-<<<<<<< HEAD
-# Hello!
-=======
+
 #{{ $greeting = 'Password Reset Request' }}
->>>>>>> 55419673dbfbe47667182542ab20190923e46227
+
 @endif
 @endif
 
@@ -41,11 +39,11 @@
 
 {{-- Outro Lines --}}
 @foreach ($outroLines as $line)
-<<<<<<< HEAD
+
 {{ $line }}
-=======
+
 {{ $line }} 
->>>>>>> 55419673dbfbe47667182542ab20190923e46227
+
 
 @endforeach
 
@@ -53,11 +51,10 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-<<<<<<< HEAD
-Regards,<br>{{ config('app.name') }}
-=======
+
+{{-- Regards,<br>{{ config('app.name') }} --}}
 Regards,<br>{{ config('app.subtitle') }}
->>>>>>> 55419673dbfbe47667182542ab20190923e46227
+
 @endif
 
 {{-- Subcopy --}}
