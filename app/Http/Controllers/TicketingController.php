@@ -7,6 +7,7 @@ use App\Ticketing;
 use Auth;
 use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
+use Illuminate\Foundation\Auth\User;
 // use Illuminate\Support\Facades\Auth;
 
 
@@ -33,7 +34,10 @@ class TicketingController extends Controller
      */
     public function create()
     {
-        return view('tickets.create');
+         $watchers = User::latest()->paginate(10);
+            return view('tickets.create',compact('watchers'))
+                ->with('p', (request()->input('page', 1) - 1) * 5);
+        // return view('tickets.create', compact(Auth::user()));
     }
 
     /**

@@ -177,58 +177,90 @@
       </div>
       <!-- / main menu header-->
       <!-- main menu content-->
-      <div class="main-menu-content">
-        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-          <li class=" nav-item"><a href="index.html"><i class="icon-home3"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span></a>
-            <ul class="menu-content">
-              <li class="active"><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard</a>
-              </li>
-              {{-- <li><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard 2</a> --}}
-              </li>
-            </ul>
-          </li>
-          {{-- <li class=" nav-item"><a href="#"><i class="icon-stack-2"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Task Management</span></a>
-            <ul class="menu-content">
-              <li><a href="{{ route('tasks.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Task </a>
-              </li> --}}
-              {{-- <li><a href="{{ route('tickets.index') }}" data-i18n="nav.page_layouts.2_columns" class="menu-item">Ticket</a>
-            </li> --}}
-              <!--  <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
-              </li>
-              <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
-              </li>
-              <li class="navigation-divider"></li>
-              <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>
-              </li>
-              <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
-              </li>
-              <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a> -->
-             {{--  </li> --}}
-           {{--  </ul>
-          </li> --}}
-          <li class=" nav-item"><a href="#"><i class="icon-ticket"></i><span data-i18n="nav.project.main" class="menu-title">Ticket</span></a>
-            <ul class="menu-content">
-              <li><a href="{{ route('tickets.tickets.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
-              </span>All Tickets</a>
-              </li></ul>
-            </li>
-
-
-            <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.project.main" class="menu-title">Project</span></a>
+      <div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+        <!-- main menu header-->
+        <div class="main-menu-header">
+         <!--  -->
+        </div>
+        <!-- / main menu header-->
+        <!-- main menu content-->
+        <div class="main-menu-content">
+          <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+            <li class=" nav-item"><a href="index.html"><i class="icon-home4"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span></a>
               <ul class="menu-content">
-                <li><a href="{{ route('projects.project.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
-                </span>All Project</a>
-                </li></ul>
-              </li>
-          
-              <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.project.main" class="menu-title">Asset Categories</span></a>
-            <ul class="menu-content">
-              <li><a href="{{ route('asset_categories.asset_category.index') }}" data-i18n="nav.invoice.invoice_template" class="menu-item"><i class="icon-plus-square"></i><span data-i18n="nav.project.main" class="menu-title">
-              </span>All Assets</a>
-              </li></ul>
+                <li class="active"><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard</a>
+                </li>
+                {{-- <li><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard 2</a> --}}
+                {{-- </li> --}}
+              </ul>
             </li>
-         
-        </ul>
+            
+                  <li class=" nav-item"><a href="#"><i class="icon-ticket"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket</span></a>
+                 <ul class="menu-content">
+                  <li><a href="{{ route('tickets.tickets.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Tickets</a>
+                  </li>
+                  {{-- <li><a href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">2 columns</a>
+                  </li>
+                  <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
+                  </li>
+                  <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
+                  </li>
+                  <li class="navigation-divider"></li>
+                  <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>
+                  </li>
+                  <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
+                  </li>
+                  <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a>
+                  </li> --}}
+                </ul>
+              </li>
+
+                  <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Project</span></a>
+                   <ul class="menu-content">
+                    <li><a href="{{ route('projects.project.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Project</a>
+                    </li>
+                    {{-- <li><a href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">2 columns</a>
+                    </li>
+                    <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
+                    </li>
+                    <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
+                    </li>
+                    <li class="navigation-divider"></li>
+                    <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>
+                    </li>
+                    <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
+                    </li>
+                    <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a>
+                    </li> --}}
+                  </ul>
+                </li>
+            
+                <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Asset Categories</span></a>
+                <ul class="menu-content">
+                <li><a href="{{ route('asset_categories.asset_category.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Assets</a>
+                </li>
+                {{-- <li><a href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">2 columns</a>
+                </li>
+                <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
+                </li>
+                <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
+                </li>
+                <li class="navigation-divider"></li>
+                <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>
+                </li>
+                <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
+                </li>
+                <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a>
+                </li> --}}
+              </ul>
+            </li>
+           
+          </ul>
+        </div>
+        <!-- /main menu content-->
+        <!-- main menu footer-->
+        <!-- include includes/menu-footer-->
+        <!-- main menu footer-->
       </div>
       <!-- /main menu content-->
       <!-- main menu footer-->

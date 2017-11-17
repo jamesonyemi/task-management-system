@@ -252,8 +252,22 @@
                                     {!! Form::textarea('description', null, array('placeholder' => 'Description the issue you are currently facing','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"')) !!}
 
                                    {{--  <textarea id="issueinput8" rows="5" class="form-control" name="description" placeholder="Description the issue you are currently facing" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"></textarea> --}}
-                                </div>
 
+
+                                </div>
+                                <div class=" row col col-md-12">{!! Form::label('watchers', 'Watchers', ['class' => 'form-label']) !!}</div>
+
+                                @foreach ($watchers as $watcher)
+            
+                                <label class="display-inline-block custom-control custom-checkbox">
+                                <input type="checkbox" id="checkbox2" name="watchers" class="custom-control-input" 
+                                 value="{{ $watcher->name }}">
+                                 <span class="custom-control-indicator"></span>
+                                 <span class="custom-control-description">
+                                     {{ $watcher->name }}
+                                </span>
+                                </label> 
+                                @endforeach
                             </div>
 
                             

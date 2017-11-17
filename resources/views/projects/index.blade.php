@@ -53,7 +53,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                       {{--  Loop through the lists of Projects --}}
                     @foreach($projects as $project)
+                          {{-- check if the current user has been assigned a ticket --}}
                       @if ($project->assigned_by === (int) Auth::user()->id)
                         
                      
