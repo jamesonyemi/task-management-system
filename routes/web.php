@@ -28,7 +28,7 @@ Route::resource('tasks', 'TaskController');     //Route for Task
 //Route and Group-route for Ticketing
 Route::group(
 [
-    'prefix' => 'tickets',
+    'prefix' => 'tickets', 'middleware' => 'auth'
 ], function () {
 
     Route::get('/', 'TicketingController@index')
@@ -62,7 +62,7 @@ Route::group(
 //Route and Group-route for AssetCategories
 Route::group(
 [
-    'prefix' => 'asset_categories',
+    'prefix' => 'asset_categories', 'middleware' => 'auth'
 ], function () {
 
     Route::get('/', 'AssetCategoriesController@index')
@@ -94,7 +94,7 @@ Route::group(
 
 Route::group(
 [
-    'prefix' => 'projects',
+    'prefix' => 'projects', 'middleware' => 'auth'
 ], function () {
 
     Route::get('/', 'ProjectsController@index')
@@ -126,7 +126,7 @@ Route::group(
 
 Route::group(
 [
-    'prefix' => 'roles',
+    'prefix' => 'roles', 'middleware' => 'auth'
 ], function () {
 
     Route::get('/', 'RolesController@index')
