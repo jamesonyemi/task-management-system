@@ -11,7 +11,7 @@
             <div class="card-header">
             <h4 class="card-title">
                 <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('tickets.tickets.create') }}"> Create New ticket</a>
+                <a class="btn btn-success icon-plus3" href="{{ route('tickets.tickets.create') }}"> Create New Ticket</a>
                </div>
             </h4>
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
@@ -61,10 +61,10 @@
                                    <td>{{ $ticket->email}}</td>
                                    <td>{{ $ticket->assigned_by}}</td>
                                    <td>
-                                       <a class="btn btn-info" href="{{ route('tickets.tickets.show',$ticket->id) }}">View</a>
-                                       <a class="btn btn-primary" href="{{ route('tickets.tickets.edit',$ticket->id) }}">Edit</a>
+                                       <a class="btn btn-info icon-eyedropper2" href="{{ route('tickets.tickets.show',$ticket->id) }}">View</a>
+                                       <a class="btn btn-primary icon-pencil-square-o" href="{{ route('tickets.tickets.edit',$ticket->id) }}">Edit</a>
                                        {!! Form::open(['method' => 'DELETE','route' => ['tickets.tickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
-                                       {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                       {!! Form::submit('Delete', ['class' => 'btn btn-danger icon-trash-o']) !!}
                                        {!! Form::close() !!}
                                    </td>
                                </tr>

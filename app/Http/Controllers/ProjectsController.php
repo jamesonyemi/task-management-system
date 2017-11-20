@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Ticketing;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TicketingController;
@@ -19,6 +20,7 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = Project::with('assignedby')->paginate(25);
+        // $project = User::with('assignedby')->findOrFail($id);
 
         return view('projects.index', compact('projects'));
     }
@@ -30,9 +32,9 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        $assignedBies = Ticketing::pluck('assigned_by','id')->all();
-        // dd($assignedBies);
-        return view('projects.create', compact('assignedBies'));
+        $assignedBies =  Ticketing::pluck('assigned_by','id')->all();
+           $assign_to  =  User::pluck('name','id')->all();
+        return view('projects.create', compact('assignedBies','assign_to'));
     }
 
     /**

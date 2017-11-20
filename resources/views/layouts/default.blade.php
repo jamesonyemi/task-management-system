@@ -215,7 +215,7 @@
                 </ul>
               </li>
 
-                  <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Project</span></a>
+                  <li class=" nav-item"><a href="#"><i class="icon-building-o"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Project</span></a>
                    <ul class="menu-content">
                     <li><a href="{{ route('projects.project.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Project</a>
                     </li>
