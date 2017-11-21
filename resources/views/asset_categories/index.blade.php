@@ -19,7 +19,7 @@
         <div class="panel-heading clearfix">
 
             <div class="pull-left">
-                <h4 class="mt-5 mb-5">{{ 'Projects' }}</h4>
+                <h4 class="mt-5 mb-5">{{-- {{ 'Assest Management' }} --}}</h4>
             </div><br>
 
             <div class="btn-group btn-group-sm pull-right" role="group">
