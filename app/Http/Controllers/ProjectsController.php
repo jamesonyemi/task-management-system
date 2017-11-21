@@ -154,10 +154,11 @@ class ProjectsController extends Controller
             'project_name' => 'string|min:1|nullable',
             'description' => 'string|min:1|max:1000|nullable',
             'status' => 'string|min:1|nullable',
-            'assigned_by' => 'required',
-            'assignee' => 'string|min:1|nullable',
+            'created_by' => 'required',
+            'assigned_to' => 'string|min:1|nullable',
             'priority' => 'string|min:1|nullable',
-            'watchers' => 'string|min:1|nullable',
+            'email' => 'email|required',
+            'phone_number' => 'string|min:1|max:16|digits:10',
                 
         ]);
     }

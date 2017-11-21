@@ -71,9 +71,9 @@
                                 </div>
 
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     {!! Form::hidden('project_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
-                                </div>
+                                </div> --}}
 
                                 {{-- <div class="row">
                                 <div class="col col-md-12">
@@ -119,11 +119,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="issueinput8">Description</label>
-
+                                <label for="issueinput8">Description</label>
+                                 <div class="position-relative has-icon-left">
                                     {!! Form::textarea('description', null, array('placeholder' => 'Write About the Project','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Write About the Project"')) !!}
-
                                 </div>
+                            </div>
                                 {{-- {{ Continue adding more input fields from this section below }} --}}
                             </div>
                     </div>

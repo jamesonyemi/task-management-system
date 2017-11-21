@@ -31,10 +31,11 @@ class Project extends Model
                   'project_name',
                   'description',
                   'status',
-                  'assigned_by',
-                  'assignee',
-                  'priority',
-                  'watchers'
+                  'created_by',
+                  'assigned_to',
+                  'phone_number',
+                  'email',
+                  'priority'
               ];
 
     /**
