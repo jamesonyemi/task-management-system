@@ -51,14 +51,14 @@
                             <div class="form-body">
 
                                 <div class="form-group">
-                                    <label for="project_name">Project</label>
-                                    {!! Form::text('project_name', null, array('placeholder' => 'Name of Project','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Project Name"')) !!}
+                                    <label for="issueinput1">Project</label>
+                                    {!! Form::text('project_name', null, array('placeholder' => 'Name of Project','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Issue Title"')) !!}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="timesheetinput1">Client Name</label>
                                     <div class="position-relative has-icon-left">
-                                        {!! Form::text('client_name', null, array('placeholder' => 'Name of Client','class' => 'form-control square','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Client name"')) !!}
+                                        {!! Form::text('client_name', null, array('placeholder' => 'Name of Client','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Employee name"')) !!}
             
                                         <div class="form-control-position">
                                             <i class="icon-head"></i>
@@ -67,7 +67,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::hidden('created_by', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
+                                    {!! Form::hidden('assigned_by', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                 </div>
 
 
@@ -75,7 +75,7 @@
                                     {!! Form::hidden('project_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                 </div>
 
-                                {{-- <div class="row">
+                                <div class="row">
                                 <div class="col col-md-12">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -102,7 +102,7 @@
                                     </div>
                                 </div>
                                 </div>
-                             </div> --}}
+                             </div>
 
 
                                 <div class="form-group">
@@ -114,14 +114,14 @@
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
-                                    {!! Form::select('status',['Open'=>'Open','Cancelled'=>'Cancelled','On Hold'=>'On Hold','In Progress'=>'In Progress','Completed'=>'Completed'], 'Open', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+                                    {!! Form::select('status',['open'=>'open','cancelled'=>'cancelled','on hold'=>'on hold','in progress'=>'in progress'], 'open', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
                                 </div>
 
 
                                 <div class="form-group">
                                     <label for="issueinput8">Description</label>
 
-                                    {!! Form::textarea('description', null, array('placeholder' => 'Write About the Project','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Write About the Project"')) !!}
+                                    {!! Form::textarea('description', null, array('placeholder' => 'Description the issue you are currently facing','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"')) !!}
 
                                 </div>
                                 {{-- {{ Continue adding more input fields from this section below }} --}}
@@ -140,37 +140,37 @@
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        {{-- <div class="form-group">
+                                        <div class="form-group">
                                             <label for="projectinput1">First Name</label>
 
                                             {!! Form::text('first_name', null, array('placeholder' => 'First Name','class' => 'form-control')) !!}
 
-                                        </div> --}}
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                        {{-- <div class="form-group">
+                                        <div class="form-group">
                                             <label for="projectinput2">Last Name</label>
 
                                             {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control')) !!}
-                                        </div> --}}
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="donationinput2">Email / (Project Lead)</label>
+                                    <label for="donationinput2">Email</label>
 
                                     {!! Form::email('email', null, array('placeholder' => 'Email','class' => 'form-control square')) !!}
 
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="donationinput3">Contact Number / (Project Lead)</label>
+                                    <label for="donationinput3">Contact Number</label>
 
                                     {!! Form::tel('phone_number', null, array('placeholder' => 'Contact Number','class' => 'form-control square')) !!}
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="donationinput4">Project Lead</label>
+                                    <label for="donationinput4">Assignee</label>
                                     <select class="form-control" id="assigned_to" name="assigned_to" required="true">
                                         <option value="" style="display: none;" {{ old('assigned_to', isset($assign_to->name) ? $assign_to->name : '') == '' ? 'selected' : '' }} disabled selected>Assigned To</option>
                                         @foreach ($assign_to as $key => $assignee)
@@ -184,7 +184,7 @@
 
                                 </div>
 
-                                {{-- <div class="form-group">
+                                <div class="form-group">
                                     <label for="timesheetinput2">Project Name</label>
                                     <div class="position-relative has-icon-left">
 
@@ -194,7 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
- --}}
+
 
                                 <div class="form-group">
                                     <div><label>File Attachment</label></div>
@@ -204,7 +204,7 @@
                                     </label>
                                 </div>
 
-                              {{--   <div class="form-group">
+                                <div class="form-group">
                                     <label for="timesheetinput7">Notes</label>
                                     <div class="position-relative has-icon-left">
                                          {!! Form::textarea('note', null, array('placeholder' => 'Notes','class' => 'form-control square')) !!}
@@ -212,7 +212,7 @@
                                             <i class="icon-file2"></i>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
 
                             </div>
