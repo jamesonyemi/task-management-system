@@ -174,7 +174,7 @@
                                     <select class="form-control" id="assigned_to" name="assigned_to" required="true">
                                         <option value="" style="display: none;" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : '') == '' ? 'selected' : '' }} disabled selected>Assigned To</option>
                                         @foreach ($assigned_to as $key => $assignee)
-                                            <option value="{{ $key }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : null) == $key ? 'selected' : '' }}>
+                                            <option value="{{ last([$key => $assignee],$key = null, $default = null) }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : null) == $key ? 'selected' : '' }}>
                                                 {{ $assignee }}
                                             </option>
                                         @endforeach

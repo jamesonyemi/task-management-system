@@ -32,7 +32,7 @@
                 </ul>
             @endif
 
-            <form method="POST" action="{{ route('projects.project.update', $project->id) }}" accept-charset="UTF-8" class="form-horizontal">
+           {{--  <form method="POST" action="{{ route('projects.project.update', $project->id) }}" accept-charset="UTF-8" class="form-horizontal">
             {{ csrf_field() }}
             <input name="_method" type="hidden" value="PUT">
             @include ('projects.form', [
@@ -44,7 +44,11 @@
                         <input class="btn btn-primary" type="submit" value="Update">
                     </div>
                 </div>
-            </form>
+            </form> --}}
+
+            {!! Form::model($project, ['method' => 'PATCH','route' => ['projects.project.update', $project->id]]) !!}
+                @include('projects.form')
+            {!! Form::close() !!}
 
         </div>
     </div>

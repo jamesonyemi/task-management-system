@@ -107,14 +107,14 @@ Route::group(
          ->name('projects.project.show')
          ->where('id', '[0-9]+');
 
-    Route::get('/{project}/edit','ProjectsController@edit')
+    Route::any('/{project}/edit','ProjectsController@edit')
          ->name('projects.project.edit')
          ->where('id', '[0-9]+');
 
     Route::post('/', 'ProjectsController@store')
          ->name('projects.project.store');
                
-    Route::put('project/{project}', 'ProjectsController@update')
+    Route::any('project/{project}', 'ProjectsController@update')
          ->name('projects.project.update')
          ->where('id', '[0-9]+');
 
