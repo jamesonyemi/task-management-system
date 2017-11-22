@@ -38,33 +38,38 @@
                             <tr>
                             <th>#</th>
                             <th>Project Name</th>
+                            <th>Company Name</th>
+                            <th>Email</th>
                             <th>Assignee</th>
+                            <th>Created by</th>
                             <th>Priority</th>
                             <th>Status</th>
-                            {{-- <th>Watchers</th> --}}
+                            <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                      {{--  Loop through the lists of Projects --}}
                     @foreach ($projects as $project)
                     {{-- check if the current user has been assigned a ticket --}}
-                            @if ($project->assigned_by === (int) Auth::user()->id)
+                           {{--  @if ($project->assigned_by === (int) Auth::user()->id) --}}
                                <tr>
                                    <td>{{ ++$p }}</td>
-                                   <td>{{ $project->first_name}}</td>
-                                   <td>{{ $project->last_name}}</td>
+                                   <td>{{ $project->name}}</td>
+                                   <td>{{ $project->company_name}}</td>
                                    <td>{{ $project->email}}</td>
-                                   <td>{{ $project->assigned_by}}</td>
+                                   <td>{{ $project->assigned_to}}</td>
+                                   <td>{{ $project->created_by}}</td>
+                                   <th>{{ $project->priority }}</th>
                                    <td>{{ $project->status}}</td>
                                    <td>
-                                       <a class="btn btn-info icon-eyedropper2" href="{{ route('projects.project.show',$project->id) }}">View</a>
-                                       <a class="btn btn-primary icon-pencil-square-o" href="{{ route('projects.project.edit',$project->id) }}">Edit</a>
-                                       {!! Form::open(['method' => 'DELETE','route' => ['projects.project.destroy', $project->id],'style'=>'display:inline']) !!}
-                                       {!! Form::submit('Delete', ['class' => 'btn btn-danger icon-trash-o']) !!}
+                                       <a class="btn btn-info icon-open" href="{{ route('projects.project.show',$project->id) }}"></a>
+                                       <a class="btn btn-primary icon-pencil-square-o" href="{{ route('projects.project.edit',$project->id) }}"></a>
+                                       {!! Form::open(['method' => 'DELETE','route' => ['projects.project.destroy', $project->id]]) !!}
+                                       {{-- {!! Form::submit('Delete', ['class' => 'btn btn-danger icon-trash']) !!} --}}
                                        {!! Form::close() !!}
                                    </td>
                                </tr>
-                               @endif
+                               {{-- @endif --}}
                                @endforeach
                         </tbody>
                     </table>

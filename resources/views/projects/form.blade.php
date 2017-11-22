@@ -52,13 +52,13 @@
 
                                 <div class="form-group">
                                     <label for="project_name">Project</label>
-                                    {!! Form::text('project_name', null, array('placeholder' => 'Name of Project','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Project Name"')) !!}
+                                    {!! Form::text('name', null, array('placeholder' => 'Name of Project','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Project Name"')) !!}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="timesheetinput1">Client Name</label>
                                     <div class="position-relative has-icon-left">
-                                        {!! Form::text('client_name', null, array('placeholder' => 'Name of Client','class' => 'form-control square','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Client name"')) !!}
+                                        {!! Form::text('company_name', null, array('placeholder' => 'Name of Client','class' => 'form-control square','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Client name"')) !!}
             
                                         <div class="form-control-position">
                                             <i class="icon-head"></i>
@@ -172,9 +172,9 @@
                                 <div class="form-group">
                                     <label for="donationinput4">Project Lead</label>
                                     <select class="form-control" id="assigned_to" name="assigned_to" required="true">
-                                        <option value="" style="display: none;" {{ old('assigned_to', isset($assign_to->name) ? $assign_to->name : '') == '' ? 'selected' : '' }} disabled selected>Assigned To</option>
-                                        @foreach ($assign_to as $key => $assignee)
-                                            <option value="{{ $key }}" {{ old('assigned_to', isset($assign_to->name) ? $assign_to->name : null) == $key ? 'selected' : '' }}>
+                                        <option value="" style="display: none;" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : '') == '' ? 'selected' : '' }} disabled selected>Assigned To</option>
+                                        @foreach ($assigned_to as $key => $assignee)
+                                            <option value="{{ $key }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : null) == $key ? 'selected' : '' }}>
                                                 {{ $assignee }}
                                             </option>
                                         @endforeach
@@ -222,7 +222,7 @@
             </div>
 
             <div class="form-actions right" style="float:right">
-                <a href="{{ route('tickets.tickets.index') }}"> 
+                <a href="{{ route('projects.project.index') }}"> 
                 <button type="button" class="btn btn-warning mr-1" >
                    <i class="icon-cross2" ></i> Cancel
                 </button>

@@ -19,10 +19,11 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('project_name')->unsigned()->index();
-            $table->string('description')->nullable();
-            $table->string('assigned_to')->unsigned()->index();
-            $table->integer('created_by')->unsigned()->index();
+            $table->string('name');
+            $table->string('company_name');
+            $table->string('description');
+            $table->unsignedBigInteger('assigned_to');
+            $table->unsignedBigInteger('created_by');
             $table->string('email')->unique();
             $table->string('phone_number', 16);
             $table->enum('priority', array('normal','low','high', 'urgent', 'medium'))->default('normal');

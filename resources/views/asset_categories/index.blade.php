@@ -46,7 +46,7 @@
                              <th>Description</th>
                             <th>Status</th>
 
-                            <th></th>
+                            <th>Action</th>
                         </tr>
                     </div>
                     </thead>

@@ -28,14 +28,16 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-                  'project_name',
+                  'name',
+                  'company_name',
                   'description',
-                  'status',
                   'created_by',
                   'assigned_to',
                   'phone_number',
+                  'blob',
                   'email',
-                  'priority'
+                  'priority',
+                  'status'
               ];
 
     /**

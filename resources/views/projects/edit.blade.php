@@ -4,7 +4,7 @@
 
     <div class="panel panel-default">
   
-        <div class="panel-heading clearfix">
+       {{--  <div class="panel-heading clearfix">
 
             <div class="pull-left">
                 <h4 class="mt-5 mb-5">{{ !empty($title) ? $title : 'Project' }}</h4>
@@ -12,15 +12,15 @@
             <div class="btn-group btn-group-sm pull-right" role="group">
 
                 <a href="{{ route('projects.project.index') }}" class="btn btn-primary" title="Show All Project">
-                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true">Show</span>
                 </a>
 
                 <a href="{{ route('projects.project.create') }}" class="btn btn-success" title="Create New Project">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true">New Project</span>
                 </a>
 
             </div>
-        </div>
+        </div> --}}
 
         <div class="panel-body">
 

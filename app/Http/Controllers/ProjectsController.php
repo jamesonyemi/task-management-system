@@ -19,10 +19,13 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('assignedby')->paginate(25);
+        // $projects = Project::with('assignedby')->paginate(25);
+         $projects = Project::latest()->paginate(25);
+              return view('projects.index',compact('projects'))
+                  ->with('p', (request()->input('page', 1) - 1) * 5);
         // $project = User::with('assignedby')->findOrFail($id);
 
-        return view('projects.index', compact('projects'));
+        // return view('projects.index', compact('projects'));
     }
 
     /**
@@ -33,8 +36,8 @@ class ProjectsController extends Controller
     public function create()
     {
         $assignedBies =  Ticketing::pluck('assigned_by','id')->all();
-           $assign_to  =  User::pluck('name','id')->all();
-        return view('projects.create', compact('assignedBies','assign_to'));
+           $assigned_to  =  User::pluck('name','id')->all();
+        return view('projects.create', compact('assignedBies','assigned_to'));
     }
 
     /**
@@ -86,9 +89,9 @@ class ProjectsController extends Controller
     public function edit($id)
     {
         $project = Project::findOrFail($id);
-        $assignedBies = Ticketing::pluck('id','id')->all();
+        $assigned_to = User::pluck('name','id')->all();
 
-        return view('projects.edit', compact('project','assignedBies'));
+        return view('projects.edit', compact('project','assigned_to'));
     }
 
     /**
@@ -151,7 +154,8 @@ class ProjectsController extends Controller
     protected function affirm(Request $request)
     {
         return $this->validate($request, [
-            'project_name' => 'string|min:1|nullable',
+            'name' => 'string|min:1|nullable',
+            'company_name' => 'string|min:1|nullable',
             'description' => 'string|min:1|max:1000|nullable',
             'status' => 'string|min:1|nullable',
             'created_by' => 'required',
@@ -175,12 +179,15 @@ class ProjectsController extends Controller
         $data =  $request->all();
 
 
-        $data['project_name'] = !empty($request->input('project_name')) ? $request->input('project_name') : null;
+        $data['name'] = !empty($request->input('name')) ? $request->input('name') : null;
+        $data['company_name'] = !empty($request->input('company_name')) ? $request->input('company_name') : null;
         $data['description'] = !empty($request->input('description')) ? $request->input('description') : null;
         $data['status'] = !empty($request->input('status')) ? $request->input('status') : null;
-        $data['assignee'] = !empty($request->input('assignee')) ? $request->input('assignee') : null;
+        $data['created_by'] = !empty($request->input('created_by')) ? $request->input('created_by') : null;
+        $data['assigned_to'] = !empty($request->input('assigned_to')) ? $request->input('assigned_to') : null;
         $data['priority'] = !empty($request->input('priority')) ? $request->input('priority') : null;
-        $data['watchers'] = !empty($request->input('watchers')) ? $request->input('watchers') : null;
+        $data['email'] = !empty($request->input('email')) ? $request->input('email') : null;
+        $data['phone_number'] = !empty($request->input('phone_number')) ? $request->input('phone_number') : null;
 
         return $data;
     }
