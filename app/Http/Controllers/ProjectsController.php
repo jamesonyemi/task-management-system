@@ -159,7 +159,7 @@ class ProjectsController extends Controller
             'description' => 'string|min:1|max:1000|nullable',
             'status' => 'string|min:1|nullable',
             'created_by' => 'required',
-            'assigned_to' => 'string|min:1|nullable',
+            'assigned_to' => 'string|min:1|required',
             'priority' => 'string|min:1|nullable',
             'email' => 'email|required',
             'phone_number' => 'string|min:1|max:16|digits:10',

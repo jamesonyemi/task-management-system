@@ -31,21 +31,30 @@ class Project extends Model
                   'name',
                   'company_name',
                   'description',
-                  'created_by',
-                  'assigned_to',
                   'phone_number',
                   'blob',
                   'email',
                   'priority',
                   'status'
               ];
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'assigned_to', 
+        'created_by',
+        'update_at',
+        'created_at'
+    ];
 
     /**
      * The attributes that should be mutated to dates.
      *
      * @var array
      */
-    protected $dates = [];
+    protected $dates = ['update_at','created_at'];
     
     /**
      * The attributes that should be cast to native types.
