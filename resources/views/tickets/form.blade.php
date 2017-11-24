@@ -96,126 +96,55 @@
                                     <label for="timesheetinput1">Employee Name</label>
                                     <div class="position-relative has-icon-left">
                                         {!! Form::text('employee_name', null, array('placeholder' => 'Employee name','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Employee name"')) !!}
-                                       {{--  <input type="text" id="timesheetinput1" class="form-control" placeholder="Employee name" name="employee_name"> --}}
+                                       
                                         <div class="form-control-position">
                                             <i class="icon-head"></i>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="issueinput2">Assigned By</label>
-                                    {!! Form::text('assigned_by', null, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
-                                    {{-- <input type="text" id="issueinput2" class="form-control" placeholder="Opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By"> --}}
+                                 <div class="form-group">
+                                    {!! Form::hidden('assigned_by', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                 </div>
 
-
                                 <div class="form-group">
-                                   {{--  <label for="issueinput2"></label> --}}
-                                    {!! Form::hidden('project_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
-                                    {{-- <input type="text" id="issueinput2" class="form-control" placeholder="Opened by" name="assigned_by" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Opened By"> --}}
+                                {!! Form::hidden('project_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
+                                   
                                 </div>
 
-
+                                <div class="row">
                                 <div class="col col-md-12">
-                                <label for="timesheetinput3">Date Opened</label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                        <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y-m-d H:i:s")}}" class="form-control" name="date_opened">
+                                            <label for="projectinput4">Open Date</label>
+                                            <div class="position-relative has-icon-left">
+                                            <input type="text" id="open_date" value="{{gmdate("Y-m-d H:i:s")}}" class="form-control" name="open_date">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
                                         </div>
+                                        </div>
                                     </div>
-                                    </div>
-
-                                  {{--   <div class="col-md-4">
-                                    <div class="form-group"> --}}
-                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                     {{--    <div class="position-relative has-icon-left">
-                                            <input type="date" id="timesheetinput3" class="form-control" value="{{gmdate("F")}}" name="date_opened">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="projectinput4">Due Date</label>
+                                            <div class="position-relative has-icon-left">
+                                            <input type="text" id="due_date" value="{{gmdate("Y-m-d H:i:s",strtotime('+5 days'))}}" class="form-control" name="due_date">
                                             <div class="form-control-position">
                                                 <i class="icon-calendar5"></i>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    </div> --}}
-
-                                   {{--  <div class="col-md-3">
-                                    <div class="form-group"> --}}
-                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                    {{--     <div class="position-relative has-icon-left">
-                                            <input type="date" id="timesheetinput3" class="form-control" value="{{gmdate("d")}}" name="date_opened">
-                                            <div class="form-control-position">
-                                                <i class="icon-calendar5"></i>
-                                            </div>
                                         </div>
                                     </div>
-
-                                    </div> --}}
                                 </div>
-
-
-                                <label for="timesheetinput3">Due Date</label>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                        <div class="position-relative has-icon-left">
-                                            <input type="text" id="timesheetinput3" value="{{gmdate("Y-m-d H:i:s",strtotime('+5 days'))}}" class="form-control" name="due_date">
-                                            <div class="form-control-position">
-                                                <i class="icon-calendar5"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                    {{-- <div class="col-md-4">
-                                    <div class="form-group"> --}}
-                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                    {{--     <div class="position-relative has-icon-left">
-                                            <input type="date" id="timesheetinput3" class="form-control" value="{{date("F")}}" name="date_fixed">
-                                            <div class="form-control-position">
-                                                <i class="icon-calendar5"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div> --}}
-                                           {{--  <select><option>
-                                                <li>oooooooooooooo </li>
- --}}
-                                              {{--   {{ List all months here}} --}}
-
-                                            {{-- </option>
-                                            <option>
-                                                <li>
-                                                 ssssssssss   
-
-                                                </li>
-                                            </option>
-                                            </select> --}}
-
-                                    {{-- <div class="col-md-3">
-                                    <div class="form-group"> --}}
-                                        {{-- <label for="timesheetinput3">Date Fixed</label> --}}
-                                    {{--     <div class="position-relative has-icon-left">
-                                            <input type="date" id="timesheetinput3" class="form-control" value="{{date("d H:i:s", strtotime("+5 days"))}}" name="date_fixed">
-                                            <div class="form-control-position">
-                                                <i class="icon-calendar5"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    </div> --}}
-                                  </div>
-                                 </div>
-
+                                </div>
+                             </div>
 
                                 <div class="form-group">
                                     <label for="issueinput5">Priority</label>
 
-                                    {!! Form::select('priority',['normal'=>'normal','low'=>'low','high'=>'high','urgent'=>'urgent','medium'=>'medium'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
+                                    {!! Form::select('priority',['normal'=>'normal','low'=>'low','high'=>'high','urgent'=>'urgent','medium'=>'medium'], 'normal', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
 
                                     {{-- <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
                                         <option value="low">Low</option>
@@ -228,7 +157,7 @@
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
-                                    {!! Form::select('status',['open'=>'open','cancelled'=>'cancelled','on hold'=>'on hold','in progress'=>'in progress'], null, array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+                                    {!! Form::select('status',['open'=>'open','cancelled'=>'cancelled','on hold'=>'on hold','in progress'=>'in progress'], 'open', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
 
                                    {{--  <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
                                         <option value="started">Started</option>
@@ -252,8 +181,22 @@
                                     {!! Form::textarea('description', null, array('placeholder' => 'Description the issue you are currently facing','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"')) !!}
 
                                    {{--  <textarea id="issueinput8" rows="5" class="form-control" name="description" placeholder="Description the issue you are currently facing" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"></textarea> --}}
-                                </div>
 
+
+                                </div>
+                                <div class=" row col col-md-12">{!! Form::label('watchers', 'Watchers', ['class' => 'form-label']) !!}</div>
+
+                                @foreach ($watchers as $watcher)
+            
+                                <label class="display-inline-block custom-control custom-checkbox">
+                                <input type="checkbox" id="checkbox2" name="watchers" class="custom-control-input" 
+                                 value="{{ $watcher->name }}">
+                                 <span class="custom-control-indicator"></span>
+                                 <span class="custom-control-description">
+                                     {{ $watcher->name }}
+                                </span>
+                                </label> 
+                                @endforeach
                             </div>
 
                             

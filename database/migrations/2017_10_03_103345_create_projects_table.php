@@ -13,22 +13,29 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
+
+    if (! Schema::hasTable('projects')) {
+        
         Schema::create('projects', function(Blueprint $table)
         {
             $table->increments('id');
-            $table->string('project_name')->nullable();
-            $table->string('description', 1000)->nullable();
-            $table->enum('status', array('active', 'deleted'));
-            $table->integer('created_by')->unsigned()->index();
+            $table->string('name');
+            $table->string('company_name');
+            $table->string('description');
+            $table->unsignedBigInteger('assigned_to');
+            $table->unsignedBigInteger('created_by');
+            $table->string('email')->unique();
+            $table->string('phone_number', 16);
             $table->enum('priority', array('normal','low','high', 'urgent', 'medium'))->default('normal');
-            //$table->string('assignee')->nullable();
-            //$table->string('priority')->nullable();
-            //$table->string('watchers')->nullable();
+            $table->enum('status', array('Open','Cancelled','On Hold', 'In Progress', 'Completed'))->default('Open');
+            $table->string('blob')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
         });
     }
+        
+}
 
     /**
      * Reverse the migrations.

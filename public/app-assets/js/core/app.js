@@ -7,6 +7,9 @@
   Author: GeeksLabs
   Author URL: http://www.themeforest.net/user/geekslabs
 ==========================================================================================*/
+ function reload() {
+      window.location.reload(true);
+    }
 
 (function(window, document, $) {
     'use strict';
