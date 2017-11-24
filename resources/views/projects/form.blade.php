@@ -37,7 +37,7 @@
                     <div class="card-block">
                         <div class="card-text">
      <div class="row match-height">
-     <form class="form" method="POST" action="{{  route('projects.project.create') }} ">
+     <form class="form" method="POST" action="{{  route('projects.project.create') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="col-md-6">
             <div class="card">
@@ -199,7 +199,7 @@
                                 <div class="form-group">
                                     <div><label>File Attachment</label></div>
                                     <label id="file" class="file center-block">
-                                        {!! Form::file('blob', []) !!}
+                                        {!! Form::file('blob[]', ['multiple'=>'multiple']) !!}
                                         <span class="file-custom"></span>
                                     </label>
                                 </div>
@@ -240,5 +240,3 @@
         </div>
       </div>
     </div>
-
-

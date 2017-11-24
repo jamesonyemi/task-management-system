@@ -53,7 +53,28 @@ class ProjectsController extends Controller
             $this->affirm($request);
             $data = $this->getData($request);
             
-            Project::create($data);
+           $projects = Project::create($data);
+
+       //      if( $request->hasFile( 'image' ) ) {
+       //                  $image = $request->file( 'image' );
+                         $imageType = $image->guessExtension();
+                         // $imageType = $image->guessClientExtension();
+                         $imageName = $image->getClientOriginalName();
+                         // $imageName = $image->getName();
+                         $imageUrl  = $image->getFileName();
+                         $imageMineType = $image->getMimeType();
+                         $imageSize = $image->getSize();
+                         // $imageSize = $image->getClientSize();
+
+       //                  $imageStr = (string) Image::make( $image )->
+       //                                           resize( 300, null, function ( $constraint ) {
+       //                                               $constraint->aspectRatio();
+       //                                           })->encode( $imageType );
+
+       //                  $user->image = base64_encode( $imageStr );
+       //                  $user->imageType = $imageType;
+       //                  $user->save();
+       // }
 
             return redirect()->route('projects.project.index')
                              ->with('success_message', 'Project was successfully added!');

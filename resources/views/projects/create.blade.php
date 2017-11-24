@@ -28,7 +28,7 @@
                 </ul>
             @endif
 
-            <form method="POST" action="{{ route('projects.project.store') }}" accept-charset="UTF-8" class="form-horizontal">
+            <form method="POST" action="{{ route('projects.project.store') }}" enctype="multipart/form-data" accept-charset="UTF-8" class="form-horizontal">
             {{ csrf_field() }}
             @include ('projects.form')
 
