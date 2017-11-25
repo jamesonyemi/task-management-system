@@ -90,7 +90,9 @@ class TicketingController extends Controller
      */
     public function edit(Ticketing $ticketing)
     {
-        return view('tickets.edit', compact('ticketing'));
+        $watchers = User::latest()->paginate(10);
+        return view('tickets.edit', compact('ticketing','watchers'))
+                    ->with('p', (request()->input('page', 1) - 1) * 5);
     }
 
     /**

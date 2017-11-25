@@ -75,4 +75,8 @@ class Project extends Model
         return $this->hasOne('App\User');
     }
 
+    public function blob(){
+        return $this->hasOne(Blobs::class);
+    }
+
 }
