@@ -199,7 +199,7 @@
                                 <div class="form-group">
                                     <div><label>File Attachment</label></div>
                                     <label id="file" class="file center-block">
-                                        {!! Form::file('blob[]', ['multiple'=>'multiple']) !!}
+                                        {!! Form::file('blob_id[]', ['multiple'=>'multiple']) !!}
                                         <span class="file-custom"></span>
                                     </label>
                                 </div>

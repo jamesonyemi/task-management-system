@@ -32,8 +32,6 @@ class Project extends Model
                   'company_name',
                   'description',
                   'phone_number',
-                  'blob',
-                  'email',
                   'priority',
                   'status'
               ];
@@ -43,6 +41,8 @@ class Project extends Model
      * @var array
      */
     protected $hidden = [
+        'email',
+        'blob_id',
         'assigned_to', 
         'created_by',
         'update_at',
