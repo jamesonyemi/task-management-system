@@ -67,7 +67,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::hidden('created_by', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
+                                    {!! Form::hidden('creator', Auth::user()->name, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
+                                </div>
+
+                                <div class="form-group">
+                                    {!! Form::hidden('user_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                 </div>
 
 
@@ -172,9 +176,12 @@
                                 <div class="form-group">
                                     <label for="donationinput4">Project Lead</label>
                                     <select class="form-control" id="assigned_to" name="assigned_to" required="true">
-                                        <option value="" style="display: none;" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : '') == '' ? 'selected' : '' }} disabled selected>Assigned To</option>
+                                    {{-- <option value="" style="display: none;" disabled selected>Assigned To
+
+                                        </option> --}}
+
                                         @foreach ($assigned_to as $key => $assignee)
-                                            <option value="{{ last([$key => $assignee],$key = null, $default = null) }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : null) == $key ? 'selected' : '' }}>
+                                            <option value="{{ $assignee }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : 'null') == $key ? 'selected' : '' }}>
                                                 {{ $assignee }}
                                             </option>
                                         @endforeach
@@ -199,7 +206,7 @@
                                 <div class="form-group">
                                     <div><label>File Attachment</label></div>
                                     <label id="file" class="file center-block">
-                                        {!! Form::file('blob_id[]', ['multiple'=>'multiple']) !!}
+                                        {!! Form::file('blob_id', ['multiple'=>'multiple']) !!}
                                         <span class="file-custom"></span>
                                     </label>
                                 </div>

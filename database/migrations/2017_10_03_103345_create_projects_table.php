@@ -22,8 +22,9 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->string('company_name');
             $table->string('description');
-            $table->unsignedBigInteger('assigned_to');
-            $table->unsignedBigInteger('created_by');
+            $table->string('assigned_to');
+            $table->string('creator');
+            $table->bigInteger('user_id');
             $table->string('email')->unique();
             $table->string('phone_number', 16);
             $table->enum('priority', array('normal','low','high', 'urgent', 'medium'))->default('normal');

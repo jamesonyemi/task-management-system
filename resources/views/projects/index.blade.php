@@ -25,11 +25,25 @@
             <div class="card-body collapse in">
                 <div class="card-block card-dashboard">
                     <p>
-                        @if ($message = Session::get('success'))
+                        {{-- @if ($message = Session::get('success'))
                             <div class="alert alert-success">
                                 <p>{{ $message }}</p>
                             </div>
-                        @endif
+                        @endif --}}
+
+     @if(Session::has('success_message'))
+        <div class="alert alert-success">
+            <span class="glyphicon glyphicon-ok"></span>
+            {!! session('success_message') !!}
+
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+
+        </div>
+    @endif
+
+
                     </p>
                 </div>
                 <div class="table-responsive">
@@ -58,7 +72,7 @@
                                    <td>{{ $project->company_name}}</td>
                                    <td>{{ $project->email}}</td>
                                    <td>{{ $project->assigned_to}}</td>
-                                   <td>{{ $project->created_by}}</td>
+                                   <td>{{ $project->creator}}</td>
                                    <th>{{ $project->priority }}</th>
                                    <td>{{ $project->status}}</td>
                                    <td>

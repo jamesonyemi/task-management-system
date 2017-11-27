@@ -32,8 +32,12 @@ class Project extends Model
                   'company_name',
                   'description',
                   'phone_number',
+                  'assigned_to',
+                  'creator',
+                  'user_id',
                   'priority',
-                  'status'
+                  'email',
+                  'status',
               ];
     /**
      * The attributes that should be hidden for arrays.
@@ -44,7 +48,8 @@ class Project extends Model
         'email',
         'blob_id',
         'assigned_to', 
-        'created_by',
+        'creator',
+        'user_id',
         'update_at',
         'created_at'
     ];

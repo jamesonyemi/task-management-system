@@ -50,36 +50,18 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         try {
+
             $this->affirm($request);
             $data = $this->getData($request);
-            
+
            $projects = Project::create($data);
-
-       //      if( $request->hasFile( 'image' ) ) {
-       //                  $image = $request->file( 'image' );
-                         $imageType = $image->guessExtension();
-                         // $imageType = $image->guessClientExtension();
-                         $imageName = $image->getClientOriginalName();
-                         // $imageName = $image->getName();
-                         $imageUrl  = $image->getFileName();
-                         $imageMineType = $image->getMimeType();
-                         $imageSize = $image->getSize();
-                         // $imageSize = $image->getClientSize();
-
-       //                  $imageStr = (string) Image::make( $image )->
-       //                                           resize( 300, null, function ( $constraint ) {
-       //                                               $constraint->aspectRatio();
-       //                                           })->encode( $imageType );
-
-       //                  $user->image = base64_encode( $imageStr );
-       //                  $user->imageType = $imageType;
-       //                  $user->save();
-       // }
-
             return redirect()->route('projects.project.index')
                              ->with('success_message', 'Project was successfully added!');
 
-        } catch (Exception $exception) {
+        } 
+
+        catch (Exception $exception) 
+        {
 
             return back()->withInput()
                          ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request']);
@@ -179,10 +161,11 @@ class ProjectsController extends Controller
             'company_name' => 'string|min:1|nullable',
             'description' => 'string|min:1|max:1000|nullable',
             'status' => 'string|min:1|nullable',
-            'created_by' => 'required',
+            'creator' => 'required',
+            'user_id' => 'required',
+            'email' => 'email|required',
             'assigned_to' => 'string|min:1|required',
             'priority' => 'string|min:1|nullable',
-            'email' => 'email|required',
             'phone_number' => 'string|min:1|max:16|digits:10',
                 
         ]);
@@ -204,7 +187,8 @@ class ProjectsController extends Controller
         $data['company_name'] = !empty($request->input('company_name')) ? $request->input('company_name') : null;
         $data['description'] = !empty($request->input('description')) ? $request->input('description') : null;
         $data['status'] = !empty($request->input('status')) ? $request->input('status') : null;
-        $data['created_by'] = !empty($request->input('created_by')) ? $request->input('created_by') : null;
+        $data['user_id'] = !empty($request->input('user_id')) ? $request->input('user_id') : null;
+        $data['creator'] = !empty($request->input('creator')) ? $request->input('creator') : null;
         $data['assigned_to'] = !empty($request->input('assigned_to')) ? $request->input('assigned_to') : null;
         $data['priority'] = !empty($request->input('priority')) ? $request->input('priority') : null;
         $data['email'] = !empty($request->input('email')) ? $request->input('email') : null;

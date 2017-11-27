@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </form> --}}
-
+        
             {!! Form::model($project, ['method' => 'PATCH','route' => ['projects.project.update', $project->id]]) !!}
                 @include('projects.form')
             {!! Form::close() !!}
