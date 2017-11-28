@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Ticketing;
+use App\Blobs;
 
 class Project extends Model
 {
@@ -35,6 +36,7 @@ class Project extends Model
                   'assigned_to',
                   'creator',
                   'user_id',
+                  'blob_id',
                   'priority',
                   'email',
                   'status',
@@ -81,7 +83,7 @@ class Project extends Model
     }
 
     public function blob(){
-        return $this->hasOne(Blobs::class);
+        return $this->hasMany(Blobs::class);
     }
 
 }

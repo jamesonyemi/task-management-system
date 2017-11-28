@@ -24,3 +24,4 @@ class Blobs extends Model
     	return $this->belongsTo(Project::class);
     }
 }
+

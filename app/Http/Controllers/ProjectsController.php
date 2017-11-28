@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Ticketing;
 use App\User;
+use App\Blobs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\TicketingController;
@@ -53,7 +54,7 @@ class ProjectsController extends Controller
 
             $this->affirm($request);
             $data = $this->getData($request);
-
+        
            $projects = Project::create($data);
             return redirect()->route('projects.project.index')
                              ->with('success_message', 'Project was successfully added!');
@@ -188,6 +189,7 @@ class ProjectsController extends Controller
         $data['description'] = !empty($request->input('description')) ? $request->input('description') : null;
         $data['status'] = !empty($request->input('status')) ? $request->input('status') : null;
         $data['user_id'] = !empty($request->input('user_id')) ? $request->input('user_id') : null;
+        $data['blob_id'] = !empty($request->file('blob_id')->store('blob')) ? str_replace('blob', '', $request->file('blob_id')->store('blob')) : null;
         $data['creator'] = !empty($request->input('creator')) ? $request->input('creator') : null;
         $data['assigned_to'] = !empty($request->input('assigned_to')) ? $request->input('assigned_to') : null;
         $data['priority'] = !empty($request->input('priority')) ? $request->input('priority') : null;

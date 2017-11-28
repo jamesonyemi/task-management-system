@@ -75,14 +75,14 @@ Route::group(
          ->name('asset_categories.asset_category.show')
          ->where('id', '[0-9]+');
 
-    Route::get('/{assetCategory}/edit','AssetCategoriesController@edit')
+    Route::any('/{assetCategory}/edit','AssetCategoriesController@edit')
          ->name('asset_categories.asset_category.edit')
          ->where('id', '[0-9]+');
 
     Route::post('/', 'AssetCategoriesController@store')
          ->name('asset_categories.asset_category.store');
                
-    Route::put('asset_category/{assetCategory}', 'AssetCategoriesController@update')
+    Route::any('asset_category/{assetCategory}', 'AssetCategoriesController@update')
          ->name('asset_categories.asset_category.update')
          ->where('id', '[0-9]+');
 
