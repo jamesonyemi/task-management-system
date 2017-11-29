@@ -30,10 +30,10 @@ class CreateTicketsTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone_number', 25);
-            // $table->string('blob');
+            $table->string('watchers');
             $table->enum('priority', array('normal','low','high', 'urgent', 'medium'))->default('normal');
             $table->enum('status', array('open', 'cancelled', 'on hold', 'in progress'))->default('open');
-            $table->dateTime('date_opened');
+            $table->dateTime('open_date');
             $table->dateTime('due_date');
             $table->timestamps();
             $table->softDeletes();

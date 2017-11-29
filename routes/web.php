@@ -1,5 +1,6 @@
 <?php
 use App\Mail\Register;
+use App\Notifications\SendTicketMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

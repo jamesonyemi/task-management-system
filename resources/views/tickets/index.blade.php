@@ -29,7 +29,12 @@
                     <p>
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success">
-                                <p>{{ $message }}</p>
+                              <p>
+                                  {{ $message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                              </p>
                             </div>
                         @endif
                     </p>
@@ -61,10 +66,10 @@
                                    <td>{{ $ticket->email}}</td>
                                    <td>{{ $ticket->assigned_by}}</td>
                                    <td>
-                                       <a class="btn btn-info icon-eyedropper2" href="{{ route('tickets.tickets.show',$ticket->id) }}">View</a>
-                                       <a class="btn btn-primary icon-pencil-square-o" href="{{ route('tickets.tickets.edit',$ticket->id) }}">Edit</a>
-                                       {!! Form::open(['method' => 'DELETE','route' => ['tickets.tickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
-                                       {!! Form::submit('Delete', ['class' => 'btn btn-danger icon-trash-o']) !!}
+                                       <a class="btn btn-info icon-open" href="{{ route('tickets.tickets.show',$ticket->id) }}"></a>
+                                       <a class="btn btn-primary icon-pencil-square-o" href="{{ route('tickets.tickets.edit',$ticket->id) }}"></a>
+                                       {{-- {!! Form::open(['method' => 'DELETE','route' => ['tickets.tickets.destroy', $ticket->id],'style'=>'display:inline']) !!}
+                                       {!! Form::button('Delete', ['class' => 'btn btn-danger icon-trash-o']) !!} --}}
                                        {!! Form::close() !!}
                                    </td>
                                </tr>

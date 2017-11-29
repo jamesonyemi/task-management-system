@@ -54,8 +54,12 @@ class ProjectsController extends Controller
 
             $this->affirm($request);
             $data = $this->getData($request);
-        
+              $file = $request->file('blob_id');
+               $blob = $file->getClientOriginalName();
+                $saveBlob = Blobs::create(['name'=>$blob]);
+
            $projects = Project::create($data);
+
             return redirect()->route('projects.project.index')
                              ->with('success_message', 'Project was successfully added!');
 

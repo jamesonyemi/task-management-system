@@ -8,6 +8,7 @@ use App\Models\Project;
 class Blobs extends Model
 {
     protected $table = 'blobs';
+    protected $timestamps;
 
     protected $fillable = [
       'mime_type','url','size','status'

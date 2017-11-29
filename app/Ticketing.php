@@ -34,10 +34,10 @@ class Ticketing extends Model
     //     return $this-hasMany('App\Model\Project','assigned_by');
     // }
 
-    public function sendTicketNotification($token,$email)
+    public function sendTicketNotification($token)
    {
       // $this->notify(new PasswordReset($token));
-         $this->notify(new SendTicketMail($token, $email));
+         $this->notify(new SendTicketMail($token));
    }
      public function user() 
      {
