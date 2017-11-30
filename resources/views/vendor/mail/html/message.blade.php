@@ -5,7 +5,7 @@
 
            {{--  {{ config('app.name') }} --}}
 
-           {{ config('app.subtitle') }}
+         {{--   {{ config('app.subtitle') }} --}}
 
         @endcomponent
     @endslot

@@ -6,24 +6,19 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Support\Facades\Auth;
-use App\User;
-use App\Ticketing;
 
-class SendTicketMail extends Notification
+class ticket_notify extends Notification
 {
     use Queueable;
-
-    protected $email;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($email)
+    public function __construct()
     {
-        $this->email = $email;
+        //
     }
 
     /**
@@ -45,13 +40,7 @@ class SendTicketMail extends Notification
      */
     public function toMail($notifiable)
     {
-        // return (new MailMessage)
-        //             ->subject("New Ticket")
-        //             ->line('Dear' . "\n" . Auth::user()->name )
-        //             ->line('A new task has been assigned to you. Please click the button below to complete the reset')
-        //             ->action('New Ticket', url(config('app.url').route('tickets.tickets.index', $this->email, false)));
-
-                    return (new MailMessage)->markdown('mail.ticket.notify');
+        return (new MailMessage)->markdown('mail.ticket.notify');
     }
 
     /**
