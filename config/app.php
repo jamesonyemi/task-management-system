@@ -53,7 +53,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/task-management-system/public/'),
+    'url' => env('APP_URL', 'http://localhost/tms/public/'),
 
     /*
     |--------------------------------------------------------------------------

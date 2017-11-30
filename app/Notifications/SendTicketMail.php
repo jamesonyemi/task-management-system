@@ -14,14 +14,16 @@ class SendTicketMail extends Notification
 {
     use Queueable;
 
+    protected $email;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($token)
+    public function __construct($email)
     {
-        $this->token = $token;
+        $this->email = $email;
     }
 
     /**
@@ -44,10 +46,10 @@ class SendTicketMail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject("New Ticket" . "\n" . (Ticketing::class($id)))
+                    ->subject("New Ticket" . "\n" . (Auth::user()->id))
                     ->line('Dear' . "\n" . Auth::user()->name )
                     ->line('A new task has been assigned to you. Please click the button below to complete the reset')
-                    ->action('New Ticket', url(config('app.url').route('ticket.index', $this->token, false)));
+                    ->action('New Ticket', url(config('app.url').route('tickets.tickets.index', $this->email, false)));
     }
 
     /**

@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
+use App\Notifications\SendTicketMail;
 // use Illuminate\Support\Facades\Auth;
 
 
@@ -51,7 +52,7 @@ class TicketingController extends Controller
        request()->validate([
                'first_name' => 'required',
                'last_name' => 'required',
-               'email' => 'required',
+               'ti' => 'required',
                'issue_title'  => 'required',
                'assigned_by' => 'required',
                'priority' => 'required',
@@ -64,7 +65,8 @@ class TicketingController extends Controller
                'employee_name' => 'required',
                // 'blob' => 'required',
             ]);
-           Ticketing::create($request->all());
+           $email= Ticketing::create($request->all());
+            $email->notify(new SendTicketMail($email));
             return redirect()->route('tickets.tickets.index')
                             ->with('success','Ticket created successfully');
     }
@@ -118,6 +120,7 @@ class TicketingController extends Controller
              'employee_name' => 'required',
         ]);
         $ticketing->update($request->all());
+        $ticketing->notify(new SendTicketMail($ticketing));
         return redirect()->route('tickets.tickets.index')
                           ->with('success', 'Ticket updated successfully');
     }
