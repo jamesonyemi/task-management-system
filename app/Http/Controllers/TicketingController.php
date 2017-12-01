@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use App\Notifications\SendTicketMail;
+use SweetAlert;
 // use Illuminate\Support\Facades\Auth;
 
 

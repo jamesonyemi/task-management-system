@@ -36,10 +36,8 @@ class Ticketing extends Model
 
     public function sendTicketNotification($email)
    {
-      // $this->notify(new PasswordReset($token));
-     $user = User::findOrFail();
-         // $this->notify(new SendTicketMail($email));
-         $user->notify(new SendTicketMail($email));
+         // $user = User::findOrFail();
+         // $user->notify(new SendTicketMail($email));
    }
      public function user() 
      {
