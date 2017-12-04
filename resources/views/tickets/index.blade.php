@@ -26,7 +26,7 @@
             </div>
             <div class="card-body collapse in">
                 <div class="card-block card-dashboard">
-                    <p>
+                    {{-- <p>
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success">
                               <p>
@@ -36,8 +36,9 @@
                                 </button>
                               </p>
                             </div>
+   
                         @endif
-                    </p>
+                    </p> --}}
                 </div>
                 <div class="table-responsive">
                     <table class="table mb-0 table-bordered table-hover">
@@ -86,6 +87,6 @@
 
         </div>
       </div>
-   
+   </div>
 @endsection
 

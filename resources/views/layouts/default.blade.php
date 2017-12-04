@@ -298,8 +298,9 @@
     <!-- END ROBUST JS-->
 
     <!-- BEGIN PAGE LEVEL JS-->
+    <script src="{{ asset('app-assets/js/scripts/extensions/sweetalert.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
-
+    @include('sweet::alert')
 
   </body>
 </html>

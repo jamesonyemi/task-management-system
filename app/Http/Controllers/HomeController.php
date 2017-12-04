@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use SweetAlert;
 
 class HomeController extends Controller
 {

@@ -23,7 +23,8 @@ class TicketingController extends Controller
      */
     public function index()
     {
-
+SweetAlert::message('Good Job','You have successfully Loged In!','success')->autoclose(6000*2);  
+// SweetAlert()->position('bottom-right')->autoclose(3000)->toast()->message('This is A Custom Message');
        $tickets = Ticketing::latest()->paginate(10);
             return view('tickets.index',compact('tickets'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
@@ -53,7 +54,6 @@ class TicketingController extends Controller
        request()->validate([
                'first_name' => 'required',
                'last_name' => 'required',
-               'ti' => 'required',
                'issue_title'  => 'required',
                'assigned_by' => 'required',
                'priority' => 'required',
@@ -118,6 +118,7 @@ class TicketingController extends Controller
              'phone_number' => 'required',
              'assignee' => 'required',
              'project_name' => 'required',
+             'note' => 'required',
              'employee_name' => 'required',
         ]);
         $ticketing->update($request->all());
