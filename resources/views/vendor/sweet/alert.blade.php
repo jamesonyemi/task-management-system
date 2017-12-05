@@ -1,10 +1,10 @@
 @if (Session::has('sweet_alert.alert'))
     <script>
         swal({
-            text: "{!! Session::get('sweet_alert.text') !!}",
+            text:  "{!!  Session::get('sweet_alert.text') !!}",
             title: "{!! Session::get('sweet_alert.title') !!}",
-            timer: {!! Session::get('sweet_alert.timer') !!},
-            type: "{!! Session::get('sweet_alert.type') !!}",
+            timer: "{!! Session::get('sweet_alert.timer') !!}",
+            type:  "{!!  Session::get('sweet_alert.type') !!}",
             position: "{!! Session::get('top-right','top-right') !!}",
             width: "auto",
             grow:'colum',

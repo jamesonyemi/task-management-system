@@ -23,9 +23,8 @@ class TicketingController extends Controller
      */
     public function index()
     {
-SweetAlert::message('Good Job','You have successfully Loged In!','success')->autoclose(6000*2);  
-// SweetAlert()->position('bottom-right')->autoclose(3000)->toast()->message('This is A Custom Message');
-       $tickets = Ticketing::latest()->paginate(10);
+
+       $tickets = Ticketing::latest()->paginate(25);
             return view('tickets.index',compact('tickets'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
     }
@@ -66,10 +65,10 @@ SweetAlert::message('Good Job','You have successfully Loged In!','success')->aut
                'employee_name' => 'required',
                // 'blob' => 'required',
             ]);
-           $email= Ticketing::create($request->all());
+            $email= Ticketing::create($request->all());
             $email->notify(new SendTicketMail($email));
-            return redirect()->route('tickets.tickets.index')
-                            ->with('success','Ticket created successfully');
+            SweetAlert::message('Good Job','Ticket created successfully','success')->autoclose(6000*2);  
+            return redirect()->route('tickets.tickets.index');
     }
 
     /**
@@ -123,8 +122,9 @@ SweetAlert::message('Good Job','You have successfully Loged In!','success')->aut
         ]);
         $ticketing->update($request->all());
         $ticketing->notify(new SendTicketMail($ticketing));
-        return redirect()->route('tickets.tickets.index')
-                          ->with('success', 'Ticket updated successfully');
+        SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);  
+        return redirect()->route('tickets.tickets.index');
+            OneSignal::async()->sendNotificationCustom($parameters);              
     }
 
     /**

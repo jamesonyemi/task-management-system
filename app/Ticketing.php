@@ -34,13 +34,14 @@ class Ticketing extends Model
     //     return $this-hasMany('App\Model\Project','assigned_by');
     // }
 
-    public function sendTicketNotification($email)
-   {
-         // $user = User::findOrFail();
-         // $user->notify(new SendTicketMail($email));
-   }
      public function user() 
      {
         return $this->hasOne('App\User');
      }
+
+     public function assignTo()
+     {
+         return $this->hasOne('App\Ticketing','id');
+     }
+     
 }

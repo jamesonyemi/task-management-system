@@ -166,6 +166,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
+        Berkayk\OneSignal\OneSignalServiceProvider::class,
        
 
 
@@ -233,6 +234,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'SweetAlert' => UxWeb\SweetAlert\SweetAlert::class,
+        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
         
     ],
 

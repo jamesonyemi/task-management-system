@@ -24,9 +24,7 @@ class ProjectsController extends Controller
          $projects = Project::latest()->paginate(25);
               return view('projects.index',compact('projects'))
                   ->with('p', (request()->input('page', 1) - 1) * 5);
-        // $project = User::with('assignedby')->findOrFail($id);
-
-        // return view('projects.index', compact('projects'));
+        
     }
 
     /**

@@ -49,23 +49,39 @@
                                 <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Assigned By</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                           @foreach ($tickets as $ticket)
-                            {{-- <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr> --}}
+              {{--  Loop through the lists of Projects --}}
+                     @foreach ($tickets as $ticket)
+                        
+              {{-- check if the current user has been assigned a ticket --}}
+                     @if ( (int)$ticket->assigned_by == (int)Auth::user()->id )
+                           <tbody>
                                <tr>
                                    <td>{{ ++$p }}</td>
                                    <td>{{ $ticket->first_name}}</td>
                                    <td>{{ $ticket->last_name}}</td>
                                    <td>{{ $ticket->email}}</td>
                                    <td>{{ $ticket->assigned_by}}</td>
+                                   <td>
+                                   @switch($ticket->status)
+                                    @case('in progress')
+                                       <div class="tag tag-default tag-info">In Progress</div>
+                                        @break
+
+                                    @case('cancelled')
+                                       <div class="tag tag-default tag-danger">Cancelled</div>
+                                        @break
+
+                                    @case('on hold')
+                                       <div class="tag tag-default tag-warning">On Hold</div>
+                                        @break
+
+                                    @default
+                                        <div class="tag tag-default tag-success">Open</div>
+                                  @endswitch
                                    <td>
                                        <a class="btn btn-info icon-open" href="{{ route('tickets.tickets.show',$ticket->id) }}"></a>
                                        <a class="btn btn-primary icon-pencil-square-o" href="{{ route('tickets.tickets.edit',$ticket->id) }}"></a>
@@ -74,8 +90,9 @@
                                        {!! Form::close() !!}
                                    </td>
                                </tr>
-                               @endforeach
-                        </tbody>
+                            </tbody>
+                       @endif  
+                       @endforeach
                     </table>
                   {{-- {!! $tickets->render() !!}   --}}
                   {{ $tickets->links('vendor.pagination.bootstrap-4') }}

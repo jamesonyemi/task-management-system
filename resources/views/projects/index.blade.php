@@ -65,7 +65,7 @@
                      {{--  Loop through the lists of Projects --}}
                     @foreach ($projects as $project)
                     {{-- check if the current user has been assigned a ticket --}}
-                           {{--  @if ($project->assigned_by === (int) Auth::user()->id) --}}
+                            @if ($project->assigned_by === (int) Auth::user()->id)
                                <tr>
                                    <td>{{ ++$p }}</td>
                                    <td>{{ $project->name}}</td>
@@ -83,7 +83,7 @@
                                        {!! Form::close() !!}
                                    </td>
                                </tr>
-                               {{-- @endif --}}
+                               @endif
                                @endforeach
                         </tbody>
                     </table>
