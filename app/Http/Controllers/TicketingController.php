@@ -120,11 +120,22 @@ class TicketingController extends Controller
              'note' => 'required',
              'employee_name' => 'required',
         ]);
-        $ticketing->update($request->all());
+        $updateStatus = $ticketing->update($request->all());
+        $getTicketStatus = Ticketing::latest();
+
+        foreach ($getTicketStatus as $key => $ticketStatus) {
+        if ($ticketStatus->status == 'open') {
+            
         $ticketing->notify(new SendTicketMail($ticketing));
         SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);  
         return redirect()->route('tickets.tickets.index');
-            OneSignal::async()->sendNotificationCustom($parameters);              
+            // OneSignal::async()->sendNotificationCustom($parameters);              
+        }
+        else{
+            return 'Faled';
+        }
+            
+      }
     }
 
     /**

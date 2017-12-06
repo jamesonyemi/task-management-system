@@ -304,14 +304,15 @@
                     </div>
                 </div>
             </div>
+            
 
             <div class="form-actions right" style="float:right">
                 <a href="{{ route('tickets.tickets.index') }}"> 
-                <button type="button" class="btn btn-warning mr-1" >
+                <button type="button" class="btn btn-outline-danger mr-1 btn-min-width mr-1 mb-1" >
                    <i class="icon-cross2" ></i> Cancel
                 </button>
                 </a>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-success btn-min-width mr-1 mb-1">
                     <i class="icon-check2"></i> Save
                 </button>
             </div>

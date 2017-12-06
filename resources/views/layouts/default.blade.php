@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/fonts/icomoon.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/fonts/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/pace.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/pickers/datetime/bootstrap-datetimepicker.css')}}">
     <!-- END VENDOR CSS-->
     <!-- BEGIN ROBUST CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/bootstrap-extended.css')}}">
@@ -285,6 +286,8 @@
     <script src="{{asset('app-assets/vendors/js/ui/blockUI.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('app-assets/vendors/js/ui/jquery.matchHeight-min.js')}}" type="text/javascript"></script>
     <script src="{{asset('app-assets/vendors/js/ui/screenfull.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset('app-assets/vendors/js/datetime/moment-with-locales.js')}}" type="text/javascript"></script>
+    <script src="{{asset('app-assets/vendors/js/datetime/bootstrap-datetimepicker.js')}}" type="text/javascript"></script>
     <script src="{{asset('app-assets/vendors/js/extensions/pace.min.js')}}" type="text/javascript"></script>
     <!-- END VENDOR JS-->
 
