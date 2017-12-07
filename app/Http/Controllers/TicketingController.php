@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use App\Notifications\SendTicketMail;
+use App\Notifications\Notify_On_Complete_Status;
 use SweetAlert;
 // use Illuminate\Support\Facades\Auth;
 
@@ -106,7 +107,7 @@ class TicketingController extends Controller
      */
     public function update(Request $request, Ticketing $ticketing)
     {
-        request()->validate([
+       $validateTicket[] = request()->validate([
              'first_name' => 'required',
              'last_name' => 'required',
              'email' => 'required',
@@ -120,23 +121,48 @@ class TicketingController extends Controller
              'note' => 'required',
              'employee_name' => 'required',
         ]);
-        $updateStatus = $ticketing->update($request->all());
-        $getTicketStatus = Ticketing::latest();
 
-        foreach ($getTicketStatus as $key => $ticketStatus) {
-        if ($ticketStatus->status == 'open') {
-            
-        $ticketing->notify(new SendTicketMail($ticketing));
-        SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);  
-        return redirect()->route('tickets.tickets.index');
-            // OneSignal::async()->sendNotificationCustom($parameters);              
+    foreach ($validateTicket as $key => $getTicketStatus) {
+           // dd($getTicketStatus['last_name']);
+        $ticketing->update($request->all());
+        if (!empty($getTicketStatus['status'])) {
+            switch ($getTicketStatus['status']) {
+                case 'open':
+                    $ticketing->notify(new SendTicketMail($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
+                    break;
+
+                case 'cancelled':
+                    return "Cancelled";
+                    break;
+
+                case 'on hold':
+                  $ticketing->notify(new Notify_On_Complete_Status($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
+                    break;
+
+                case 'in progress':
+                   return "In Progress";
+                    break;
+                
+                default:
+                   return "Default";
+                    break;
+            }
+
+        // $ticketing->notify(new SendTicketMail($ticketing));
+        // SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);  
+        // return redirect()->route('tickets.tickets.index');
+            // OneSignal::async()->sendNotificationCustom($parameters); 
+
         }
-        else{
-            return 'Faled';
-        }
-            
-      }
+
+        // return "Merry ChristMas";
     }
+            
+}
 
     /**
      * Remove the specified resource from storage.

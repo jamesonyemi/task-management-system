@@ -31,9 +31,6 @@
             $color = 'blue';
     }
 ?>
-@component('mail::button', ['url' => url(route('tickets.tickets.index')), 'color' => $color])
-{{ $actionText }}
-@endcomponent
 @endisset
 
 {{-- Outro Lines --}}
@@ -50,7 +47,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-{{ 'Dear' . "\n" . Auth::user()->name }} <br>
+
 {{ 'A new task has been assigned to you.  ' }}
 
 @component('mail::header', ['url' => url(route('tickets.tickets.index',Auth::user()->id, false))])
