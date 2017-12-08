@@ -40,7 +40,6 @@ class TicketingController extends Controller
          $watchers = User::latest()->paginate(10);
             return view('tickets.create',compact('watchers'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
-        // return view('tickets.create', compact(Auth::user()));
     }
 
     /**
@@ -127,13 +126,13 @@ class TicketingController extends Controller
         $ticketing->update($request->all());
         if (!empty($getTicketStatus['status'])) {
             switch ($getTicketStatus['status']) {
-                case 'open':
+                case 'Open':
                     $ticketing->notify(new SendTicketMail($ticketing));
                     SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
                     return redirect()->route('tickets.tickets.index');
                     break;
 
-                case 'cancelled':
+                case 'Cancelled':
                     return "Cancelled";
                     break;
 
@@ -143,13 +142,17 @@ class TicketingController extends Controller
                     return redirect()->route('tickets.tickets.index');
                     break;
 
-                case 'in progress':
-                   return "In Progress";
+                case 'In Progress':
+                    return "In Progress";
+                    break;
+
+                case 'Complete':
+                    return "Complete";
                     break;
                 
                 default:
-                   return "Default";
-                    break;
+                   return redirect()->route('tickets.tickets.index');
+                   break;
             }
 
         // $ticketing->notify(new SendTicketMail($ticketing));
