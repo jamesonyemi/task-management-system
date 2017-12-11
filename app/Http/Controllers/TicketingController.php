@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+// namespace Berkayk\OneSignal;
 
 use Illuminate\Http\Request;
 use App\Ticketing;
@@ -11,6 +12,7 @@ use Illuminate\Foundation\Auth\User;
 use App\Notifications\SendTicketMail;
 use App\Notifications\Notify_On_Complete_Status;
 use SweetAlert;
+use OneSignal;
 // use Illuminate\Support\Facades\Auth;
 
 
@@ -127,7 +129,8 @@ class TicketingController extends Controller
         if (!empty($getTicketStatus['status'])) {
             switch ($getTicketStatus['status']) {
                 case 'Open':
-                    $ticketing->notify(new SendTicketMail($ticketing));
+                    /*$ticketing->notify(new SendTicketMail($ticketing));*/
+                    OneSignal::sendNotificationToUser("Some Message", env('ONESIGNAL_APP_ID'));
                     SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
                     return redirect()->route('tickets.tickets.index');
                     break;
