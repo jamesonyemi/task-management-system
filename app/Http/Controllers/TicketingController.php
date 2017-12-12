@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-// namespace Berkayk\OneSignal;
 
 use Illuminate\Http\Request;
 use App\Ticketing;
@@ -10,11 +9,12 @@ use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use App\Notifications\SendTicketMail;
-use App\Notifications\Notify_On_Complete_Status;
+use App\Notifications\CompletedTask;
+use App\Notifications\CancelledTask;
+use App\Notifications\TaskInProgress;
+use App\Notifications\OpenTask;
+use App\Notifications\TaskOnHold;
 use SweetAlert;
-use OneSignal;
-// use Illuminate\Support\Facades\Auth;
-
 
 
 class TicketingController extends Controller
@@ -30,6 +30,7 @@ class TicketingController extends Controller
        $tickets = Ticketing::latest()->paginate(25);
             return view('tickets.index',compact('tickets'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
+    
     }
 
     /**
@@ -116,41 +117,49 @@ class TicketingController extends Controller
              'assigned_by' => 'required',
              'priority' => 'required',
              'status' => 'required',
+             'description' => 'required',
              'phone_number' => 'required',
              'assignee' => 'required',
              'project_name' => 'required',
              'note' => 'required',
              'employee_name' => 'required',
         ]);
-
+        // dd($validateTicket[0]['status']);
     foreach ($validateTicket as $key => $getTicketStatus) {
-           // dd($getTicketStatus['last_name']);
+          
         $ticketing->update($request->all());
         if (!empty($getTicketStatus['status'])) {
+
             switch ($getTicketStatus['status']) {
+
                 case 'Open':
-                    /*$ticketing->notify(new SendTicketMail($ticketing));*/
-                    OneSignal::sendNotificationToUser("Some Message", env('ONESIGNAL_APP_ID'));
-                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                    $ticketing->notify(new OpenTask($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','question')->autoclose(6000*2);
                     return redirect()->route('tickets.tickets.index');
                     break;
 
                 case 'Cancelled':
-                    return "Cancelled";
+                    $ticketing->notify(new CancelledTask($ticketing));
+                    SweetAlert::message('Good Job','Ticket ' .$getTicketStatus['status']. ' Successfully!','error')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
                     break;
 
-                case 'on hold':
-                  $ticketing->notify(new Notify_On_Complete_Status($ticketing));
-                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                case 'On Hold':
+                    $ticketing->notify(new TaskOnHold($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','warning')->autoclose(6000*2);
                     return redirect()->route('tickets.tickets.index');
                     break;
 
                 case 'In Progress':
-                    return "In Progress";
+                    $ticketing->notify(new TaskInProgress($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','info')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
                     break;
 
-                case 'Complete':
-                    return "Complete";
+                case 'Completed':
+                    $ticketing->notify(new CompletedTask($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
                     break;
                 
                 default:

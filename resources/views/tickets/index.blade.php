@@ -67,15 +67,15 @@
                                    <td>{{ $ticket->assigned_by}}</td>
                                    <td>
                                    @switch($ticket->status)
-                                    @case('in progress')
+                                    @case('In Progress')
                                        <div class="tag tag-default tag-info">In Progress</div>
                                         @break
 
-                                    @case('cancelled')
+                                    @case('Cancelled')
                                        <div class="tag tag-default tag-danger">Cancelled</div>
                                         @break
 
-                                    @case('on hold')
+                                    @case('On Hold')
                                        <div class="tag tag-default tag-warning">On Hold</div>
                                         @break
 

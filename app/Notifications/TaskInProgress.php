@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class Notify_On_Complete_Status extends Notification
+class TaskInProgress extends Notification
 {
     use Queueable;
     protected $email;
@@ -41,7 +41,7 @@ class Notify_On_Complete_Status extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.ticket.comleteStatus');
+        return (new MailMessage)->markdown('mail.ticket.drip');
     }
 
     /**
