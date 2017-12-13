@@ -41,7 +41,7 @@ class TaskInProgress extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.ticket.drip');
+        return (new MailMessage)->markdown('mail.ticket.in_progress');
     }
 
     /**

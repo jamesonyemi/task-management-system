@@ -41,7 +41,7 @@ class CompletedTask extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.ticket.comleteStatus');
+        return (new MailMessage)->markdown('mail.ticket.complete');
     }
 
     /**

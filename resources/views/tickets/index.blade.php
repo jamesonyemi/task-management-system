@@ -79,8 +79,11 @@
                                        <div class="tag tag-default tag-warning">On Hold</div>
                                         @break
 
+                                    @case('Completed')
+                                       <div class="tag tag-default tag-success">Completed</div>
+                                        @break
                                     @default
-                                        <div class="tag tag-default tag-success">Open</div>
+                                        <div class="tag tag-default tag-primary">Open</div>
                                   @endswitch
                                    <td>
                                        <a class="btn btn-info icon-open" href="{{ route('tickets.tickets.show',$ticket->id) }}"></a>

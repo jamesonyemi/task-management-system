@@ -41,7 +41,7 @@ class TaskOnHold extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.ticket.drip');
+        return (new MailMessage)->markdown('mail.ticket.on_hold');
     }
 
     /**

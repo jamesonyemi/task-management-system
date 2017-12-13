@@ -7,7 +7,7 @@
 # Whoops!
 @else
 
-{{ $greeting = 'New Ticket' }}
+{{ $greeting = 'Open Task' }}
 
 @endif
 @endif
@@ -48,7 +48,7 @@
 {{ $salutation }}
 @else
 
-{{ 'A new task has been assigned to you.  ' }}
+{{ 'This is an Open Task ' }}
 
 @component('mail::header', ['url' => url(route('tickets.tickets.index',Auth::user()->id, false))])
 {{ 'Please click Here' }}
