@@ -33,6 +33,13 @@ class TicketingController extends Controller
     
     }
 
+    public function showTaskDescription(Ticketing $id)
+    {
+
+        $tickets = Ticketing::latest()->paginate(25);
+             return view('mail.ticket.complete',compact('tickets'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -26,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('tasks', 'TaskController');     //Route for Task
 
 
+Route::get('/description','TicketingController@showTaskDescription')->name('mail.ticket.complete');
+
 //Route and Group-route for Ticketing
 Route::group(
 [
