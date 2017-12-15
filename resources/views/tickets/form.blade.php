@@ -108,7 +108,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                {!! Form::hidden('project_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
+                                {!! Form::text('project_id', $project_id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                    
                                 </div>
 
@@ -146,41 +146,18 @@
 
                                     {!! Form::select('priority',['Normal'=>'Normal','Low'=>'Low','High'=>'High','Urgent'=>'Urgent','Medium'=>'Medium'], 'Normal', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
 
-                                    {{-- <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="urgent">Urgent</option>
-                                        <option value="high">High</option>
-                                    </select> --}}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
                                     {!! Form::select('status',['Open'=>'Open','Cancelled'=>'Cancelled','On Hold'=>'On Hold','In Progress'=>'In Progress','Completed'=>'Completed'], 'Open', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
-
-                                   {{--  <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status">
-                                        <option value="started">Started</option>
-                                        <option value="not started">Not Started</option>
-                                        <option value="started">Started</option>
-                                        <option value="fixed">Fixed</option>
-                                    </select> --}}
                                 </div>
-
-                                {{-- <div class="form-group">
-                                    <label>Select File</label>
-                                    <label id="projectinput7" class="file center-block">
-                                        <input type="file" id="file" name="blob[]" multiple>
-                                        <span class="file-custom"></span>
-                                    </label>
-                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="issueinput8">Description</label>
 
                                     {!! Form::textarea('description', null, array('placeholder' => 'Description the issue you are currently facing','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"')) !!}
-
-                                   {{--  <textarea id="issueinput8" rows="5" class="form-control" name="description" placeholder="Description the issue you are currently facing" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Comments"></textarea> --}}
 
 
                                 </div>
@@ -189,6 +166,7 @@
                                 @foreach ($watchers as $watcher)
             
                                 <label class="display-inline-block custom-control custom-checkbox">
+                                <input type="hidden" name="watchers" value="{{ $watcher->email }}">    
                                 <input type="checkbox" id="checkbox2" name="watchers" class="custom-control-input" 
                                  value="{{ $watcher->name }}">
                                  <span class="custom-control-indicator"></span>
@@ -225,8 +203,6 @@
 
                                             {!! Form::text('first_name', null, array('placeholder' => 'First Name','class' => 'form-control')) !!}
 
-
-                                           {{--  <input type="text" id="projectinput1" class="form-control" placeholder="First Name" name="first_name"> --}}
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -234,8 +210,6 @@
                                             <label for="projectinput2">Last Name</label>
 
                                             {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control')) !!}
-
-                                            {{-- <input type="text" id="projectinput2" class="form-control" placeholder="Last Name" name="last_name"> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +219,6 @@
 
                                     {!! Form::email('email', null, array('placeholder' => 'Email','class' => 'form-control square')) !!}
 
-                                    {{-- <input type="email" id="donationinput2" class="form-control square" placeholder="Email" name="email"> --}}
                                 </div>
 
                                 <div class="form-group">
@@ -261,51 +234,42 @@
 
                                     {!! Form::text('assignee', null, array('placeholder' => 'Assignee','class' => 'form-control square')) !!}
 
-                                   {{--  <input type="text" id="donationinput4" class="form-control square" placeholder="type of donation" name="assignee"> --}}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="timesheetinput2">Project Name</label>
                                     <div class="position-relative has-icon-left">
 
-                                         {!! Form::text('project_name', null, array('placeholder' => 'Project Name','class' => 'form-control square')) !!}
+                                         <select class="form-control" id="project_name" name="project_name" required="true">
+                                        
+                                             @foreach ($projects as $key => $projectName)
+                                                 <option value="{{ $projectName->name }}" {{ old('project_name', isset($projects->name) ? $projects->name : 'null') == $key ? 'selected' : '' }}>
+                                                     {{ $projectName->name }}
+                                                 </option>
+                                             @endforeach
 
-                                       {{--  <input type="text" id="timesheetinput2" class="form-control" placeholder="Project Name" name="project_name"> --}}
-                                        <div class="form-control-position">
-                                            <i class="icon-briefcase4"></i>
-                                        </div>
+                                         </select>
+                                             {!! $errors->first('project_name', '<p class="help-block">:message</p>') !!}
+                                        <div class="form-control-position"> <i class="icon-briefcase4"></i></div> 
                                     </div>
                                 </div>
-
-                                {{-- <div class="form-group">
-                                    <label>Amount</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">$</span>
-                                        <input type="text" class="form-control square" placeholder="amount" aria-label="Amount (to the nearest dollar)" name="amount">
-                                        <span class="input-group-addon">.00</span>
-                                    </div>
-                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="timesheetinput7">Notes</label>
                                     <div class="position-relative has-icon-left">
                                          {!! Form::textarea('note', null, array('placeholder' => 'Notes','class' => 'form-control square')) !!}
-                                         
-                                       {{--  <textarea id="timesheetinput7" rows="5" class="form-control" name="note" placeholder="notes"></textarea> --}}
+                                       
                                         <div class="form-control-position">
                                             <i class="icon-file2"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            </div>
-
+                        </div>
                     </div>
                 </div>
             </div>
             
-
             <div class="form-actions right" style="float:right">
                 <a href="{{ route('tickets.tickets.index') }}"> 
                 <button type="button" class="btn btn-outline-danger mr-1 btn-min-width mr-1 mb-1" >
@@ -315,19 +279,12 @@
                 <button type="submit" class="btn btn-outline-success btn-min-width mr-1 mb-1">
                     <i class="icon-check2"></i> Save
                 </button>
-            </div>
-
+         </div>
         </div>
      </form>
     </div>
-                           
-
-
-    
-</section>
-<!-- // Basic form layout section end -->
-        </div>
-      </div>
-    </div>
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
-   
+   </section>
+   <!-- // Basic form layout section end -->
+  </div>
+ </div>
+</div> 

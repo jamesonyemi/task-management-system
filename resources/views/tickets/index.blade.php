@@ -12,7 +12,7 @@
             <h4 class="card-title">
                 <div class="pull-right">
                 <a class="btn btn-success icon-plus3" href="{{ route('tickets.tickets.create') }}"> Create New Ticket</a>
-                <a class="btn btn-success icon-plus3" href="{{ route('mail.ticket.complete') }}"> Completed</a>
+               {{--  <a class="btn btn-success icon-plus3" href="{{ route('mail.ticket.complete') }}"> Completed</a> --}}
 
                </div>
             </h4>

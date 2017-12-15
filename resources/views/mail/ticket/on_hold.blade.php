@@ -15,7 +15,7 @@
         <td class="float-center" align="center" valign="top">
           <center data-parsed="">
             <table align="center" class="container body-drip float-center">
-              <tbody>
+              <tbody class="tbody-custom">
                 <tr>
                   <td>
                     <table class="spacer">
@@ -62,19 +62,20 @@
                                     @foreach ($tickets as $element)
                                     
                                       @if (Auth::user()->email === $element->email)
-                                         <p>{{ $element->description }}</p>
+                                         <div><p class="text-center">{{ $element->description }}</p></div>
                                       @endif
                                         
                                     @endforeach
 
                                   </p>
+                                  <br><br>
                                   <center data-parsed="">
                                     <table class="button success float-center">
                                       <tr>
                                         <td>
                                           <table>
                                             <tr>
-                                              <td><a href="{{ route('tickets.tickets.index') }}">Get smarter now</a></td>
+                                              <div><td class="btn-custom"><a href="{{ route('tickets.tickets.index').'?'.encrypt(Auth::check()) }}">Get smarter now</a></td></div>
                                             </tr>
                                           </table>
                                         </td>

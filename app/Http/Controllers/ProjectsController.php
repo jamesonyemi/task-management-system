@@ -54,7 +54,7 @@ class ProjectsController extends Controller
             $data = $this->getData($request);
               $file = $request->file('blob_id');
                $blob = $file->getClientOriginalName();
-                $saveBlob = Blobs::create(['name'=>$blob]);
+                /*$saveBlob = Blobs::create(['name'=>$blob]);*/
 
            $projects = Project::create($data);
 

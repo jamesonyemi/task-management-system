@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ticketing;
 use Auth;
+use App\Models\Project;
 use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
@@ -48,8 +49,15 @@ class TicketingController extends Controller
     public function create()
     {
          $watchers = User::latest()->paginate(10);
-            return view('tickets.create',compact('watchers'))
+         $projects = Project::latest()->paginate(10);
+         $getProjectId  =  Ticketing::pluck('first_name','id')->all();
+
+          foreach ($getProjectId as $key => $project_id) 
+          {
+             
+            return view('tickets.create',compact('watchers','projects','project_id'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
+          }
     }
 
     /**
@@ -73,6 +81,7 @@ class TicketingController extends Controller
                'assignee' => 'required',
                'project_name' => 'required',
                'employee_name' => 'required',
+               // 'project_id'=> $request->input('assigned_to')
                // 'blob' => 'required',
             ]);
             $email= Ticketing::create($request->all());
@@ -103,8 +112,14 @@ class TicketingController extends Controller
     public function edit(Ticketing $ticketing)
     {
         $watchers = User::latest()->paginate(10);
-        return view('tickets.edit', compact('ticketing','watchers'))
-                    ->with('p', (request()->input('page', 1) - 1) * 5);
+        $projects = Project::latest()->paginate(10);
+        $ProjectId  =  Ticketing::pluck('first_name','id')->all();
+
+         foreach ($ProjectId as $key => $project_id) 
+         {
+           return view('tickets.edit', compact('ticketing','watchers','projects','project_id'))
+                            ->with('p', (request()->input('page', 1) - 1) * 5);
+         }
     }
 
     /**

@@ -15,7 +15,7 @@
         <td class="float-center" align="center" valign="top">
           <center data-parsed="">
             <table align="center" class="container body-drip float-center">
-              <tbody>
+              <tbody class="tbody-custom">
                 <tr>
                   <td>
                     <table class="spacer">
@@ -78,7 +78,7 @@
                                         <td>
                                           <table>
                                             <tr>
-                                              <div><td><a href="{{ route('tickets.tickets.index').'?'.encrypt(Auth::check()) }}">Get smarter now</a></td></div>
+                                              <div><td class="btn-custom"><a href="{{ route('tickets.tickets.index').'?'.encrypt(Auth::check()) }}">Get smarter now</a></td></div>
                                             </tr>
                                           </table>
                                         </td>
