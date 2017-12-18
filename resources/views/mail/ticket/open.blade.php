@@ -75,7 +75,7 @@
                                         <td>
                                           <table>
                                             <tr>
-                                              <div><td class="btn-custom"><a href="{{ route('tickets.tickets.index').'?'.encrypt(Auth::check()) }}">Get smarter now</a></td></div>
+                                              <div><td><a href="{{ route('tickets.tickets.index').'?'.encrypt(Auth::check()) }}">Get smarter now</a></td></div>
                                             </tr>
                                           </table>
                                         </td>

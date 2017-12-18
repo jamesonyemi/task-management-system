@@ -144,14 +144,14 @@
                                 <div class="form-group">
                                     <label for="issueinput5">Priority</label>
 
-                                    {!! Form::select('priority',['Normal'=>'Normal','Low'=>'Low','High'=>'High','Urgent'=>'Urgent','Medium'=>'Medium'], 'Normal', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
+                                    {!! Form::select('priority',['Normal'=>'Normal','Low'=>'Low','High'=>'High','Urgent'=>'Urgent','Medium'=>'Medium'], Null, array('placeholder' => 'Select Priority','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
 
                                 </div>
 
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
-                                    {!! Form::select('status',['Open'=>'Open','Cancelled'=>'Cancelled','On Hold'=>'On Hold','In Progress'=>'In Progress','Completed'=>'Completed'], 'Open', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+                                    {!! Form::select('status',['Open'=>'Open','Cancelled'=>'Cancelled','On Hold'=>'On Hold','In Progress'=>'In Progress','Completed'=>'Completed'], NUll, array('placeholder' => 'Select Status','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
                                 </div>
 
                                 <div class="form-group">
@@ -166,9 +166,11 @@
                                 @foreach ($watchers as $watcher)
             
                                 <label class="display-inline-block custom-control custom-checkbox">
-                                <input type="hidden" name="watchers" value="{{ $watcher->email }}">    
-                                <input type="checkbox" id="checkbox2" name="watchers" class="custom-control-input" 
-                                 value="{{ $watcher->name }}">
+                                <input type="hidden" name="watchers" value="{{ $watcher->email }}"> 
+
+                                <input type="checkbox" id="watchers" name="watchers" class="custom-control-input" 
+                                 value="{{ $watcher->name }}" checked="{{ old($watcher->name) ?? $watcher->name }}">
+
                                  <span class="custom-control-indicator"></span>
                                  <span class="custom-control-description">
                                      {{ $watcher->name }}
@@ -249,6 +251,7 @@
                                              @endforeach
 
                                          </select>
+
                                              {!! $errors->first('project_name', '<p class="help-block">:message</p>') !!}
                                         <div class="form-control-position"> <i class="icon-briefcase4"></i></div> 
                                     </div>

@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Ticketing;
 
 class CompletedTask extends Notification
 {
@@ -41,7 +42,8 @@ class CompletedTask extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.ticket.complete');
+        $tickets = Ticketing::latest()->paginate(25);
+        return (new MailMessage)->markdown('mail.ticket.complete', compact('tickets'));
     }
 
     /**

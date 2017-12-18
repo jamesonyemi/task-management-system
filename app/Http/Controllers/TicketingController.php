@@ -34,7 +34,7 @@ class TicketingController extends Controller
     
     }
 
-    public function showTaskDescription(Ticketing $id)
+    public function showTaskDescription()
     {
 
         $tickets = Ticketing::latest()->paginate(25);
@@ -50,7 +50,7 @@ class TicketingController extends Controller
     {
          $watchers = User::latest()->paginate(10);
          $projects = Project::latest()->paginate(10);
-         $getProjectId  =  Ticketing::pluck('first_name','id')->all();
+         $getProjectId  =  Ticketing::pluck('email','id')->all();
 
           foreach ($getProjectId as $key => $project_id) 
           {
@@ -113,7 +113,7 @@ class TicketingController extends Controller
     {
         $watchers = User::latest()->paginate(10);
         $projects = Project::latest()->paginate(10);
-        $ProjectId  =  Ticketing::pluck('first_name','id')->all();
+        $ProjectId  =  Ticketing::pluck('id','id')->all();
 
          foreach ($ProjectId as $key => $project_id) 
          {
