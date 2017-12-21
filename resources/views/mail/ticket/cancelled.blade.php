@@ -40,7 +40,17 @@
                             <table>
                               <tr>
                                 <th>
-                                  <h4 class="text-center">Project Name</h4>
+                                  <h4 class="text-center">
+
+                                      @foreach ($tickets as $ticket)
+                                    
+                                      @if (Auth::user()->email === $ticket->email)
+                                         <p class="text-center">Project Name:  {{ $ticket->project_name }}</p>
+                                      @endif
+                                        
+                                    @endforeach
+
+                                </h4>
                                 </th>
                                 <th class="expander"></th>
                               </tr>
@@ -59,10 +69,10 @@
                                 <th>
                                   <p class="text-center"> 
 
-                                    @foreach ($tickets as $element)
+                                    @foreach ($tickets as $ticket)
                                     
-                                      @if (Auth::user()->email === $element->email)
-                                         <div><p class="text-center">{{ $element->description }}</p></div>
+                                      @if (Auth::user()->email === $ticket->email)
+                                         <div><p class="text-center">{{ $ticket->description }}</p></div>
                                       @endif
                                         
                                     @endforeach

@@ -51,11 +51,12 @@ class TicketingController extends Controller
          $watchers = User::latest()->paginate(10);
          $projects = Project::latest()->paginate(10);
          $getProjectId  =  Ticketing::pluck('email','id')->all();
+         $assigned_to  =  User::pluck('name','id')->all();
 
           foreach ($getProjectId as $key => $project_id) 
           {
              
-            return view('tickets.create',compact('watchers','projects','project_id'))
+            return view('tickets.create',compact('watchers','projects','project_id','assigned_to'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
           }
     }
@@ -114,10 +115,11 @@ class TicketingController extends Controller
         $watchers = User::latest()->paginate(10);
         $projects = Project::latest()->paginate(10);
         $ProjectId  =  Ticketing::pluck('id','id')->all();
+        $assigned_to  =  User::pluck('name','id')->all();
 
          foreach ($ProjectId as $key => $project_id) 
          {
-           return view('tickets.edit', compact('ticketing','watchers','projects','project_id'))
+           return view('tickets.edit', compact('ticketing','watchers','projects','project_id','assigned_to'))
                             ->with('p', (request()->input('page', 1) - 1) * 5);
          }
     }

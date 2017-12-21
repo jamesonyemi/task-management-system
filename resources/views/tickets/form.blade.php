@@ -234,7 +234,18 @@
                                 <div class="form-group">
                                     <label for="donationinput4">Assignee</label>
 
-                                    {!! Form::text('assignee', null, array('placeholder' => 'Assignee','class' => 'form-control square')) !!}
+                                    {{-- {!! Form::text('assignee', null, array('placeholder' => 'Assignee','class' => 'form-control square')) !!} --}}
+
+                                    <select class="form-control" id="assignee" name="assignee" required="true">
+                                    
+                                        @foreach ($assigned_to as $key => $assignee)
+                                            <option value="{{ $assignee }}" {{ old('assignee', isset($assigned_to->name) ? $assigned_to->name : 'null') == $key ? 'selected' : '' }}>
+                                                {{ $assignee }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    
+                                    {!! $errors->first('assignee', '<p class="help-block">:message</p>') !!}
 
                                 </div>
 
