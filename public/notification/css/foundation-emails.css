@@ -1346,3 +1346,18 @@ body.outlook p {
     table.button.small-expand center,
     table.button.small-expanded center {
       min-width: 0; } }
+
+  /* Custom button   */
+  .btn-custom{
+    background-color: #7652d1 !important;
+    border-color: #7652d1;
+  }
+
+  .btn-custom:hover{
+    background-color: #967ADC !important;
+    border-color: #2494be;
+  }
+
+  .tbody-custom{
+    background-color: darkkhaki;
+  }

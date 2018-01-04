@@ -238,7 +238,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'SweetAlert' => UxWeb\SweetAlert\SweetAlert::class,
-        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
+        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class
         
     ],
 

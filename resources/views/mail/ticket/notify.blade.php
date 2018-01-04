@@ -7,7 +7,7 @@
 # Whoops!
 @else
 
-#{{ $greeting = 'New Ticket' }}
+{{ $greeting = 'New Ticket' }}
 
 @endif
 @endif
@@ -65,4 +65,3 @@ into your web browser: [{{ $actionUrl }}]({{ $actionUrl }})
 @endcomponent
 @endisset
 @endcomponent
-

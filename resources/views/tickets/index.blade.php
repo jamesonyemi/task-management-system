@@ -12,6 +12,8 @@
             <h4 class="card-title">
                 <div class="pull-right">
                 <a class="btn btn-success icon-plus3" href="{{ route('tickets.tickets.create') }}"> Create New Ticket</a>
+               {{--  <a class="btn btn-success icon-plus3" href="{{ route('mail.ticket.complete') }}"> Completed</a> --}}
+
                </div>
             </h4>
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
@@ -57,7 +59,7 @@
                      @foreach ($tickets as $ticket)
                         
               {{-- check if the current user has been assigned a ticket --}}
-                     @if ( (int)$ticket->assigned_by == (int)Auth::user()->id )
+                     @if ( (int)$ticket->assigned_by === (int)Auth::user()->id && Auth::user()->email === $ticket->email )
                            <tbody>
                                <tr>
                                    <td>{{ ++$p }}</td>
@@ -67,20 +69,23 @@
                                    <td>{{ $ticket->assigned_by}}</td>
                                    <td>
                                    @switch($ticket->status)
-                                    @case('in progress')
+                                    @case('In Progress')
                                        <div class="tag tag-default tag-info">In Progress</div>
                                         @break
 
-                                    @case('cancelled')
+                                    @case('Cancelled')
                                        <div class="tag tag-default tag-danger">Cancelled</div>
                                         @break
 
-                                    @case('on hold')
+                                    @case('On Hold')
                                        <div class="tag tag-default tag-warning">On Hold</div>
                                         @break
 
+                                    @case('Completed')
+                                       <div class="tag tag-default tag-success">Completed</div>
+                                        @break
                                     @default
-                                        <div class="tag tag-default tag-success">Open</div>
+                                        <div class="tag tag-default tag-primary">Open</div>
                                   @endswitch
                                    <td>
                                        <a class="btn btn-info icon-open" href="{{ route('tickets.tickets.show',$ticket->id) }}"></a>

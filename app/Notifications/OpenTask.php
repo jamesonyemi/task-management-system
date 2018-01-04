@@ -6,19 +6,21 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Ticketing;
 
-class ticket_notify extends Notification
+class OpenTask extends Notification
 {
     use Queueable;
+    protected $email;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($email)
     {
-        //
+        $this->email = $email;
     }
 
     /**
@@ -40,7 +42,8 @@ class ticket_notify extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->markdown('mail.ticket.notify');
+        $tickets = Ticketing::latest()->paginate(25);
+        return (new MailMessage)->markdown('mail.ticket.open',compact('tickets'));
     }
 
     /**

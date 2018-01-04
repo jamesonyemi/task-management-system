@@ -45,13 +45,7 @@ class SendTicketMail extends Notification
      */
     public function toMail($notifiable)
     {
-        // return (new MailMessage)
-        //             ->subject("New Ticket")
-        //             ->line('Dear' . "\n" . Auth::user()->name )
-        //             ->line('A new task has been assigned to you. Please click the button below to complete the reset')
-        //             ->action('New Ticket', url(config('app.url').route('tickets.tickets.index', $this->email, false)));
-         
-
+           
             return (new MailMessage)->markdown('mail.ticket.notify');
     }
 

@@ -5,13 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Ticketing;
 use Auth;
+use App\Models\Project;
 use Illuminate\Support\Facades\Gate;
 use App\http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use App\Notifications\SendTicketMail;
-use App\Notifications\Notify_On_Complete_Status;
+use App\Notifications\CompletedTask;
+use App\Notifications\CancelledTask;
+use App\Notifications\TaskInProgress;
+use App\Notifications\OpenTask;
+use App\Notifications\TaskOnHold;
 use SweetAlert;
+<<<<<<< HEAD
 use OneSignal;
+=======
+
+>>>>>>> 372c71dd388273d6a9899b28c6b16bf9c66f1f04
 
 class TicketingController extends Controller
 {
@@ -26,6 +35,14 @@ class TicketingController extends Controller
        $tickets = Ticketing::latest()->paginate(25);
             return view('tickets.index',compact('tickets'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
+    
+    }
+
+    public function showTaskDescription()
+    {
+
+        $tickets = Ticketing::latest()->paginate(25);
+             return view('mail.ticket.complete',compact('tickets'));
     }
 
     /**
@@ -36,8 +53,16 @@ class TicketingController extends Controller
     public function create()
     {
          $watchers = User::latest()->paginate(10);
-            return view('tickets.create',compact('watchers'))
+         $projects = Project::latest()->paginate(10);
+         $getProjectId  =  Ticketing::pluck('email','id')->all();
+         $assigned_to  =  User::pluck('name','id')->all();
+
+          foreach ($getProjectId as $key => $project_id) 
+          {
+             
+            return view('tickets.create',compact('watchers','projects','project_id','assigned_to'))
                 ->with('p', (request()->input('page', 1) - 1) * 5);
+          }
     }
 
     /**
@@ -61,6 +86,7 @@ class TicketingController extends Controller
                'assignee' => 'required',
                'project_name' => 'required',
                'employee_name' => 'required',
+               // 'project_id'=> $request->input('assigned_to')
                // 'blob' => 'required',
             ]);
             $email= Ticketing::create($request->all());
@@ -92,8 +118,15 @@ class TicketingController extends Controller
     public function edit(Ticketing $ticketing)
     {
         $watchers = User::latest()->paginate(10);
-        return view('tickets.edit', compact('ticketing','watchers'))
-                    ->with('p', (request()->input('page', 1) - 1) * 5);
+        $projects = Project::latest()->paginate(10);
+        $ProjectId  =  Ticketing::pluck('id','id')->all();
+        $assigned_to  =  User::pluck('name','id')->all();
+
+         foreach ($ProjectId as $key => $project_id) 
+         {
+           return view('tickets.edit', compact('ticketing','watchers','projects','project_id','assigned_to'))
+                            ->with('p', (request()->input('page', 1) - 1) * 5);
+         }
     }
 
     /**
@@ -113,40 +146,49 @@ class TicketingController extends Controller
              'assigned_by' => 'required',
              'priority' => 'required',
              'status' => 'required',
+             'description' => 'required',
              'phone_number' => 'required',
              'assignee' => 'required',
              'project_name' => 'required',
              'note' => 'required',
              'employee_name' => 'required',
         ]);
-
+        // dd($validateTicket[0]['status']);
     foreach ($validateTicket as $key => $getTicketStatus) {
-           // dd($getTicketStatus['last_name']);
+          
         $ticketing->update($request->all());
         if (!empty($getTicketStatus['status'])) {
+
             switch ($getTicketStatus['status']) {
+
                 case 'Open':
-                    $ticketing->notify(new SendTicketMail($ticketing));
-                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                    $ticketing->notify(new OpenTask($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','question')->autoclose(6000*2);
                     return redirect()->route('tickets.tickets.index');
                     break;
 
                 case 'Cancelled':
-                    return "Cancelled";
+                    $ticketing->notify(new CancelledTask($ticketing));
+                    SweetAlert::message('Good Job','Ticket ' .$getTicketStatus['status']. ' Successfully!','error')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
                     break;
 
-                case 'on hold':
-                  $ticketing->notify(new Notify_On_Complete_Status($ticketing));
-                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                case 'On Hold':
+                    $ticketing->notify(new TaskOnHold($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','warning')->autoclose(6000*2);
                     return redirect()->route('tickets.tickets.index');
                     break;
 
                 case 'In Progress':
-                    return "In Progress";
+                    $ticketing->notify(new TaskInProgress($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','info')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
                     break;
 
-                case 'Complete':
-                    return "Complete";
+                case 'Completed':
+                    $ticketing->notify(new CompletedTask($ticketing));
+                    SweetAlert::message('Good Job','Ticket Updated Successfully!','success')->autoclose(6000*2);
+                    return redirect()->route('tickets.tickets.index');
                     break;
                 
                 default:

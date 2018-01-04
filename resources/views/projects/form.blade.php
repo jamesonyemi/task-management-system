@@ -74,41 +74,6 @@
                                     {!! Form::hidden('user_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                 </div>
 
-
-                                {{-- <div class="form-group">
-                                    {!! Form::hidden('project_id', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
-                                </div> --}}
-
-                                {{-- <div class="row">
-                                <div class="col col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput4">Open Date</label>
-                                            <div class="position-relative has-icon-left">
-                                            <input type="text" id="open_date" value="{{gmdate("Y-m-d H:i:s")}}" class="form-control" name="open_date">
-                                            <div class="form-control-position">
-                                                <i class="icon-calendar5"></i>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="projectinput4">Due Date</label>
-                                            <div class="position-relative has-icon-left">
-                                            <input type="text" id="due_date" value="{{gmdate("Y-m-d H:i:s",strtotime('+5 days'))}}" class="form-control" name="due_date">
-                                            <div class="form-control-position">
-                                                <i class="icon-calendar5"></i>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </div>
-                             </div> --}}
-
-
                                 <div class="form-group">
                                     <label for="issueinput5">Priority</label>
 
@@ -144,19 +109,11 @@
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        {{-- <div class="form-group">
-                                            <label for="projectinput1">First Name</label>
-
-                                            {!! Form::text('first_name', null, array('placeholder' => 'First Name','class' => 'form-control')) !!}
-
-                                        </div> --}}
+                                      {{-- {{ Continue adding more input fields from this section below }} --}} 
                                     </div>
-                                    <div class="col-md-6">
-                                        {{-- <div class="form-group">
-                                            <label for="projectinput2">Last Name</label>
 
-                                            {!! Form::text('last_name', null, array('placeholder' => 'Last Name','class' => 'form-control')) !!}
-                                        </div> --}}
+                                    <div class="col-md-6">
+                                      {{-- {{ Continue adding more input fields from this section below }} --}}
                                     </div>
                                 </div>
 
@@ -173,35 +130,19 @@
                                     {!! Form::tel('phone_number', null, array('placeholder' => 'Contact Number','class' => 'form-control square')) !!}
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="donationinput4">Project Lead</label>
-                                    <select class="form-control" id="assigned_to" name="assigned_to" required="true">
-                                    {{-- <option value="" style="display: none;" disabled selected>Assigned To
-
-                                        </option> --}}
-
-                                        @foreach ($assigned_to as $key => $assignee)
-                                            <option value="{{ $assignee }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : 'null') == $key ? 'selected' : '' }}>
-                                                {{ $assignee }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    
-                                    {!! $errors->first('assigned_to', '<p class="help-block">:message</p>') !!}
-
-                                </div>
-
-                                {{-- <div class="form-group">
-                                    <label for="timesheetinput2">Project Name</label>
-                                    <div class="position-relative has-icon-left">
-
-                                         {!! Form::text('project_name', null, array('placeholder' => 'Project Name','class' => 'form-control square')) !!}
-                                        <div class="form-control-position">
-                                            <i class="icon-briefcase4"></i>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="donationinput4">Project Lead</label>
+                                        <select class="form-control" id="assigned_to" name="assigned_to" required="true">
+                            
+                                            @foreach ($assigned_to as $key => $assignee)
+                                                <option value="{{ $assignee }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : 'null') == $key ? 'selected' : '' }}>
+                                                    {{ $assignee }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        
+                                        {!! $errors->first('assigned_to', '<p class="help-block">:message</p>') !!}
                                     </div>
-                                </div>
- --}}
 
                                 <div class="form-group">
                                     <div><label>File Attachment</label></div>
@@ -210,16 +151,6 @@
                                         <span class="file-custom"></span>
                                     </label>
                                 </div>
-
-                              {{--   <div class="form-group">
-                                    <label for="timesheetinput7">Notes</label>
-                                    <div class="position-relative has-icon-left">
-                                         {!! Form::textarea('note', null, array('placeholder' => 'Notes','class' => 'form-control square')) !!}
-                                        <div class="form-control-position">
-                                            <i class="icon-file2"></i>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
 
                             </div>
