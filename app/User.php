@@ -45,7 +45,7 @@ class User extends Authenticatable
     }
 
     public function tickets(){
-        return $this->hasOne('App\Ticketing');
+        return $this->hasMany('App\Ticketing');
     }
 
     public function project(){

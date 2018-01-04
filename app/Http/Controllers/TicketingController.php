@@ -11,9 +11,7 @@ use Illuminate\Foundation\Auth\User;
 use App\Notifications\SendTicketMail;
 use App\Notifications\Notify_On_Complete_Status;
 use SweetAlert;
-// use Illuminate\Support\Facades\Auth;
-
-
+use OneSignal;
 
 class TicketingController extends Controller
 {
@@ -67,6 +65,7 @@ class TicketingController extends Controller
             ]);
             $email= Ticketing::create($request->all());
             $email->notify(new SendTicketMail($email));
+            OneSignal::sendNotificationToUser("Some Message", $email, $url = null, $data = null);
             SweetAlert::message('Good Job','Ticket created successfully','success')->autoclose(6000*2);  
             return redirect()->route('tickets.tickets.index');
     }
