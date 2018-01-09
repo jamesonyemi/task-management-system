@@ -10,6 +10,8 @@
             <h4 class="card-title">
                 <div class="pull-right">
                 <a class="btn btn-success icon-plus3" href="<?php echo e(route('tickets.tickets.create')); ?>"> Create New Ticket</a>
+               
+
                </div>
             </h4>
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
@@ -43,7 +45,7 @@
                      <?php $__currentLoopData = $tickets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ticket): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         
               
-                     <?php if( (int)$ticket->assigned_by == (int)Auth::user()->id ): ?>
+                     <?php if( (int)$ticket->assigned_by === (int)Auth::user()->id && Auth::user()->email === $ticket->email ): ?>
                            <tbody>
                                <tr>
                                    <td><?php echo e(++$p); ?></td>
@@ -53,20 +55,23 @@
                                    <td><?php echo e($ticket->assigned_by); ?></td>
                                    <td>
                                    <?php switch($ticket->status):
-                                    case ('in progress'): ?>
+                                    case ('In Progress'): ?>
                                        <div class="tag tag-default tag-info">In Progress</div>
                                         <?php break; ?>
 
-                                    <?php case ('cancelled'): ?>
+                                    <?php case ('Cancelled'): ?>
                                        <div class="tag tag-default tag-danger">Cancelled</div>
                                         <?php break; ?>
 
-                                    <?php case ('on hold'): ?>
+                                    <?php case ('On Hold'): ?>
                                        <div class="tag tag-default tag-warning">On Hold</div>
                                         <?php break; ?>
 
+                                    <?php case ('Completed'): ?>
+                                       <div class="tag tag-default tag-success">Completed</div>
+                                        <?php break; ?>
                                     <?php default: ?>
-                                        <div class="tag tag-default tag-success">Open</div>
+                                        <div class="tag tag-default tag-primary">Open</div>
                                   <?php endswitch; ?>
                                    <td>
                                        <a class="btn btn-info icon-open" href="<?php echo e(route('tickets.tickets.show',$ticket->id)); ?>"></a>

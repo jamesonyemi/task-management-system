@@ -77,21 +77,21 @@
                                 <div class="form-group">
                                     <label for="issueinput5">Priority</label>
 
-                                    {!! Form::select('priority',['normal'=>'normal','low'=>'low','high'=>'high','urgent'=>'urgent','medium'=>'medium'], 'normal', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
+                                     {!! Form::select('priority',['Normal'=>'Normal','Low'=>'Low','High'=>'High','Urgent'=>'Urgent','Medium'=>'Medium'], Null, array('placeholder' => 'Select Priority','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority"')) !!}
                                 </div>
 
                                 <div class="form-group">
                                     <label for="issueinput6">Status</label>
 
-                                    {!! Form::select('status',['Open'=>'Open','Cancelled'=>'Cancelled','On Hold'=>'On Hold','In Progress'=>'In Progress','Completed'=>'Completed'], 'Open', array('placeholder' => '','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
+                                    {!! Form::select('status',['Open'=>'Open','Cancelled'=>'Cancelled','On Hold'=>'On Hold','In Progress'=>'In Progress','Completed'=>'Completed'], NUll, array('placeholder' => 'Select Status','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Status"')) !!}
                                 </div>
 
 
                                 <div class="form-group">
                                 <label for="issueinput8">Description</label>
-                                 <div class="position-relative has-icon-left">
+                                {{--  <div class="position-relative has-icon-left"> --}}
                                     {!! Form::textarea('description', null, array('placeholder' => 'Write About the Project','class' => 'form-control square','data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Write About the Project"')) !!}
-                                </div>
+                               {{--  </div> --}}
                             </div>
                                 {{-- {{ Continue adding more input fields from this section below }} --}}
                             </div>

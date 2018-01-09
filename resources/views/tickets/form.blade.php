@@ -107,10 +107,15 @@
                                     {!! Form::hidden('assigned_by', Auth::user()->id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
                                 </div>
 
+                        @foreach ($project_id as $key => $project_id)
                                 <div class="form-group">
                                 {!! Form::text('project_id', $project_id, array('placeholder' => 'Assigned by','class' => 'form-control','data-toggle="tooltip"', 'data-trigger="hover" data-placement="top" data-title="Assigned By"')) !!}
-                                   
+                                
+                                            {{-- <option value="{{ $project_id }}" {{ old('project_id', isset($project_id->name) ? $project_id->name : 'null') == $key ? 'selected' : '' }}>
+                                                {{ $project_id }}
+                                            </option> --}}
                                 </div>
+                        @endforeach
 
                                 <div class="row">
                                 <div class="col col-md-12">
@@ -161,7 +166,12 @@
 
 
                                 </div>
-                                <div class=" row col col-md-12">{!! Form::label('watchers', 'Watchers', ['class' => 'form-label']) !!}</div>
+
+                                <div class=" row col col-md-12">
+
+                                    {!! Form::label('watchers', 'Watchers', ['class' => 'form-label']) !!}
+                                    
+                                </div>
 
                                 @foreach ($watchers as $watcher)
             

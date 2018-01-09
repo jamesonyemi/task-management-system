@@ -27,8 +27,8 @@ class CreateProjectsTable extends Migration
             $table->bigInteger('user_id');
             $table->string('email')->unique();
             $table->string('phone_number', 16);
-            $table->enum('priority', array('normal','low','high', 'urgent', 'medium'))->default('normal');
-            $table->enum('status', array('Open','Cancelled','On Hold', 'In Progress', 'Completed'))->default('Open');
+            $table->enum('priority', array('Normal','Low','High', 'Urgent', 'Medium'))->default('Normal');
+            $table->enum('status', array('Open', 'Cancelled', 'On Hold', 'In Progress','Completed'))->default('Open');
             $table->string('blob_id')->nullable();
             // $table->foreign('blob_id')->references('id')->on('blobs');
             $table->timestamps();

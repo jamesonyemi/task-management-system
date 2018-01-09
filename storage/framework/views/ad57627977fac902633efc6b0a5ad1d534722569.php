@@ -8,7 +8,7 @@
 # Whoops!
 <?php else: ?>
 
-#<?php echo e($greeting = 'New Ticket'); ?>
+<?php echo e($greeting = 'New Ticket'); ?>
 
 
 <?php endif; ?>
@@ -72,4 +72,3 @@ into your web browser: [<?php echo e($actionUrl); ?>](<?php echo e($actionUrl); 
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
-
