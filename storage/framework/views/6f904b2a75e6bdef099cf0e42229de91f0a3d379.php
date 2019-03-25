@@ -1,3 +1,4 @@
+<?php /* C:\xampp\htdocs\tms\resources\views/vendor/sweet/alert.blade.php */ ?>
 <?php if(Session::has('sweet_alert.alert')): ?>
     <script>
         swal({

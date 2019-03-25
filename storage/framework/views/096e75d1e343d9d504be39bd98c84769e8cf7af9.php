@@ -1,3 +1,4 @@
+<?php /* C:\xampp\htdocs\tms\resources\views/tickets/create.blade.php */ ?>
 <?php $__env->startSection('content'); ?>
 
     <?php if(count($errors) > 0): ?>
@@ -13,8 +14,8 @@
 
     <?php echo Form::open(array('route' => 'tickets.tickets.store','method'=>'POST', 'enctype'=>"multipart/form-data")); ?>
 
-         <?php echo $__env->make('tickets.form', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+         <?php echo $__env->make('tickets.form', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <?php echo Form::close(); ?>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

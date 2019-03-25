@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.master')
 
 @section('content')
 
@@ -47,10 +47,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Assigned By</th>
+                                {{-- <th>First Name</th> --}}
+                                {{-- <th>Last Name</th> --}}
+                                {{-- <th>Email</th> --}}
+                                {{-- <th>Assigned By</th> --}}
+                                <th>Description</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -59,14 +60,15 @@
                      @foreach ($tickets as $ticket)
                         
               {{-- check if the current user has been assigned a ticket --}}
-                     @if ( (int)$ticket->assigned_by === (int)Auth::user()->id && Auth::user()->email === $ticket->email )
+                     @if ( (int)$ticket->created_by === (int)Auth::user()->id )
                            <tbody>
                                <tr>
                                    <td>{{ ++$p }}</td>
-                                   <td>{{ $ticket->first_name}}</td>
-                                   <td>{{ $ticket->last_name}}</td>
-                                   <td>{{ $ticket->email}}</td>
-                                   <td>{{ $ticket->assigned_by}}</td>
+                                   {{-- <td>{{ $ticket->first_name}}</td> --}}
+                                   {{-- <td>{{ $ticket->last_name}}</td> --}}
+                                   {{-- <td>{{ $ticket->email}}</td> --}}
+                                   {{-- <td>{{ $ticket->assigned_by}}</td> --}}
+                                   <td>{!! $ticket->description !!}</td>
                                    <td>
                                    @switch($ticket->status)
                                     @case('In Progress')

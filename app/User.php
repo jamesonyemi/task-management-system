@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\PasswordReset;   // Or the location that you store your notifications (this is default).
+use App\Models\Project;
 
 class User extends Authenticatable
 {
@@ -49,14 +50,14 @@ class User extends Authenticatable
     }
 
     public function project(){
-        return $this->hasMany('App\Models\Project');
+        return $this->belongsTo(Project::class, 'user_id');
     }
 
      public function project_ticket(){
-        return $this->hasMany('App\Ticketing', 'project_ticket');
+        return $this->hasMany(Ticketing::class, 'project_ticket');
     }
 
     public function roles() {
-        return $this->belongsToMany('App\Roles', 'user_roles');
+        return $this->belongsToMany(Roles::class, 'user_roles');
     }
 }

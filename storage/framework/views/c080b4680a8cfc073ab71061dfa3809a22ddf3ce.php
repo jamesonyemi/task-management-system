@@ -1,3 +1,4 @@
+<?php /* C:\xampp\htdocs\tms\resources\views/vendor/pagination/bootstrap-4.blade.php */ ?>
 <?php if($paginator->hasPages()): ?>
     <ul class="pagination page-item page-link float-xs-right ">
         

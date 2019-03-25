@@ -1,4 +1,4 @@
-
+<?php /* C:\xampp\htdocs\tms\resources\views/layouts/master.blade.php */ ?>
 <!DOCTYPE html>
 <html lang="<?php echo e(app()->getLocale()); ?>" data-textdirection="ltr" class="loading">
   <head>
@@ -8,7 +8,7 @@
     <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Project Dashboard - Robust Free Bootstrap Admin Template</title>
+    <title>TicketPro</title>
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo e(asset('app-assets/images/ico/apple-icon-60.png')); ?>">
     <link rel="apple-touch-icon" sizes="76x76" href="<?php echo e(asset('app-assets/images/ico/apple-icon-76.png')); ?>">
     <link rel="apple-touch-icon" sizes="120x120" href="<?php echo e(asset('app-assets/images/ico/apple-icon-120.png')); ?>">
@@ -187,45 +187,29 @@
         <!-- main menu content-->
         <div class="main-menu-content">
           <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-            <li class=" nav-item"><a href="index.html"><i class="icon-home4"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span></a>
-              <ul class="menu-content">
-                <li class="active"><a href="<?php echo e(route('home')); ?>" data-i18n="nav.dash.main" class="menu-item">Dashboard</a>
-                </li>
-                
-                
-              </ul>
+            <li class=" nav-item"><a href="<?php echo e(route('home')); ?>"><i class="icon-home4"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
+              
+            </a>
+              
             </li>
             
-                  <li class=" nav-item"><a href="#"><i class="icon-ticket"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket</span></a>
-                 <ul class="menu-content">
-                  <li><a href="<?php echo e(route('tickets.tickets.index')); ?>" data-i18n="nav.page_layouts.1_column" class="menu-item">All Tickets</a>
-                  </li>
-                  
-                </ul>
+                  <li class=" nav-item"><a href="<?php echo e(route('tickets.tickets.index')); ?>"><i class="icon-ticket"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket</span></a>
+                 
               </li>
 
-                  <li class=" nav-item"><a href="#"><i class="icon-building-o"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Project</span></a>
-                   <ul class="menu-content">
-                    <li><a href="<?php echo e(route('projects.project.index')); ?>" data-i18n="nav.page_layouts.1_column" class="menu-item">All Project</a>
-                    </li>
-                    
-                  </ul>
+                  <li class=" nav-item"><a href="<?php echo e(route('projects.project.index')); ?>"><i class="icon-building-o"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Project</span></a>
+                   
                 </li>
             
-                <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Asset Categories</span></a>
-                <ul class="menu-content">
-                <li><a href="<?php echo e(route('asset_categories.asset_category.index')); ?>" data-i18n="nav.page_layouts.1_column" class="menu-item">All Assets</a>
-                </li>
+                
                 
               </ul>
             </li>
            
           </ul>
+        <div style="margin-top: 350px; margin-left: 45px; vertical-align: center; font-size: smaller">Copyright &copy <?php echo Date('Y'); ?> <span><?php echo e(config('app.name',)); ?></span>Pro</div>
         </div>
-        <!-- /main menu content-->
-        <!-- main menu footer-->
-        <!-- include includes/menu-footer-->
-        <!-- main menu footer-->
+        
       </div>
       <!-- /main menu content-->
       <!-- main menu footer-->
@@ -234,19 +218,31 @@
     </div>
     <!-- / main menu-->
     <div class="app-content content container-fluid">
-
     <?php echo $__env->yieldContent('content'); ?>
  
     </div>
 
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
+<!-- BEGIN VENDOR JS-->
+<script src="<?php echo e(asset('app-assets/js/core/libraries/jquery.min.js')); ?>" type="text/javascript"></script>
+<script>
+ var notification_message = $('div#message').on('mouseover',() => $('div.alert.alert-success').
+      animate(
+            {
+              left:700,
+              top:-100.5,
+              width: 300,
+              opacity:1,
 
-    <footer class="footer footer-static footer-light navbar-border">
-      <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://pixinvent.com" target="_blank" class="text-bold-800 grey darken-2">PIXINVENT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
-    </footer>
-
-    <!-- BEGIN VENDOR JS-->
-    <script src="<?php echo e(asset('app-assets/js/core/libraries/jquery.min.js')); ?>" type="text/javascript"></script>
+            },{
+              duration: 500
+            },
+      ),
+ )
+ setTimeout(() => {
+        $(notification_message).fadeOut('slow');
+      }, 10000)
+</script>
+<?php echo $__env->yieldContent('scripts'); ?>
     <script src="<?php echo e(asset('app-assets/vendors/js/ui/tether.min.js')); ?>" type="text/javascript"></script>
     <script src="<?php echo e(asset('app-assets/js/core/libraries/bootstrap.min.js')); ?>" type="text/javascript"></script>
     <script src="<?php echo e(asset('app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js')); ?>" type="text/javascript"></script>
@@ -264,10 +260,10 @@
     <script src="<?php echo e(asset('app-assets/js/core/app.js')); ?>" type="text/javascript"></script>
     <!-- END ROBUST JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src="<?php echo e(asset('app-assets/js/scripts/pages/dashboard-lite.js')); ?>" type="text/javascript"></script>
+   
     <script src="<?php echo e(asset('app-assets/js/scripts/extensions/sweetalert.min.js')); ?>" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
-    <?php echo $__env->make('sweet::alert', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('sweet::alert', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
   </body>
 </html>

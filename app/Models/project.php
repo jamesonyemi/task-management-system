@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Ticketing;
 use App\Blobs;
+use App\User;
+// use Illuminate\Notifications\Notifiable;
 
 class Project extends Model
 {
-    
+    // use Notifiable;
     /**
      * The database table used by the model.
      *
@@ -33,7 +35,7 @@ class Project extends Model
                   'company_name',
                   'description',
                   'phone_number',
-                  'assigned_to',
+                  'team_lead',
                   'creator',
                   'user_id',
                   'blob_id',
@@ -49,7 +51,7 @@ class Project extends Model
     protected $hidden = [
         'email',
         'blob_id',
-        'assigned_to', 
+        'team_lead', 
         'creator',
         'user_id',
         'update_at',
@@ -79,7 +81,7 @@ class Project extends Model
     }
 
      public function user() {
-        return $this->hasOne('App\User');
+        return $this->hasMany(User::class);
     }
 
     public function blob(){

@@ -1,3 +1,4 @@
+<?php /* C:\xampp\htdocs\tms\resources\views/layouts/login_header.blade.php */ ?>
 <!DOCTYPE html>
 <html lang="<?php echo e(app()->getLocale()); ?>">
 <head>

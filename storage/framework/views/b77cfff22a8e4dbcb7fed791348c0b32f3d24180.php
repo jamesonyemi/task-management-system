@@ -1,3 +1,4 @@
+<?php /* C:\xampp\htdocs\tms\resources\views/tickets/index.blade.php */ ?>
 <?php $__env->startSection('content'); ?>
 
 <div>
@@ -33,10 +34,11 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Email</th>
-                                <th>Assigned By</th>
+                                
+                                
+                                
+                                
+                                <th>Description</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -45,14 +47,15 @@
                      <?php $__currentLoopData = $tickets; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ticket): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         
               
-                     <?php if( (int)$ticket->assigned_by === (int)Auth::user()->id && Auth::user()->email === $ticket->email ): ?>
+                     <?php if( (int)$ticket->created_by === (int)Auth::user()->id ): ?>
                            <tbody>
                                <tr>
                                    <td><?php echo e(++$p); ?></td>
-                                   <td><?php echo e($ticket->first_name); ?></td>
-                                   <td><?php echo e($ticket->last_name); ?></td>
-                                   <td><?php echo e($ticket->email); ?></td>
-                                   <td><?php echo e($ticket->assigned_by); ?></td>
+                                   
+                                   
+                                   
+                                   
+                                   <td><?php echo $ticket->description; ?></td>
                                    <td>
                                    <?php switch($ticket->status):
                                     case ('In Progress'): ?>
@@ -100,4 +103,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

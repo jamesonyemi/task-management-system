@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.master')
 
 @section('content')
 
@@ -30,7 +30,7 @@
 
             <form method="POST" action="{{ route('projects.project.store') }}" enctype="multipart/form-data" accept-charset="UTF-8" class="form-horizontal">
             {{ csrf_field() }}
-            @include ('projects.form')
+            @include ('projects.create_project')
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">

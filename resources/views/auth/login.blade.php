@@ -19,8 +19,12 @@
                      <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        <fieldset class="form-group position-relative has-icon-left mb-0{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <input type="email" class="form-control form-control-lg input-lg" id="email" name="email" placeholder="Enter E-Mail" name="email" value="{{ old('email') }}" required autofocus>
+                        <fieldset class="form-group position-relative has-icon-left mb-0{{ $errors->has('email') ? ' has-error' : '' }}" 
+                            style="margin-bottom: 7px !important">
+                            <div> 
+                                <input type="email" class="form-control form-control-lg input-lg" id="email" name="email" placeholder="Enter Your Email Address" name="email" value="{{ old('email') }}" required autofocus>
+                            </div>
+                           
                             <div class="form-control-position">
                                 <i class="icon-head"></i>
                             </div>
@@ -35,7 +39,9 @@
 
                         </fieldset>
                         <fieldset class="form-group position-relative has-icon-left{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <div>
                             <input type="password" class="form-control form-control-lg input-lg" id="password" name="password" placeholder="Enter Password" required>
+                            </div>
                             <div class="form-control-position">
                                 <i class="icon-key3"></i>
                             </div>

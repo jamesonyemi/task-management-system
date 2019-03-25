@@ -1,3 +1,4 @@
+<?php /* C:\xampp\htdocs\tms\resources\views/auth/login.blade.php */ ?>
 <?php $__env->startSection('content'); ?>
  <div class="app-content content container-fluid">
       <div class="content-wrapper">
@@ -18,8 +19,12 @@
                         <?php echo e(csrf_field()); ?>
 
 
-                        <fieldset class="form-group position-relative has-icon-left mb-0<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
-                            <input type="email" class="form-control form-control-lg input-lg" id="email" name="email" placeholder="Enter E-Mail" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
+                        <fieldset class="form-group position-relative has-icon-left mb-0<?php echo e($errors->has('email') ? ' has-error' : ''); ?>" 
+                            style="margin-bottom: 7px !important">
+                            <div> 
+                                <input type="email" class="form-control form-control-lg input-lg" id="email" name="email" placeholder="Enter Your Email Address" name="email" value="<?php echo e(old('email')); ?>" required autofocus>
+                            </div>
+                           
                             <div class="form-control-position">
                                 <i class="icon-head"></i>
                             </div>
@@ -34,7 +39,9 @@
 
                         </fieldset>
                         <fieldset class="form-group position-relative has-icon-left<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
+                            <div>
                             <input type="password" class="form-control form-control-lg input-lg" id="password" name="password" placeholder="Enter Password" required>
+                            </div>
                             <div class="form-control-position">
                                 <i class="icon-key3"></i>
                             </div>
@@ -72,4 +79,4 @@
  </div>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.login_header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts.login_header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

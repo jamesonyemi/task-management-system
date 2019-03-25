@@ -25,11 +25,11 @@
       'Html' => 'Collective\\Html\\HtmlFacade',
     ),
   ),
-  'crestapps/laravel-code-generator' => 
+  'nesbot/carbon' => 
   array (
     'providers' => 
     array (
-      0 => 'CrestApps\\CodeGenerator\\CodeGeneratorServiceProvider',
+      0 => 'Carbon\\Laravel\\ServiceProvider',
     ),
   ),
   'uxweb/sweet-alert' => 

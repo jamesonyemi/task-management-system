@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.master')
  
 @section('content')
     {{-- <div class="row">
@@ -21,7 +21,7 @@
             </ul>
         </div>
     @endif
-    {!! Form::model($ticketing, ['method' => 'PATCH','route' => ['tickets.tickets.update', $ticketing->id]]) !!}
+    {!! Form::model($ticketings, ['method' => 'PATCH','route' => ['tickets.tickets.update', $ticketings->id]]) !!}
         @include('tickets.form')
     {!! Form::close() !!}
 @endsection

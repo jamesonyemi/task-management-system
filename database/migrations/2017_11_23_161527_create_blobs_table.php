@@ -14,8 +14,8 @@ class CreateBlobsTable extends Migration
     public function up()
     {
         Schema::create('blobs', function (Blueprint $table) {
-            $table->increments('id')->comment('unique identifier for each blob resource(auto-incremented');;
-            $table->string('name')->comment('the original name of the blob resource');;
+            $table->increments('id')->comment('unique identifier for each blob resource(auto-incremented');
+            $table->string('name')->comment('the original name of the blob resource');
             $table->string('mime_type')->comment('the mime type of the blob resource');
             $table->string('url')->comment('Blob resource');
             $table->double('size')->comment('the size of the blob resource');

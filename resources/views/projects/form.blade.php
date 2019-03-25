@@ -23,21 +23,19 @@
             <div class="card"> 
              <div class="card-body collapse in">
                 <div class="card-header">
-                 <h4 class="card-title" id="basic-layout-tooltip">New Project</h4>
+                 <h4 class="card-title" id="basic-layout-tooltip">Edit Project</h4>
                   <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
                     <div class="heading-elements">
                         <ul class="list-inline mb-0">
-                            <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                            <li><a data-action="reload"><i onclick="reload()" class="icon-reload"></i></a></li>
+                            <li id="teamlead"><a><div class="btn btn-info rounded-right"><i></i>Change TeamLead</a></div></li>
+                            <li><a data-action="reload"><i  class="icon-reload"></i></a></li>
                             <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                            <li><a data-action="close"><i class="icon-cross2"></i></a></li>
                         </ul>
                     </div>
                 </div>
                     <div class="card-block">
                         <div class="card-text">
      <div class="row match-height">
-     <form class="form" method="POST" action="{{  route('projects.project.create') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="col-md-6">
             <div class="card">
@@ -129,21 +127,34 @@
 
                                     {!! Form::tel('phone_number', null, array('placeholder' => 'Contact Number','class' => 'form-control square')) !!}
                                 </div>
-
-                                    <div class="form-group">
-                                        <label for="donationinput4">Project Lead</label>
-                                        <select class="form-control" id="assigned_to" name="assigned_to" required="true">
-                            
-                                            @foreach ($assigned_to as $key => $assignee)
-                                                <option value="{{ $assignee }}" {{ old('assigned_to', isset($assigned_to->name) ? $assigned_to->name : 'null') == $key ? 'selected' : '' }}>
-                                                    {{ $assignee }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="donationinput4">Team Lead</label>
+                                            <select class="form-control" id="team_leader" name="team_leader" >
+                                                @foreach ($team_leader as $key => $assignee)
+                                                {{-- {{ Form::select('team_leader', $assigned_to,  array('class'=>'form-control')) }} --}}
+                                    
+                                                <option value="{{ last([$key => $assignee->assigned_to],$key = null, $default = null) }}" {{ old('team_leader', isset($assigned_to->assigned_to) ? $assigned_to->assigned_to : null) == $key ? 'selected' : '' }}>
+                                                        {{ $assignee->assigned_to }}
+                                            </option> 
                                         
-                                        {!! $errors->first('assigned_to', '<p class="help-block">:message</p>') !!}
+                                    @endforeach
+                                   </select>
+                                   {!! $errors->first('team_leader', '<p class="help-block">:message</p>') !!}
+
+                                    {{-- <select class="form-control" id="team_leader" name="team_leader" required="true">
+                                        <option value="" style="display: none;" {{ old('team_leader', isset($assigned_to->name) ? $assigned_to->name : '') == '' ? 'selected' : '' }} disabled selected>Assigned To</option>
+                                        @foreach ($team_leader as $key => $assignee)
+                                            <option value="{{ last([$key => $assignee->id],$key = null, $default = null) }}" {{ old('team_leader', isset($assigned_to->name) ? $assigned_to->name : null) == $key ? 'selected' : '' }}>
+                                                {{ $assignee->assigned_to }}
+                                            </option>
+                                        @endforeach
+                                    </select> --}}
+                                        </div>
                                     </div>
 
+                                <div class="col-md-6">      
                                 <div class="form-group">
                                     <div><label>File Attachment</label></div>
                                     <label id="file" class="file center-block">
@@ -151,6 +162,26 @@
                                         <span class="file-custom"></span>
                                     </label>
                                 </div>
+                                </div>
+                                </div>
+                                </div>
+                               {{--  @foreach($projects as $key => $images) --}}
+
+                              {{--   @if(isset($key)) --}}
+                                <div>
+                                   {{-- <img src="{{ asset('/storage/app/public/back.png') }}"> --}}
+                                   {{-- <a href="#"> --}}
+                                                 <img src="{{asset('/storage/blob/created_by - Mrs. Willie Smitham Jr., user_id - 3/1551973241.png')}}" alt="Logo Image"/>
+                                               {{-- </a> --}}
+                                </div>
+                                <div class="mid">
+                                <form>
+                                    <input type="hidden" name="assigned_to">
+                                </form>
+                                    
+                                </div>
+                                {{-- @endif --}}
+                                {{-- @endforeach --}}
                             </div>
 
                             </div>
@@ -159,19 +190,26 @@
                 </div>
             </div>
 
-            <div class="form-actions right" style="float:right">
-                <a href="{{ route('projects.project.index') }}"> 
-                <button type="button" class="btn btn-warning mr-1" >
-                   <i class="icon-cross2" ></i> Cancel
-                </button>
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    <i class="icon-check2"></i> Save
-                </button>
+            <div class="row" style="float:right; margin-top:-50px; border-top: 0px solid #141e25 !important;">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <a href="{{ route('projects.project.index') }}"> 
+                        <button type="button" class="btn btn-warning mr-1" >
+                           <i class="icon-cross2" ></i> Cancel
+                        </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" name="update" id="update">
+                            <i class="icon-check2"></i> Update
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </div>
-     </form>
     </div>
 
 <!-- // Basic form layout section end -->

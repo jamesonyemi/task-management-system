@@ -11,7 +11,7 @@ class Blobs extends Model
     public $timestamps;
 
     protected $fillable = [
-      'mime_type','url','size','status'
+      'name','user_id','mime_type','url','size','status'
 
     ];
 

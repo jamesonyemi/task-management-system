@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" data-textdirection="ltr" class="loading">
   <head>
@@ -8,7 +7,7 @@
     <meta name="description" content="Robust admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, robust admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Project Dashboard - Robust Free Bootstrap Admin Template</title>
+    <title>TicketPro</title>
     <link rel="apple-touch-icon" sizes="60x60" href="{{asset('app-assets/images/ico/apple-icon-60.png')}}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('app-assets/images/ico/apple-icon-76.png')}}">
     <link rel="apple-touch-icon" sizes="120x120" href="{{asset('app-assets/images/ico/apple-icon-120.png')}}">
@@ -186,81 +185,44 @@
         <!-- main menu content-->
         <div class="main-menu-content">
           <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
-            <li class=" nav-item"><a href="index.html"><i class="icon-home4"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span><span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span></a>
-              <ul class="menu-content">
+            <li class=" nav-item"><a href="{{ route('home') }}"><i class="icon-home4"></i><span data-i18n="nav.dash.main" class="menu-title">Dashboard</span>
+              {{-- <span class="tag tag tag-primary tag-pill float-xs-right mr-2">2</span> --}}
+            </a>
+              {{-- <ul class="menu-content">
                 <li class="active"><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard</a>
                 </li>
-                {{-- <li><a href="{{ route('home') }}" data-i18n="nav.dash.main" class="menu-item">Dashboard 2</a> --}}
-                {{-- </li> --}}
-              </ul>
+                
+              </ul> --}}
             </li>
             
-                  <li class=" nav-item"><a href="#"><i class="icon-ticket"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket</span></a>
-                 <ul class="menu-content">
+                  <li class=" nav-item"><a href="{{ route('tickets.tickets.index') }}"><i class="icon-ticket"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Ticket</span></a>
+                 {{-- <ul class="menu-content">
                   <li><a href="{{ route('tickets.tickets.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Tickets</a>
                   </li>
-                  {{-- <li><a href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">2 columns</a>
-                  </li>
-                  <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
-                  </li>
-                  <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
-                  </li>
-                  <li class="navigation-divider"></li>
-                  <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>
-                  </li>
-                  <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
-                  </li>
-                  <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a>
-                  </li> --}}
-                </ul>
+                 
+                </ul> --}}
               </li>
 
-                  <li class=" nav-item"><a href="#"><i class="icon-building-o"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Project</span></a>
-                   <ul class="menu-content">
+                  <li class=" nav-item"><a href="{{ route('projects.project.index') }}"><i class="icon-building-o"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Project</span></a>
+                   {{-- <ul class="menu-content">
                     <li><a href="{{ route('projects.project.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Project</a>
                     </li>
-                    {{-- <li><a href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">2 columns</a>
-                    </li>
-                    <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
-                    </li>
-                    <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
-                    </li>
-                    <li class="navigation-divider"></li>
-                    <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>
-                    </li>
-                    <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
-                    </li>
-                    <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a>
-                    </li> --}}
-                  </ul>
+                    
+                  </ul> --}}
                 </li>
             
-                <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Asset Categories</span></a>
+                {{-- <li class=" nav-item"><a href="#"><i class="icon-briefcase3"></i><span data-i18n="nav.page_layouts.main" class="menu-title">Asset Categories</span></a>
                 <ul class="menu-content">
                 <li><a href="{{ route('asset_categories.asset_category.index') }}" data-i18n="nav.page_layouts.1_column" class="menu-item">All Assets</a>
-                </li>
-                {{-- <li><a href="layout-2-columns.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">2 columns</a>
-                </li>
-                <li><a href="layout-boxed.html" data-i18n="nav.page_layouts.boxed_layout" class="menu-item">Boxed layout</a>
-                </li>
-                <li><a href="layout-static.html" data-i18n="nav.page_layouts.static_layout" class="menu-item">Static layout</a>
-                </li>
-                <li class="navigation-divider"></li>
-                <li><a href="layout-light.html" data-i18n="nav.page_layouts.light_layout" class="menu-item">Light layout</a>
-                </li>
-                <li><a href="layout-dark.html" data-i18n="nav.page_layouts.dark_layout" class="menu-item">Dark layout</a>
-                </li>
-                <li><a href="layout-semi-dark.html" data-i18n="nav.page_layouts.semi_dark_layout" class="menu-item">Semi dark layout</a>
                 </li> --}}
+                
               </ul>
             </li>
            
           </ul>
+        <div style="margin-top: 350px; margin-left: 45px; vertical-align: center; font-size: smaller">Copyright &copy {!! Date('Y') !!} <span>{{config('app.name',)}}</span>Pro</div>
         </div>
-        <!-- /main menu content-->
-        <!-- main menu footer-->
-        <!-- include includes/menu-footer-->
-        <!-- main menu footer-->
+        
       </div>
       <!-- /main menu content-->
       <!-- main menu footer-->
@@ -269,19 +231,31 @@
     </div>
     <!-- / main menu-->
     <div class="app-content content container-fluid">
-
     @yield('content')
  
     </div>
 
-    <!-- ////////////////////////////////////////////////////////////////////////////-->
+<!-- BEGIN VENDOR JS-->
+<script src="{{asset('app-assets/js/core/libraries/jquery.min.js')}}" type="text/javascript"></script>
+<script>
+ var notification_message = $('div#message').on('mouseover',() => $('div.alert.alert-success').
+      animate(
+            {
+              left:700,
+              top:-100.5,
+              width: 300,
+              opacity:1,
 
-    <footer class="footer footer-static footer-light navbar-border">
-      <p class="clearfix text-muted text-sm-center mb-0 px-2"><span class="float-md-left d-xs-block d-md-inline-block">Copyright  &copy; 2017 <a href="https://pixinvent.com" target="_blank" class="text-bold-800 grey darken-2">PIXINVENT </a>, All rights reserved. </span><span class="float-md-right d-xs-block d-md-inline-block">Hand-crafted & Made with <i class="icon-heart5 pink"></i></span></p>
-    </footer>
-
-    <!-- BEGIN VENDOR JS-->
-    <script src="{{asset('app-assets/js/core/libraries/jquery.min.js')}}" type="text/javascript"></script>
+            },{
+              duration: 500
+            },
+      ),
+ )
+ setTimeout(() => {
+        $(notification_message).fadeOut('slow');
+      }, 10000)
+</script>
+@yield('scripts')
     <script src="{{asset('app-assets/vendors/js/ui/tether.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('app-assets/js/core/libraries/bootstrap.min.js')}}" type="text/javascript"></script>
     <script src="{{asset('app-assets/vendors/js/ui/perfect-scrollbar.jquery.min.js')}}" type="text/javascript"></script>
@@ -299,7 +273,7 @@
     <script src="{{asset('app-assets/js/core/app.js')}}" type="text/javascript"></script>
     <!-- END ROBUST JS-->
     <!-- BEGIN PAGE LEVEL JS-->
-    <script src="{{  asset('app-assets/js/scripts/pages/dashboard-lite.js') }}" type="text/javascript"></script>
+   {{--  <script src="{{  asset('app-assets/js/scripts/pages/dashboard-lite.js') }}" type="text/javascript"></script> --}}
     <script src="{{ asset('app-assets/js/scripts/extensions/sweetalert.min.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS-->
     @include('sweet::alert')
