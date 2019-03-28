@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'TMS'),
     'subtitle' => env('SUB_NAME', 'TMS'),
 
     /*
@@ -57,7 +57,9 @@ return [
 
     'ip' => env('IP', 'ip'),
     
-    'url' => env('APP_URL', 'http://localhost:8080/tms/public/'),
+    'url' => env('APP_URL', 'http://handyteam.herokuapp.com/'),
+    // 'url' => env('APP_URL', 'http://localhost:8080/tms/public/'),
+
 
     /*
     |--------------------------------------------------------------------------
