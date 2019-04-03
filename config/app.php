@@ -57,8 +57,8 @@ return [
 
     'ip' => env('IP', 'ip'),
     
-    'url' => env('APP_URL', 'http://handyteam.herokuapp.com/'),
-    // 'url' => env('APP_URL', 'http://localhost:8080/tms/public/'),
+    // 'url' => env('APP_URL', 'http://handyteam.herokuapp.com/'),
+    'url' => env('APP_URL', 'http://localhost:8080/tms/public/'),
 
 
     /*

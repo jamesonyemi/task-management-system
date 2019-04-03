@@ -1,91 +1,23 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-
-     <div class="content-wrapper">
-        <div class="content-header row">
-        </div>
-        <div class="content-body"><!-- stats -->
-<div class="row">
-    <div class="col-xl-3 col-lg-6 col-xs-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-block">
-                    <div class="media">
-                        <div class="media-body text-xs-left">
-                            <h3 class="pink">278</h3>
-                            <a href="{{ route('projects.project.index')}}"><span>New Projects</span></a>
-                        </div>
-                        <div class="media-right media-middle">
-                            <i class="icon-bag2 pink font-large-2 float-xs-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-xs-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-block">
-                    <div class="media">
-                        <div class="media-body text-xs-left">
-                            <h3 class="teal">156</h3>
-                            <span>New Clients</span>
-                        </div>
-                        <div class="media-right media-middle">
-                            <i class="icon-user1 teal font-large-2 float-xs-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-xs-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-block">
-                    <div class="media">
-                        <div class="media-body text-xs-left">
-                            <h3 class="deep-orange">64.89 %</h3>
-                            <span>Conversion Rate</span>
-                        </div>
-                        <div class="media-right media-middle">
-                            <i class="icon-diagram deep-orange font-large-2 float-xs-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-lg-6 col-xs-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-block">
-                    <div class="media">
-                        <div class="media-body text-xs-left">
-                            <h3 class="cyan">423</h3>
-                            <span>Support Tickets</span>
-                        </div>
-                        <div class="media-right media-middle">
-                            <i class="icon-ios-help-outline cyan font-large-2 float-xs-right"></i>
-                        </div>
-                    </div>
+                    You are logged in!
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-</div>
- </div>
-</div>
-      
 @endsection
