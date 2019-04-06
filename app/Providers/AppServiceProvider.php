@@ -16,12 +16,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(UrlGenerator $url)
     {
+        
+        if (\App::environment() === 'production') {
+            $url->forceScheme('https');
+        }
+
         Schema::defaultStringLength(191);
         View::share('key', 'value'); 
         
-        if(env('REDIRECT_HTTPS')) {
-            $url->formatScheme('https');
-        }
 
     }
 
@@ -32,9 +34,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
         if(env('REDIRECT_HTTPS')) {
             $this->app['request']->server->set('HTTPS', true);
+        }
+        else{
+            $this->app['request']->server->set('HTTPS', false);
         }
     }
 
