@@ -61,7 +61,6 @@ return [
                 'NO_ENGINE_SUBSTITUTION',
             ],
         ],
-        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
