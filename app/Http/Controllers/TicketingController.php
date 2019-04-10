@@ -16,8 +16,6 @@ use App\Notifications\TaskInProgress;
 use App\Notifications\OpenTask;
 use App\Notifications\TaskOnHold;
 use SweetAlert;
-// use OneSignal;
-
 class TicketingController extends Controller
 {
     // this is for a temporary use

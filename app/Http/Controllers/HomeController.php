@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $tickets = Ticketing::latest()->paginate(25);
+            return view('home',compact('tickets'))
+                ->with('p', (request()->input('page', 1) - 1) * 5);
     }
 }
