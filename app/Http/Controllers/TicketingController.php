@@ -7,7 +7,7 @@ use App\Ticketing;
 use Auth;
 use App\Models\Project;
 use Illuminate\Support\Facades\Gate;
-use App\http\Controllers\Controller;
+// use App\http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use App\Notifications\SendTicketMail;
 use App\Notifications\CompletedTask;
@@ -16,6 +16,7 @@ use App\Notifications\TaskInProgress;
 use App\Notifications\OpenTask;
 use App\Notifications\TaskOnHold;
 use SweetAlert;
+
 class TicketingController extends Controller
 {
     // this is for a temporary use
