@@ -220,7 +220,7 @@
             </li>
            
           </ul>
-        <div style="margin-top: 350px; margin-left: 45px; vertical-align: center; font-size: smaller">Copyright &copy {!! Date('Y') !!} <span>{{config('app.name',)}}</span>Pro</div>
+        <div style="margin-top: 350px; margin-left: 45px; vertical-align: center; font-size: smaller">Copyright &copy {!! Date('Y') !!} <span>{{config('app.name',)}}</span></div>
         </div>
         
       </div>
@@ -254,6 +254,12 @@
  setTimeout(() => {
         $(notification_message).fadeOut('slow');
       }, 10000)
+</script>
+<script>
+  function goBack() 
+  {
+   window.history.back()
+  }
 </script>
 @yield('scripts')
     <script src="{{asset('app-assets/vendors/js/ui/tether.min.js')}}" type="text/javascript"></script>

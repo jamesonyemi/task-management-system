@@ -20,8 +20,8 @@
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-left">
-                            <h3 class="pink">278</h3>
-                            <a href="{{ route('projects.project.index')}}"><span>New Projects</span></a>
+                            <h3 class="pink">{{ $total_count_on_project }}</h3>
+                            <a href="{{ route('projects.project.index')}}"><span>Ongoing Projects</span></a>
                         </div>
                         <div class="media-right media-middle">
                             <i class="icon-bag2 pink font-large-2 float-xs-right"></i>
@@ -37,8 +37,8 @@
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-left">
-                            <h3 class="teal">156</h3>
-                            <span>New Clients</span>
+                            <h3 class="teal">{{ $total_count_on_user }}</h3>
+                            <span>Clients</span>
                         </div>
                         <div class="media-right media-middle">
                             <i class="icon-user1 teal font-large-2 float-xs-right"></i>
@@ -71,7 +71,7 @@
                 <div class="card-block">
                     <div class="media">
                         <div class="media-body text-xs-left">
-                            <h3 class="cyan">423</h3>
+                            <h3 class="cyan">{{ $total_count_on_ticket }}</h3>
                             <span>Support Tickets</span>
                         </div>
                         <div class="media-right media-middle">
